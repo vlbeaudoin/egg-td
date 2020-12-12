@@ -7,18 +7,45 @@ var msg
 var target setget set_target, get_target
 var detected = []
 
+
+enum {
+	FIRST, # the mob with the least distance to objective
+	LAST, # the mob with the most distance to objective
+	STRONG, # the mob with the most health
+	WEAK # the mob with the least health
+}
+
+var mob_priority = FIRST
+
 ## FUNCS
-func scan_area():
-#	for 
-#	if overlaps_body(collisionObject) in _fixed_process()
+
+func sort_detected():
+	#TODO
 	pass
 
+func select_target():
+	if !detected.empty():
+		match mob_priority:
+			FIRST:
+				set_target(detected[0])
+			LAST: 
+				set_target(detected[detected.size-1])
+			STRONG:
+				#TODO
+				pass
+			WEAK:
+				#TODO
+				pass
+
+func select_mob_priority(new_mob_priority):
+	if new_mob_priority != mob_priority:
+		mob_priority = new_mob_priority
+		
 ## SIGNALS
 func _on_body_entered(body):
 	msg = ""
-	if "mob_type" in body and target == null:
+	if "mob_type" in body:
 		msg = "[dbg] {%s} detected collision with {%s}, a mob of type \"%s\"." % [self, body, body.get_mob_type()]
-#		set_target(body)
 		detected.append(body)
 	
 	if DEBUG and msg != null:
@@ -50,3 +77,6 @@ func get_detected():
 func _ready():
 	connect("body_entered", self, "_on_body_entered")
 	connect("body_exited", self, "_on_body_exited")
+
+func _physics_process(_delta):
+	select_target()

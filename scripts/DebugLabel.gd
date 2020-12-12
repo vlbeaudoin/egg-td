@@ -29,7 +29,7 @@ func process_debug_label():
 			
 		visible = debug_menu
 		
-	set_text(debug_message_base + "\n" + debug_message)
+		set_text(debug_message_base + "\n" + debug_message)
 	
 
 func update_debug_message():
@@ -51,7 +51,7 @@ func update_debug_message():
 
 ## EXECUTION
 func _ready():
-	ready_fonts()
+#	ready_fonts()
 	self.add_to_group("debug_label")
 
 func _process(_delta):

@@ -5,11 +5,8 @@
 [ext_resource path="res://actors/chicken/chicken.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/DebugLabel.gd" type="Script" id=4]
 [ext_resource path="res://actors/mob/mob.tscn" type="PackedScene" id=5]
-[ext_resource path="res://fonts/Retro Gaming.ttf" type="DynamicFontData" id=6]
-
-[sub_resource type="DynamicFont" id=1]
-size = 11
-font_data = ExtResource( 6 )
+[ext_resource path="res://fonts/open-sans-6px.tres" type="DynamicFont" id=6]
+[ext_resource path="res://fonts/open-sans-outline.tres" type="DynamicFont" id=7]
 
 [node name="main" type="Node2D"]
 
@@ -23,23 +20,22 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="PastureZone"]
-margin_right = 40.0
-margin_bottom = 14.0
-custom_fonts/font = SubResource( 1 )
-text = "PastureZone
+margin_left = 37.0
+margin_top = 34.0
+margin_right = 109.0
+margin_bottom = 240.0
+custom_fonts/font = ExtResource( 6 )
+text = "Pasture zone
 
 
-+Chickens area
-.
-.
-.
-.
+Chickens here
 
-+ Storage area
-.
-.
-.
-."
+
+
+
+
+
+Storage here"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -55,6 +51,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label2" type="Label" parent="DirtZone"]
+margin_left = 105.0
+margin_top = 83.0
+margin_right = 184.0
+margin_bottom = 156.0
+custom_fonts/font = ExtResource( 6 )
+text = "Towers zone
+
+(tilemap)
+"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="util" type="Node2D" parent="."]
 script = ExtResource( 1 )
 
@@ -62,10 +73,10 @@ script = ExtResource( 1 )
 position = Vector2( 408.829, 213.539 )
 
 [node name="chicken2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 295.723, 64.89 )
+position = Vector2( 332.804, 101.971 )
 
 [node name="chicken3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 246.187, 211.51 )
+position = Vector2( 193.687, 146.51 )
 
 [node name="egg" type="Area2D" parent="."]
 visible = false
@@ -79,20 +90,31 @@ scale = Vector2( 0.171449, 0.276314 )
 texture = ExtResource( 2 )
 
 [node name="mob" parent="." instance=ExtResource( 5 )]
-position = Vector2( 458.289, 21.4429 )
+position = Vector2( 458.761, 20.971 )
 
 [node name="mob2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 503.595, 73.8279 )
+position = Vector2( 472.919, 98.8406 )
+
+[node name="mob4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 486.133, 143.203 )
+
+[node name="mob5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 480.47, 185.677 )
+
+[node name="mob6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 488.493, 226.736 )
 
 [node name="mob3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 499.819, 35.1291 )
+position = Vector2( 460.648, 58.726 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="debug_label" type="Label" parent="CanvasLayer"]
 margin_right = 40.0
 margin_bottom = 14.0
+custom_fonts/font = ExtResource( 7 )
 script = ExtResource( 4 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }

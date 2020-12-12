@@ -13,9 +13,8 @@ var msg_selected
 var dynamic_font = DynamicFont.new()
 var dynamic_font_size = 6
 
-#onready var util = get_node("/root/main/Player1/Util")
-#onready var crafting = get_node("/root/main/Player1/Crafting")
 onready var chickens = get_tree().get_nodes_in_group("chicken")
+onready var mobs = get_tree().get_nodes_in_group("mobs")
 
 func ready_fonts():
 #	dynamic_font.font_data = load("res://fonts/Retro Gaming.ttf")
@@ -35,21 +34,17 @@ func process_debug_label():
 
 func update_debug_message():
 	debug_message = ""
-	
-#	debug_message += util.get_selected_pretty()
-	
-	# Crafting and inventory
-#	debug_message += \
-#	"""
-#	Crafting list: %s
-#	Inventory: %s
-#	""" % [crafting.get_crafting(), util.get_inventory_pretty()]
+
 	for chicken in chickens:
 		debug_message += \
-		"""
-		Chicken: %s
-		State  : %s
-		""" % [chicken, chicken.get_state()]
+			"""
+			Chicken : %s
+			State   : %s
+			Target  : %s
+			Detected: %s
+			""" % [chicken, chicken.get_state(), chicken.get_target(), \
+				chicken.get_detected()]
+	
 	
 ## SETGET
 

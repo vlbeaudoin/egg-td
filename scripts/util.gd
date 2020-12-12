@@ -4,7 +4,12 @@ extends Node2D
 
 
 ## FUNCS
-
+func process_input():
+	if Input.is_action_just_pressed("toggle_fullscreen"):
+		OS.window_fullscreen = !OS.window_fullscreen
+	
+	if Input.is_action_just_pressed("restart"):
+		get_tree().change_scene("res://main.tscn")
 
 ## SIGNALS
 
@@ -15,3 +20,6 @@ extends Node2D
 ## EXECUTION
 func _ready():
 	pass
+
+func _process(delta):
+	process_input()

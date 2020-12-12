@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/util.gd" type="Script" id=1]
 [ext_resource path="res://art/icon.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://actors/mob/mob.tscn" type="PackedScene" id=5]
 [ext_resource path="res://fonts/open-sans-6px.tres" type="DynamicFont" id=6]
 [ext_resource path="res://fonts/open-sans-outline.tres" type="DynamicFont" id=7]
+[ext_resource path="res://art/UI-sketch.jpg" type="Texture" id=8]
 
 [node name="main" type="Node2D"]
 
@@ -20,9 +21,9 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="PastureZone"]
-margin_left = 37.0
+margin_left = 53.0458
 margin_top = 34.0
-margin_right = 109.0
+margin_right = 125.046
 margin_bottom = 240.0
 custom_fonts/font = ExtResource( 6 )
 text = "Pasture zone
@@ -66,17 +67,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="UI-sketch" type="Sprite" parent="."]
+scale = Vector2( 0.363004, 0.362862 )
+texture = ExtResource( 8 )
+centered = false
+
 [node name="util" type="Node2D" parent="."]
 script = ExtResource( 1 )
 
 [node name="chicken" parent="." instance=ExtResource( 3 )]
-position = Vector2( 408.829, 213.539 )
+position = Vector2( 289.193, 129.298 )
 
 [node name="chicken2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 332.804, 101.971 )
+position = Vector2( 331.86, 71.531 )
 
 [node name="chicken3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 193.687, 146.51 )
+position = Vector2( 188.968, 121.497 )
 
 [node name="egg" type="Area2D" parent="."]
 visible = false
@@ -90,22 +96,22 @@ scale = Vector2( 0.171449, 0.276314 )
 texture = ExtResource( 2 )
 
 [node name="mob" parent="." instance=ExtResource( 5 )]
-position = Vector2( 458.761, 20.971 )
+position = Vector2( 461.832, 212.589 )
 
 [node name="mob2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 472.919, 98.8406 )
+position = Vector2( 410.99, 22.9583 )
 
 [node name="mob4" parent="." instance=ExtResource( 5 )]
-position = Vector2( 486.133, 143.203 )
+position = Vector2( 464.633, 106.203 )
 
 [node name="mob5" parent="." instance=ExtResource( 5 )]
-position = Vector2( 480.47, 185.677 )
+position = Vector2( 403.47, 189.177 )
 
 [node name="mob6" parent="." instance=ExtResource( 5 )]
-position = Vector2( 488.493, 226.736 )
+position = Vector2( 462.993, 173.736 )
 
 [node name="mob3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 460.648, 58.726 )
+position = Vector2( 462.219, 22.8437 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

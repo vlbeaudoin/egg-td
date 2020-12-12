@@ -17,8 +17,7 @@ var chase = true
 var adjectives = []
 
 ## FUNCS
-func aim_at(target):
-	chicken_aim.look_at(target.global_position)
+
 
 ## SIGNALS
 
@@ -38,5 +37,6 @@ func _ready():
 	add_to_group("chicken")
 
 func _process(delta):
+	pass
 #	aim_at(get_viewport().get_mouse_position())
-	aim_at(mob)
+	

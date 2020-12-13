@@ -11,6 +11,7 @@ enum {
 var state = IDLE setget , get_state
 
 var destination = Vector2()
+var mob_navigation
 
 ## FUNCS
 func enter_state(new_state):
@@ -34,6 +35,9 @@ func enter_state(new_state):
 ## SETGET
 func get_state():
 	return state
+
+#func get_total_path_distance():
+#	pass
 
 ## EXECUTION
 func _ready():

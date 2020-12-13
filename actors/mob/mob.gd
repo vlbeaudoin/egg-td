@@ -6,7 +6,7 @@ export var mob_type = "base" setget , get_mob_type
 
 # Movement
 var velocity = Vector2()
-export var speed = 30
+export var speed = 0.5 setget , get_speed
 #export var acceleration
 #export var friction
 
@@ -29,11 +29,15 @@ func clamp_position():
 func get_mob_type():
 	return mob_type
 
+func get_speed():
+	return speed
+
 ## EXECUTION
 func _ready():
 	velocity = Vector2.LEFT # [dbg] make the mob go left
 	add_to_group("mob")
 
 func _physics_process(delta):
-	process_movement()
-	clamp_position() # should be left after process_movement
+	pass
+#	process_movement()
+#	clamp_position() # should be left after process_movement

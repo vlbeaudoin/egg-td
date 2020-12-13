@@ -45,6 +45,13 @@ func update_debug_message():
 			""" % [chicken, chicken.get_state(), chicken.get_target(), \
 				chicken.get_detected()]
 	
+	for mob in mobs:
+		debug_message += \
+			"""
+			Mob: %s
+			Mob distance to destination: %s
+			""" % [mob, mob.get_]
+	
 	
 ## SETGET
 

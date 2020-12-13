@@ -4,8 +4,9 @@ extends KinematicBody2D
 onready var chicken_fsm = $chicken_fsm
 onready var chicken_aim = $chicken_aim
 onready var chicken_reach = $chicken_reach
-#onready var mob = get_tree().get_nodes_in_group("mob")[0]
-onready var mob = get_node("/root/main/mob")
+onready var mob
+#onready var mob = get_node("/root/main/mobs/mob")
+#onready var mob = get
 
 
 var power = 1
@@ -35,6 +36,9 @@ func get_detected():
 ## EXECUTION
 func _ready():
 	add_to_group("chicken")
+	
+	while get_tree().get_nodes_in_group("mob") == null:
+		pass
 
 func _process(delta):
 	pass

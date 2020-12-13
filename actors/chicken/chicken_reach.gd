@@ -1,7 +1,7 @@
 extends Area2D
 
 ## VARS
-const DEBUG = true
+const DEBUG = false
 var msg
 
 var target setget set_target, get_target
@@ -15,13 +15,37 @@ enum {
 	WEAK # the mob with the least health
 }
 
-var mob_priority = FIRST
+
+var mob_priority = FIRST setget set_mob_priority, get_mob_priority
+#TODO make this a dynamic option
 
 ## FUNCS
-
 func sort_detected():
-	#TODO
-	pass
+	if detected.size() > 1:
+#		if DEBUG:
+#			print("Detected[] pre-sort: ")
+#			for detected_mob in detected:
+#				print("Mob distance: ", detected_mob.get_distance())
+#
+		detected.sort_custom(CustomSorterDistance, "sort_distance_ascending")
+		
+#		if DEBUG:
+#			print("Detected[] post-sort: ", detected)
+#			for detected_mob in detected:
+#				print("Mob distance: ", detected_mob.get_distance())
+
+class CustomSorterDistance:
+	static func sort_distance_ascending(a, b):
+		if a != null and b != null:
+			if a.get_distance() < b.get_distance():
+				return true
+			return false
+
+#var my_items = [[5, "Potato"], [9, "Rice"], [4, "Tomato"]]
+
+#print(my_items) # Prints [[4, Tomato], [5, Potato], [9, Rice]].
+
+
 
 func select_target():
 	if !detected.empty():
@@ -29,7 +53,8 @@ func select_target():
 			FIRST:
 				set_target(detected[0])
 			LAST: 
-				set_target(detected[detected.size-1])
+#				if detected.size() > 0:
+				set_target(detected[detected.size()-1])
 			STRONG:
 				#TODO
 				pass
@@ -47,6 +72,8 @@ func _on_body_entered(body):
 	if "mob_type" in body:
 		msg = "[dbg] {%s} detected collision with {%s}, a mob of type \"%s\"." % [self, body, body.get_mob_type()]
 		detected.append(body)
+		
+		sort_detected()
 	
 	if DEBUG and msg != null:
 		print(msg)
@@ -65,7 +92,8 @@ func _on_body_exited(body):
 
 ## SETGET
 func set_target(new_target):
-	target = new_target
+	if target != new_target:
+		target = new_target
 
 func get_target():
 	return target
@@ -73,10 +101,18 @@ func get_target():
 func get_detected():
 	return detected
 
+func set_mob_priority(new_mob_priority):
+	if mob_priority != new_mob_priority:
+		mob_priority = new_mob_priority
+
+func get_mob_priority():
+	return mob_priority
+	
 ## EXECUTION
 func _ready():
 	connect("body_entered", self, "_on_body_entered")
 	connect("body_exited", self, "_on_body_exited")
 
 func _physics_process(_delta):
+	sort_detected()
 	select_target()

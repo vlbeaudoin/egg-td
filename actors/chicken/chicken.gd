@@ -5,8 +5,6 @@ onready var chicken_fsm = $chicken_fsm
 onready var chicken_aim = $chicken_aim
 onready var chicken_reach = $chicken_reach
 onready var mob
-#onready var mob = get_node("/root/main/mobs/mob")
-#onready var mob = get
 
 
 var power = 1
@@ -33,12 +31,17 @@ func get_target():
 func get_detected():
 	return chicken_reach.get_detected()
 
+func set_mob_priority(new_mob_priority):
+	chicken_reach.select_mob_priority(new_mob_priority)
+
+func get_mob_priority():
+	return chicken_reach.get_mob_priority()
+
 ## EXECUTION
 func _ready():
-	add_to_group("chicken")
-	
-	while get_tree().get_nodes_in_group("mob") == null:
-		pass
+	add_to_group("chicken")	
+#	while get_tree().get_nodes_in_group("mobs") == null: 
+#		pass
 
 func _process(delta):
 	pass

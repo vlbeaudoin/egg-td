@@ -4,6 +4,8 @@ extends KinematicBody2D
 ## VARS
 export var mob_type = "base" setget , get_mob_type
 
+onready var mob_navigation = $mob_navigation
+
 # Movement
 var velocity = Vector2()
 export var speed = 0.5 setget , get_speed
@@ -31,6 +33,9 @@ func get_mob_type():
 
 func get_speed():
 	return speed
+
+func get_distance():
+	return mob_navigation.get_total_path_distance()
 
 ## EXECUTION
 func _ready():

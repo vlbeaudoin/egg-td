@@ -12,6 +12,9 @@ export var speed = 0.5 setget , get_speed
 #export var acceleration
 #export var friction
 
+# Stats
+var health = 1
+
 # References
 onready var screen_size = get_viewport_rect().size
 
@@ -23,6 +26,16 @@ func process_movement():
 func clamp_position():
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
+
+func hurt(damage: int):
+	health -= damage
+	kill()
+
+func kill():
+	#TODO drop stuff sometimes
+	#TODO +1 to mobs_killed
+	#TODO play death animation
+	queue_free()
 	
 ## SIGNALS
 

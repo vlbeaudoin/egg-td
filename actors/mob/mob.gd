@@ -10,14 +10,14 @@ onready var health_bar = $health_bar
 
 # Movement
 var velocity = Vector2()
-export var speed = 0.5 setget , get_speed
+export(float) var speed = 0.5 setget , get_speed
 var distance setget , get_distance
 #export var acceleration
 #export var friction
 
 # Stats
-var max_health = 5
-var health = max_health setget , get_health
+export(int) var max_health = 3
+export(int) var health = max_health setget , get_health
 
 # References
 onready var screen_size = get_viewport_rect().size

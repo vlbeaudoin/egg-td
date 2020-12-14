@@ -9,7 +9,7 @@ func process_input():
 		OS.window_fullscreen = !OS.window_fullscreen
 	
 	if Input.is_action_just_pressed("restart"):
-		get_tree().change_scene("res://main.tscn")
+		get_tree().change_scene("res://scenes/main.tscn")
 
 ## SIGNALS
 

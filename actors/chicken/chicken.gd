@@ -6,10 +6,15 @@ onready var chicken_aim = $chicken_aim
 onready var chicken_reach = $chicken_reach
 onready var mob
 
+var target setget , get_target
 
 var power = 1
 var attack_speed = 1
-var projectile_speed = 1
+var projectile_speed = 100
+#var cooldown = 1.5
+
+
+var projectile = load("res://items/projectile_egg.tscn")
 
 var chase = true
 

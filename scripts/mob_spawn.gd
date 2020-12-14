@@ -18,7 +18,9 @@ var current_wave_clump: WaveClump
 func start_wave():
 	current_wave_clump = waves[0].wave_clumps[0]
 	current_mob = load(current_wave_clump.spawn_mob)
-	spawn_timer.start(current_wave_clump.spawn_speed)
+	
+	if spawn_timer.is_stopped():
+		spawn_timer.start(current_wave_clump.spawn_speed)
 
 
 func spawn_mob():

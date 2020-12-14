@@ -7,7 +7,6 @@ var target
 #var speed = 100
 
 var time_to_live = 3 # Amount of seconds the projectile can stay on screen
-
 var time_to_live_timer = Timer.new()
 
 var velocity: Vector2

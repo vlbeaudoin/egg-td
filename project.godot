@@ -9,12 +9,24 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "Wave",
+"language": "GDScript",
+"path": "res://references/Wave.gd"
+}, {
+"base": "Resource",
+"class": "WaveClump",
+"language": "GDScript",
+"path": "res://references/WaveClump.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "mob_base",
 "language": "GDScript",
 "path": "res://actors/mob/mob.gd"
 } ]
 _global_script_class_icons={
+"Wave": "",
+"WaveClump": "",
 "mob_base": ""
 }
 
@@ -66,6 +78,7 @@ click={
 2d_physics/layer_3="Static objects"
 2d_physics/layer_5="chickens"
 2d_physics/layer_7="mobs"
+2d_physics/layer_8="mobs_flying"
 2d_physics/layer_9="projectiles"
 
 [rendering]

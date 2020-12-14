@@ -4,8 +4,8 @@
 [ext_resource path="res://items/projectile_egg.gd" type="Script" id=2]
 
 [node name="projectile_egg" type="KinematicBody2D"]
-collision_layer = 256
-collision_mask = 64
+collision_layer = 0
+collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
@@ -24,6 +24,8 @@ scale = Vector2( 0.255279, 0.307632 )
 
 [node name="Area2D" type="Area2D" parent="."]
 rotation = 1.57079
+collision_layer = 256
+collision_mask = 192
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 rotation = 5.82077e-11

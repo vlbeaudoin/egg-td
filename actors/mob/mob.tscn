@@ -30,10 +30,10 @@ scale = Vector2( 1.6, 1.6 )
 shape = SubResource( 1 )
 
 [node name="health_bar" type="ProgressBar" parent="."]
-margin_left = -17.746
-margin_top = -24.1028
-margin_right = 18.254
-margin_bottom = -8.10279
+margin_left = -8.0
+margin_top = -13.0
+margin_right = 8.0
+margin_bottom = -9.0
 custom_fonts/font = ExtResource( 4 )
 step = 1.0
 percent_visible = false

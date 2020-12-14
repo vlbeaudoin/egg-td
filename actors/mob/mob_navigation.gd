@@ -4,6 +4,9 @@ extends Node2D
 onready var mob = get_parent()
 onready var nav = mob.get_parent()
 onready var destination = nav.get_node("Destination")
+#onready var start = nav.get_node("Start")
+onready var start = nav.get_node("mob_spawn")
+
 
 var path = []
 
@@ -59,8 +62,8 @@ func get_total_path_distance():
 ## EXECUTION
 func _ready():
 #	_update_navigation_path(mob.position, destination.position)
-	_update_navigation_path(mob.global_position, destination.global_position) # test for fixing instancing issues of parent node
-	pass # Replace with function body.
+#	_update_navigation_path(mob.global_position, destination.global_position) # test for fixing instancing issues of parent node
+	_update_navigation_path(start.global_position, destination.global_position) # test for fixing instancing issues of parent node
 
 func _physics_process(delta):
 	if mob != null:

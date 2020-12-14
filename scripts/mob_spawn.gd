@@ -18,8 +18,9 @@ func spawn_mob(mob_type = mob_res):
 	get_parent().add_child_below_node(self, mob)
 #	mob.global_position = self.global_position
 	mob.position = self.position
-	if DEBUG:
-		print(get_tree().get_nodes_in_group("mobs"))
+	
+	
+	
 	return(mob)
 
 ## SIGNALS

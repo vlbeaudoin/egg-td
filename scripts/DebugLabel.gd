@@ -46,11 +46,12 @@ func update_debug_message():
 				chicken.get_detected()]
 	
 	for mob in mobs:
-		debug_message += \
-			"""
-			Mob: %s
-			Mob distance to destination: %s
-			""" % [mob, mob.get_]
+		if mob != null:
+			debug_message += \
+				"""
+				Mob: %s
+				Mob distance to destination: %s
+				""" % [mob, mob.distance]
 	
 	
 ## SETGET

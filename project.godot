@@ -21,8 +21,12 @@ _global_script_class_icons={
 [application]
 
 config/name="egg-td"
-run/main_scene="res://main.tscn"
+run/main_scene="res://scenes/main.tscn"
 config/icon="res://art/icon.png"
+
+[autoload]
+
+Util="*res://scripts/util.gd"
 
 [display]
 
@@ -66,6 +70,7 @@ click={
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 quality/intended_usage/framebuffer_allocation=0
 quality/intended_usage/framebuffer_allocation.mobile=0
 quality/2d/use_pixel_snap=true

@@ -1,21 +1,25 @@
 extends Node2D
 
 ## VARS
+const DEBUG = false
+
 var spawn_timer = Timer.new()
 
 export var spawn_speed: int = 1
 export var mob_res = preload("res://actors/mob/mob.tscn")
 export var disabled = false
 
-#onready var mobs_navigation = get_parent()
+onready var nav2d = get_tree().get_nodes_in_group("nav2d")
 
 
 ## FUNCS
 func spawn_mob(mob_type = mob_res): 
 	var mob = mob_type.instance()
-	get_parent().add_child(mob)
-	mob.global_position = self.global_position
-	
+	get_parent().add_child_below_node(self, mob)
+#	mob.global_position = self.global_position
+	mob.position = self.position
+	if DEBUG:
+		print(get_tree().get_nodes_in_group("mobs"))
 	return(mob)
 
 ## SIGNALS

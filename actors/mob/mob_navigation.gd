@@ -9,14 +9,14 @@ var path = []
 
 ## FUNC
 func move_along_path(distance):
-	var last_point = mob.position
+	var last_point = mob.global_position
 	
 	while path.size():
 		var distance_between_points = last_point.distance_to(path[0])
 		
 		# The position to move to falls between two points.
 		if distance <= distance_between_points:
-			mob.position = last_point.linear_interpolate(path[0], distance / distance_between_points)
+			mob.global_position = last_point.linear_interpolate(path[0], distance / distance_between_points)
 			return
 		
 		# The position is past the end of the segment.
@@ -25,7 +25,7 @@ func move_along_path(distance):
 		path.remove(0)
 	
 	# The mob reached the end of the path.
-	mob.position = last_point
+	mob.global_position = last_point
 	set_process(false)
 
 func _update_navigation_path(start_position, end_position):
@@ -37,7 +37,7 @@ func get_total_path_distance():
 	if path.size() > 0:
 		var distance = 0.0
 		
-		distance += path[0].distance_to(mob.position)
+		distance += path[0].distance_to(mob.global_position)
 		
 		for index in range(path.size() - 1):
 			if index != 0:
@@ -58,15 +58,16 @@ func get_total_path_distance():
 
 ## EXECUTION
 func _ready():
-	_update_navigation_path(mob.position, destination.position)
+#	_update_navigation_path(mob.position, destination.position)
+	_update_navigation_path(mob.global_position, destination.global_position) # test for fixing instancing issues of parent node
 	pass # Replace with function body.
 
 func _physics_process(delta):
 	if mob != null:
 		move_along_path(mob.get_speed())
 
-func _unhandled_input(event):
+#func _unhandled_input(event):
 #	if event.is_action_pressed("click"):
 #		_update_navigation_path(mob.position, get_global_mouse_position())
 #		print("Total path distance: ", get_total_path_distance())
-	pass
+#	pass

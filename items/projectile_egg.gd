@@ -19,6 +19,7 @@ onready var area2d = $Area2D
 
 ## FUNCS
 func fire(aim_rotation: float, projectile_speed: int):
+	look_at(target.global_position)
 	velocity = Vector2(projectile_speed,0).rotated(aim_rotation)
 
 ## SIGNALS

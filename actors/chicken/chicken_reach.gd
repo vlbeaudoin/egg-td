@@ -36,10 +36,23 @@ func sort_detected():
 
 class CustomSorterDistance:
 	static func sort_distance_ascending(a, b):
+		var value = false
+		
 		if a != null and b != null:
-			if a.get_distance() < b.get_distance():
-				return true
-			return false
+			
+			var distance_a = a.distance
+			var distance_b = b.distance
+			
+			if distance_a == null:
+				distance_a = 0.0
+			
+			if distance_b == null:
+				distance_b = 0.0
+			
+			if distance_a < distance_b:
+				value = true
+				
+		return value
 
 #var my_items = [[5, "Potato"], [9, "Rice"], [4, "Tomato"]]
 

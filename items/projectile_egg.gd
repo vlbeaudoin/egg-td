@@ -5,7 +5,8 @@ const DEBUG = false
 var damage = 1
 var target
 
-var time_to_live = 3 # Maximum amount of seconds the projectile can stay on screen
+#var time_to_live = 3 # Maximum amount of seconds the projectile can stay on screen
+var time_to_live = 0.5 # Maximum amount of seconds the projectile can stay on screen
 var time_to_live_timer = Timer.new()
 
 var velocity: Vector2

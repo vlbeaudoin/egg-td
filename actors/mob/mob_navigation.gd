@@ -2,11 +2,6 @@ extends Node2D
 
 ## VARS
 onready var mob = get_parent()
-onready var nav = mob.get_parent()
-onready var destination = nav.get_node("Destination")
-#onready var start = nav.get_node("Start")
-onready var start = nav.get_node("mob_spawn")
-
 
 var path = []
 

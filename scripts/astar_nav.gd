@@ -16,7 +16,7 @@ var speed = 50
 
 	
 func move_along_path(distance):
-	var last_point = mob.global_position
+	last_point = mob.global_position
 	
 	while path.size():
 		var next_point = reference_tilemap.map_to_world(path[0])
@@ -24,7 +24,8 @@ func move_along_path(distance):
 		
 		# The position to move to falls between two points.
 		if distance <= distance_between_points:
-			mob.global_position = last_point.linear_interpolate(next_point, distance / distance_between_points)
+			mob.global_position = last_point.linear_interpolate(next_point, \
+				distance / distance_between_points)
 			return
 		
 		# The position is past the end of the segment.
@@ -43,7 +44,9 @@ func move_along_path(distance):
 ## EXECUTION
 
 func _ready():
-	_get_path(start_position, end_position)
+	_get_path(start_position, end_position) 
+	#TODO clear path and run _get_path() when player modifies the board. 
+	#If there is no available path, remove the building.
 
 func _process(delta):
 	move_along_path(speed * delta)

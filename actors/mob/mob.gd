@@ -1,5 +1,5 @@
 class_name mob_base
-extends Area2D
+extends StaticBody2D
 
 ## VARS
 export var mob_type = "base"
@@ -43,15 +43,16 @@ func kill():
 
 
 ## SETGET
-#func get_mob_type():
-#	return mob_type
+func get_mob_type():
+	return mob_type
 
 func get_speed():
 	return speed
 
 func get_distance():
 	#TODO fix this, it won't work soon
-	return mob_navigation.get_total_path_distance()
+#	return mob_navigation.get_total_path_distance()
+	return 0
 
 func get_health():
 	return health

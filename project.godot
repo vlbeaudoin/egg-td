@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://references/WaveClump.gd"
 }, {
-"base": "Area2D",
+"base": "StaticBody2D",
 "class": "mob_base",
 "language": "GDScript",
 "path": "res://actors/mob/mob.gd"

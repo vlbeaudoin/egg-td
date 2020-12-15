@@ -13,7 +13,7 @@ extents = Vector2( 8, 8 )
 size = 6
 font_data = ExtResource( 4 )
 
-[node name="mob" type="Area2D"]
+[node name="mob" type="StaticBody2D"]
 collision_layer = 64
 collision_mask = 260
 script = ExtResource( 2 )

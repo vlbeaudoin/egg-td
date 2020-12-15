@@ -1,8 +1,8 @@
 class_name mob_base
-extends KinematicBody2D
+extends StaticBody2D
 
 ## VARS
-export var mob_type = "base" setget , get_mob_type
+export var mob_type = "base"
 
 onready var mob_navigation = $mob_navigation
 onready var health_bar = $health_bar
@@ -24,9 +24,6 @@ onready var screen_size = get_viewport_rect().size
 
 
 ## FUNCS
-func process_movement():
-	move_and_slide(velocity * speed)
-
 func clamp_position():
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
@@ -53,7 +50,9 @@ func get_speed():
 	return speed
 
 func get_distance():
-	return mob_navigation.get_total_path_distance()
+	#TODO fix this, it won't work soon
+#	return mob_navigation.get_total_path_distance()
+	return 0
 
 func get_health():
 	return health
@@ -68,7 +67,7 @@ func _ready():
 func _process(delta):
 	health_bar.value = health
 
-func _physics_process(delta):
-	pass
+#func _physics_process(delta):
+#	pass
 #	process_movement()
 #	clamp_position() # should be left after process_movement

@@ -23,10 +23,10 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 23.0
-margin_top = 118.0
-margin_right = 145.0
-margin_bottom = 260.0
+margin_left = 18.5903
+margin_top = 114.22
+margin_right = 140.59
+margin_bottom = 256.22
 color = Color( 0.52549, 0.513726, 0.513726, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -59,10 +59,10 @@ __meta__ = {
 }
 
 [node name="ui-chicken" type="Control" parent="."]
-margin_left = 29.3669
-margin_top = 143.66
-margin_right = 69.3669
-margin_bottom = 183.66
+margin_left = 24.9572
+margin_top = 137.99
+margin_right = 64.9572
+margin_bottom = 177.99
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false

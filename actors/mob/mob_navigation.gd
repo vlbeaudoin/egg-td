@@ -2,11 +2,6 @@ extends Node2D
 
 ## VARS
 onready var mob = get_parent()
-onready var nav = mob.get_parent()
-onready var destination = nav.get_node("Destination")
-#onready var start = nav.get_node("Start")
-onready var start = nav.get_node("mob_spawn")
-
 
 var path = []
 
@@ -67,7 +62,7 @@ func _ready():
 
 func _physics_process(delta):
 	if mob != null:
-		move_along_path(mob.get_speed())
+		move_along_path(mob.speed)
 
 #func _unhandled_input(event):
 #	if event.is_action_pressed("click"):

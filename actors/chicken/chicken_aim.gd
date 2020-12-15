@@ -51,6 +51,6 @@ func _ready():
 	add_child(fire_timer)
 	fire_timer.connect("timeout", self, "_on_fire_timer_timeout")
 
-func _process(delta):
+func _process(_delta):
 	#TODO if chicken.get_target is inside tilemap_buildings boundaries:
 	aim_at(chicken.get_target())

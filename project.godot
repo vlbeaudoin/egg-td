@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "AStarPath",
+"language": "GDScript",
+"path": "res://scripts/AStarPath.gd"
+}, {
 "base": "Resource",
 "class": "Wave",
 "language": "GDScript",
@@ -19,12 +24,13 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://references/WaveClump.gd"
 }, {
-"base": "KinematicBody2D",
+"base": "StaticBody2D",
 "class": "mob_base",
 "language": "GDScript",
 "path": "res://actors/mob/mob.gd"
 } ]
 _global_script_class_icons={
+"AStarPath": "",
 "Wave": "",
 "WaveClump": "",
 "mob_base": ""

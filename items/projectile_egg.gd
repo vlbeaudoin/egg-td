@@ -28,7 +28,7 @@ func _on_body_entered(body):
 		body.hurt(damage)
 		queue_free()
 
-func _on_tilemap_exited(): 
+func _clear_projectile(): 
 	#TODO call this when the instance exits the \
 	#tilemap_buildings.map_size area
 	queue_free()
@@ -39,15 +39,15 @@ func _on_tilemap_exited():
 ## EXECUTION
 func _ready():
 	area2d.connect("body_entered", self, "_on_body_entered")
-	visibility_notifier.connect("screen_exited", self, "_on_tilemap_exited")
+#	visibility_notifier.connect("screen_exited", self, "_on_tilemap_exited")
+	visibility_notifier.connect("screen_exited", self, "_clear_projectile")
 	
 	add_child(time_to_live_timer)
 	
-	time_to_live_timer.connect("timeout", self, "_on_tilemap_exited")
+#	time_to_live_timer.connect("timeout", self, "_on_tilemap_exited")
+	time_to_live_timer.connect("timeout", self, "_clear_projectile")
 	time_to_live_timer.wait_time = time_to_live
 	time_to_live_timer.start()
 
 func _physics_process(_delta):
-#	if not position == null:
-	move_and_slide(velocity)
-	#TODO change move_and_slide for a linear interpolate
+	move_and_slide(velocity) #TODO change move_and_slide for a linear interpolate

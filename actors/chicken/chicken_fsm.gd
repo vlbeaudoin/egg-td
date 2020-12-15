@@ -18,7 +18,6 @@ func enter_state(new_state):
 		IDLE:
 			state = IDLE
 			#TODO set chicken animation to idle
-			#
 		RUN:
 			state = RUN
 			#TODO set chicken animation to run

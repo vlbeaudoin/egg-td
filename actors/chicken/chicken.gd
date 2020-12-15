@@ -11,7 +11,6 @@ var target setget , get_target
 var power = 1
 var attack_speed = 1
 var projectile_speed = 100
-#var cooldown = 1.5
 
 
 var projectile = load("res://items/projectile_egg.tscn")
@@ -44,11 +43,4 @@ func get_mob_priority():
 
 ## EXECUTION
 func _ready():
-	add_to_group("chicken")	
-#	while get_tree().get_nodes_in_group("mobs") == null: 
-#		pass
-
-func _process(_delta):
-	pass
-#	aim_at(get_viewport().get_mouse_position())
-	
+	add_to_group("chicken")

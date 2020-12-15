@@ -73,12 +73,14 @@ func _connect_points():
 func _get_path(start, end): #TODO make this work
 #	if path:
 #		path = astar.get_point_path(id(start), id(end))
-#		print(path)
 #	else:
 #		print("[dbg] There is no path from %s to %s" % [start, end])
+#		#TODO emit signal when this happens, to tell the game the player is blocking the path
+#
 #	path.remove(0)
 	path = astar.get_point_path(id(start), id(end))
 	path.remove(0)
+	
 
 func id(point):
 	var a = point.x

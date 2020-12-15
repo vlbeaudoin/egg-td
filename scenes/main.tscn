@@ -148,3 +148,9 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="start_position" type="Node2D" parent="."]
+position = Vector2( 391.778, 88.1591 )
+
+[node name="end_position" type="Node2D" parent="."]
+position = Vector2( 215.762, 201.902 )

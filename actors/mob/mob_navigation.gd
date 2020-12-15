@@ -67,7 +67,7 @@ func _ready():
 
 func _physics_process(delta):
 	if mob != null:
-		move_along_path(mob.get_speed())
+		move_along_path(mob.speed)
 
 #func _unhandled_input(event):
 #	if event.is_action_pressed("click"):

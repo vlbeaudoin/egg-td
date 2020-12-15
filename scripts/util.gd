@@ -21,5 +21,5 @@ func process_input():
 func _ready():
 	pass
 
-func _process(delta):
+func _process(_delta):
 	process_input()

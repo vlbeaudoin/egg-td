@@ -48,7 +48,7 @@ func _ready():
 #	while get_tree().get_nodes_in_group("mobs") == null: 
 #		pass
 
-func _process(delta):
+func _process(_delta):
 	pass
 #	aim_at(get_viewport().get_mouse_position())
 	

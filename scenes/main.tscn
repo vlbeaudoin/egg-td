@@ -1,84 +1,17 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://actors/chicken/chicken.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://art/egg_tileset.tres" type="TileSet" id=4]
-[ext_resource path="res://fonts/open-sans-6px.tres" type="DynamicFont" id=5]
 [ext_resource path="res://fonts/open-sans-outline.tres" type="DynamicFont" id=6]
 [ext_resource path="res://art/UI-sketch.jpg" type="Texture" id=8]
 [ext_resource path="res://scripts/DebugLabel.gd" type="Script" id=9]
 [ext_resource path="res://scenes/mob_spawn.tscn" type="PackedScene" id=10]
 
-[sub_resource type="NavigationPolygon" id=1]
-vertices = PoolVector2Array( 683.849, 80.6411, 687.52, 233.814, 394.245, 236.923, 393.999, 99.0086, 330.097, 77.0599, 358.072, 99.0676, 330.027, 130.938, 357.954, 108.978, 361.947, 130.938, 389.928, 108.978, 389.987, 163.074, 362.157, 141.04, 358.013, 163.015, 330.027, 141.04, 330.009, 195.019, 357.954, 173.103, 361.929, 195.019, 389.987, 172.926, 389.987, 227.081, 361.999, 204.981, 297.896, 227.049, 326.01, 204.981, 297.966, 99.0181, 326.098, 76.9898, 265.906, 76.9898, 294.038, 99.0181, 266.046, 108.91, 293.968, 131.008, 233.986, 131.219, 261.978, 108.91, 233.986, 99.0882, 261.837, 76.9898, 202.066, 77.0599, 230.058, 99.0882, 201.926, 178.993, 229.987, 140.97, 250.051, 178.993, 293.968, 140.9, 293.898, 227.049, 249.981, 188.955, 202.066, 227.049, 201.996, 189.026 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 0, 3, 5 ), PoolIntArray( 6, 4, 5, 7 ), PoolIntArray( 8, 6, 7, 9 ), PoolIntArray( 8, 9, 10, 11 ), PoolIntArray( 11, 10, 12, 13 ), PoolIntArray( 14, 13, 12, 15 ), PoolIntArray( 16, 14, 15, 17 ), PoolIntArray( 16, 17, 18, 19 ), PoolIntArray( 19, 18, 20, 21 ), PoolIntArray( 21, 20, 22, 23 ), PoolIntArray( 24, 23, 22, 25 ), PoolIntArray( 26, 24, 25, 27 ), PoolIntArray( 26, 27, 28, 29 ), PoolIntArray( 29, 28, 30, 31 ), PoolIntArray( 32, 31, 30, 33 ), PoolIntArray( 34, 32, 33, 35 ), PoolIntArray( 36, 34, 35, 37 ), PoolIntArray( 36, 37, 38, 39 ), PoolIntArray( 39, 38, 40, 41 ) ]
-outlines = [ PoolVector2Array( 330.097, 77.0599, 330.027, 130.938, 361.947, 130.938, 362.157, 141.04, 330.027, 141.04, 330.009, 195.019, 361.929, 195.019, 361.999, 204.981, 326.01, 204.981, 326.098, 76.9898, 265.906, 76.9898, 266.046, 108.91, 261.978, 108.91, 261.837, 76.9898, 202.066, 77.0599, 201.926, 178.993, 250.051, 178.993, 249.981, 188.955, 201.996, 189.026, 202.066, 227.049, 293.898, 227.049, 293.968, 140.9, 229.987, 140.97, 230.058, 99.0882, 233.986, 99.0882, 233.986, 131.219, 293.968, 131.008, 294.038, 99.0181, 297.966, 99.0181, 297.896, 227.049, 389.987, 227.081, 389.987, 172.926, 357.954, 173.103, 358.013, 163.015, 389.987, 163.074, 389.928, 108.978, 357.954, 108.978, 358.072, 99.0676, 393.999, 99.0086, 394.245, 236.923, 687.52, 233.814, 683.849, 80.6411 ) ]
-
 [node name="main" type="Node2D"]
 
-[node name="PastureZone" type="ColorRect" parent="."]
-visible = false
-margin_right = 160.0
-margin_bottom = 270.0
-color = Color( 0.309804, 0.486275, 0.0235294, 1 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="PastureZone"]
-visible = false
-margin_left = 53.0458
-margin_top = 34.0
-margin_right = 125.046
-margin_bottom = 240.0
-custom_fonts/font = ExtResource( 5 )
-text = "Pasture zone
-
-
-Chickens here
-
-
-
-
-
-
-Storage here"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="DirtZone" type="ColorRect" parent="."]
-visible = false
-margin_left = 160.134
-margin_top = -0.132935
-margin_right = 480.134
-margin_bottom = 269.867
-color = Color( 0.423529, 0.435294, 0.407843, 1 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="DirtZone"]
-visible = false
-margin_left = 105.25
-margin_top = 83.0
-margin_right = 184.25
-margin_bottom = 156.0
-custom_fonts/font = ExtResource( 5 )
-text = "Towers zone
-
-(tilemap)
-"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="UI-sketch" type="Sprite" parent="."]
+visible = false
 scale = Vector2( 0.363004, 0.362862 )
 texture = ExtResource( 8 )
 centered = false
@@ -116,24 +49,14 @@ position = Vector2( 328.067, 127.569 )
 [node name="chicken3" parent="." instance=ExtResource( 1 )]
 position = Vector2( 248.055, 175.595 )
 
-[node name="Navigation2D" type="Navigation2D" parent="." groups=[
-"nav2d",
-]]
+[node name="mob_spawn" parent="." instance=ExtResource( 10 )]
+position = Vector2( 445.743, 112.807 )
 
-[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
-navpoly = SubResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="start_position" type="Node2D" parent="."]
+position = Vector2( 391.778, 88.1591 )
 
-[node name="Destination" type="Node2D" parent="Navigation2D"]
-position = Vector2( 223.429, 208.088 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="mob_spawn" parent="Navigation2D" instance=ExtResource( 10 )]
-position = Vector2( 407.315, 89.8137 )
+[node name="end_position" type="Node2D" parent="."]
+position = Vector2( 215.762, 201.902 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -148,9 +71,3 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
-
-[node name="start_position" type="Node2D" parent="."]
-position = Vector2( 391.778, 88.1591 )
-
-[node name="end_position" type="Node2D" parent="."]
-position = Vector2( 215.762, 201.902 )

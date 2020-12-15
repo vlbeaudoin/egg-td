@@ -9,10 +9,10 @@ export var disabled = false
 
 var current_mob
 
-onready var nav2d = get_tree().get_nodes_in_group("nav2d")
-
 export(Array) var waves
 var current_wave_clump: WaveClump
+
+onready var main = $"/root/main"
 
 ## FUNCS
 func start_wave():
@@ -28,7 +28,8 @@ func spawn_mob():
 	
 	if current_wave_clump and current_mob:
 		var new_mob = current_mob.instance()
-		get_parent().add_child_below_node(self, new_mob)
+#		get_parent().add_child_below_node(self, new_mob)
+		main.add_child_below_node(self, new_mob)
 		new_mob.position = self.position
 		
 		current_wave_clump.spawn_amount -= 1

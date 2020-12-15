@@ -4,9 +4,8 @@ extends KinematicBody2D
 const DEBUG = false
 var damage = 1
 var target
-#var speed = 100
 
-var time_to_live = 3 # Amount of seconds the projectile can stay on screen
+var time_to_live = 3 # Maximum amount of seconds the projectile can stay on screen
 var time_to_live_timer = Timer.new()
 
 var velocity: Vector2
@@ -26,17 +25,12 @@ func _on_body_entered(body):
 	if "mob_type" in body:
 		if DEBUG:
 			print("[dbg] {%s} collided with {%s}" % [body, self])
-		#TODO damage mob
 		body.hurt(damage)
 		queue_free()
 
-#func _on_screen_exited():
-#	queue_free()
-#
-#func _on_time_to_live_timer_timeout():
-#	queue_free()
-
-func _on_tilemap_exited(): #TODO call this when the instance exits the tilemap_buildings.map_size area
+func _on_tilemap_exited(): 
+	#TODO call this when the instance exits the \
+	#tilemap_buildings.map_size area
 	queue_free()
 
 ## SETGET
@@ -53,8 +47,7 @@ func _ready():
 	time_to_live_timer.wait_time = time_to_live
 	time_to_live_timer.start()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 #	if not position == null:
 	move_and_slide(velocity)
-	
-#	if global_position
+	#TODO change move_and_slide for a linear interpolate

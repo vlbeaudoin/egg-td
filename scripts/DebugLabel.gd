@@ -13,8 +13,8 @@ var msg_selected
 var dynamic_font = DynamicFont.new()
 var dynamic_font_size = 6
 
-onready var chickens = get_tree().get_nodes_in_group("chicken")
-onready var mobs = get_tree().get_nodes_in_group("mobs")
+#onready var chickens = get_tree().get_nodes_in_group("chicken")
+#onready var mobs = get_tree().get_nodes_in_group("mobs")
 onready var tilemap = $"/root/main/tilemap_buildings" as TileMap
 
 func ready_fonts():
@@ -34,44 +34,45 @@ func process_debug_label():
 	
 
 func update_debug_message():
+	# Clear the debug message
 	debug_message = ""
 
-	# Cell at cursor
+	## Selected chicken
+	debug_message += "\nGrabbed chicken: %s" % [Util.grabbed_chicken]
+
+	# Obtain cursor position
 	var cursor_pos = tilemap.world_to_map(get_viewport().get_mouse_position())
+	
+	## Cell at cursor
 	var cell_id = tilemap.get_cell(cursor_pos.x, cursor_pos.y)
 	var cell_name: String
 	
 	match cell_id:
-		-1:
-			cell_name = "Empty"
-		0:
-			cell_name = "Grass"
-		1:
-			cell_name = "fence"
-		2:
-			cell_name = "dirt"
-		3:
-			cell_name = "platform_base"
-#			cell_name = "tower"
-		4:
-			cell_name = "chicken-placeholder"
+		-1: cell_name = "Empty"
+		0: cell_name = "Grass"
+		1: cell_name = "fence"
+		2: cell_name = "dirt"
+		3: cell_name = "platform_base" # "tower"
+		4: cell_name = "chicken-placeholder"
 			
 	debug_message += \
 		"""
-		Cell_id at cursor: %s
-		Cell_name at cursor: %s
-		""" % [cell_id, cell_name]
-
+		Cell: %s
+		Cell_id: %s
+		Cell_name: %s
+		""" % [cursor_pos, cell_id, cell_name]
+	##end cell at cursor
+	
 	# Chickens
-	for chicken in chickens:
-		debug_message += \
-			"""
-			Chicken : %s
-			State   : %s
-			Target  : %s
-			Detected: %s
-			""" % [chicken, chicken.get_state(), chicken.get_target(), \
-				chicken.get_detected()]
+#	for chicken in chickens:
+#		debug_message += \
+#			"""
+#			Chicken : %s
+#			State   : %s
+#			Target  : %s
+#			Detected: %s
+#			""" % [chicken, chicken.get_state(), chicken.get_target(), \
+#				chicken.get_detected()]
 	
 #	for mob in mobs:
 #		if mob != null:
@@ -80,16 +81,6 @@ func update_debug_message():
 #				Mob: %s
 #				Mob distance to destination: %s
 #				""" % [mob, mob.distance]
-	
-
-#		"Cell name at curso"
-	
-#	match cell_id:
-#		-1:
-#			cell_to_tilename = "Air"
-		
-		
-	
 	
 	
 ## SETGET

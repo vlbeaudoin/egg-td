@@ -1,4 +1,5 @@
 extends Area2D
+# This node serves as the range the chicken can interact with mobs
 
 ## VARS
 const DEBUG = false

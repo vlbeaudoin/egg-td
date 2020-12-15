@@ -87,6 +87,7 @@ click={
 2d_physics/layer_8="mobs_flying"
 2d_physics/layer_9="projectiles"
 2d_physics/layer_11="chickens_reach"
+2d_physics/layer_12="chickens_trail"
 
 [rendering]
 

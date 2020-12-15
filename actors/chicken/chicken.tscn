@@ -1,20 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://art/egg-tileset.png" type="Texture" id=1]
 [ext_resource path="res://actors/chicken/chicken_fsm.gd" type="Script" id=2]
 [ext_resource path="res://actors/chicken/chicken.gd" type="Script" id=3]
-[ext_resource path="res://actors/chicken/chicken_aim.gd" type="Script" id=4]
-[ext_resource path="res://actors/chicken/chicken_reach.gd" type="Script" id=5]
+[ext_resource path="res://actors/chicken/chicken_trail.tscn" type="PackedScene" id=4]
+[ext_resource path="res://actors/chicken/chicken_aim.tscn" type="PackedScene" id=5]
+[ext_resource path="res://actors/chicken/chicken_reach.tscn" type="PackedScene" id=6]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 4.01159
-height = 8.05679
-
-[sub_resource type="CircleShape2D" id=2]
-radius = 54.6823
-
-[node name="chicken" type="KinematicBody2D"]
-collision_layer = 0
+[node name="chicken" type="Area2D"]
+collision_layer = 16
 collision_mask = 2147483648
 script = ExtResource( 3 )
 
@@ -35,32 +29,8 @@ vframes = 9
 hframes = 11
 frame = 52
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.445452, 4.12041 )
-rotation = 1.5708
-shape = SubResource( 1 )
+[node name="chicken_aim" parent="." instance=ExtResource( 5 )]
 
-[node name="chicken_aim" type="Area2D" parent="."]
-input_pickable = false
-collision_layer = 0
-collision_mask = 2147483648
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="chicken_reach" parent="." instance=ExtResource( 6 )]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="chicken_aim"]
-position = Vector2( -4.28745, -2.61702 )
-polygon = PoolVector2Array( 12.6453, -5.61861, 15.3737, -0.774351, 15.2066, 5.18353, 13.1464, 10.2505, 20.4407, 1.84266 )
-
-[node name="Polygon2D" type="Polygon2D" parent="chicken_aim"]
-position = Vector2( -4.28745, -2.61702 )
-polygon = PoolVector2Array( 12.6453, -5.61861, 15.3737, -0.774351, 15.2066, 5.18353, 13.1464, 10.2505, 20.4407, 1.84266 )
-
-[node name="chicken_reach" type="Area2D" parent="."]
-collision_layer = 1040
-collision_mask = 192
-script = ExtResource( 5 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="chicken_reach"]
-shape = SubResource( 2 )
+[node name="chicken_trail" parent="." instance=ExtResource( 4 )]

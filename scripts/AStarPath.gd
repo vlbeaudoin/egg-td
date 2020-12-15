@@ -32,7 +32,7 @@ func update_cells_arrays():
 #			print("x_index: ", x_index)
 			
 			if not Vector2(x_index, y_index) in obstacles_array :
-				print("(%s, %s)" % [x_index, y_index])
+#				print("(%s, %s)" % [x_index, y_index])
 #			if not obstacles_array.has(Vector2(x_index, y_index)):
 #			if not obstacles_array[obstacles_array.find(Vector2(x_index, y_index))]:
 #			if not obstacles_tilemap.get_cell(x_index, y_index): #TODO not fixed but close
@@ -43,7 +43,7 @@ func update_cells_arrays():
 				walkable_cells_array.append(Vector2(x_index, y_index))
 #				print("yay")
 		
-	print(walkable_cells_array) #TODO not fixed but close
+#	print(walkable_cells_array) #TODO not fixed but close
 
 func _add_points():
 #	print("foo")
@@ -71,12 +71,14 @@ func _connect_points():
 					astar.connect_points(id(cell), id(next_cell))
 
 func _get_path(start, end): #TODO make this work
-	if path:
-		path = astar.get_point_path(id(start), id(end))
-		print(path)
-	else:
-		print("[dbg] There is no path from %s to %s" % [start, end])
+#	if path:
+#		path = astar.get_point_path(id(start), id(end))
+#		print(path)
+#	else:
+#		print("[dbg] There is no path from %s to %s" % [start, end])
 #	path.remove(0)
+	path = astar.get_point_path(id(start), id(end))
+	path.remove(0)
 
 func id(point):
 	var a = point.x

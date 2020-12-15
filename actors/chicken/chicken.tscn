@@ -14,7 +14,7 @@ height = 8.05679
 radius = 54.6823
 
 [node name="chicken" type="KinematicBody2D"]
-collision_layer = 16
+collision_layer = 0
 collision_mask = 2147483648
 script = ExtResource( 3 )
 
@@ -42,7 +42,8 @@ shape = SubResource( 1 )
 
 [node name="chicken_aim" type="Area2D" parent="."]
 input_pickable = false
-collision_mask = 0
+collision_layer = 0
+collision_mask = 2147483648
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
@@ -57,7 +58,7 @@ position = Vector2( -4.28745, -2.61702 )
 polygon = PoolVector2Array( 12.6453, -5.61861, 15.3737, -0.774351, 15.2066, 5.18353, 13.1464, 10.2505, 20.4407, 1.84266 )
 
 [node name="chicken_reach" type="Area2D" parent="."]
-collision_layer = 16
+collision_layer = 1040
 collision_mask = 192
 script = ExtResource( 5 )
 

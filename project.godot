@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://references/WaveClump.gd"
 }, {
-"base": "StaticBody2D",
+"base": "KinematicBody2D",
 "class": "mob_base",
 "language": "GDScript",
 "path": "res://actors/mob/mob.gd"
@@ -86,6 +86,7 @@ click={
 2d_physics/layer_7="mobs"
 2d_physics/layer_8="mobs_flying"
 2d_physics/layer_9="projectiles"
+2d_physics/layer_11="chickens_reach"
 
 [rendering]
 

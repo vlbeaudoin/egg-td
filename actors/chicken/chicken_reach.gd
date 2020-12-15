@@ -16,23 +16,23 @@ enum {
 }
 
 
-var mob_priority = FIRST setget set_mob_priority, get_mob_priority
+export var mob_priority := FIRST setget set_mob_priority, get_mob_priority
 #TODO make this a dynamic option
 
 ## FUNCS
 func sort_detected():
 	if detected.size() > 1:
-#		if DEBUG:
-#			print("Detected[] pre-sort: ")
-#			for detected_mob in detected:
-#				print("Mob distance: ", detected_mob.get_distance())
-#
+		if DEBUG:
+			print("Detected[] pre-sort: ")
+			for detected_mob in detected:
+				print("Mob distance: ", detected_mob.get_distance())
+
 		detected.sort_custom(CustomSorterDistance, "sort_distance_ascending")
 		
-#		if DEBUG:
-#			print("Detected[] post-sort: ", detected)
-#			for detected_mob in detected:
-#				print("Mob distance: ", detected_mob.get_distance())
+		if DEBUG:
+			print("Detected[] post-sort: ", detected)
+			for detected_mob in detected:
+				print("Mob distance: ", detected_mob.get_distance())
 
 class CustomSorterDistance:
 	static func sort_distance_ascending(a, b):
@@ -54,19 +54,12 @@ class CustomSorterDistance:
 				
 		return value
 
-#var my_items = [[5, "Potato"], [9, "Rice"], [4, "Tomato"]]
-
-#print(my_items) # Prints [[4, Tomato], [5, Potato], [9, Rice]].
-
-
-
 func select_target():
 	if !detected.empty():
 		match mob_priority:
 			FIRST:
 				set_target(detected[0])
 			LAST: 
-#				if detected.size() > 0:
 				set_target(detected[detected.size()-1])
 			STRONG:
 				#TODO
@@ -83,18 +76,16 @@ func select_mob_priority(new_mob_priority):
 func _on_body_entered(body):
 	msg = ""
 	if "mob_type" in body:
-		msg = "[dbg] {%s} detected collision with {%s}, a mob of type \"%s\"." % [self, body, body.get_mob_type()]
-		detected.append(body)
+		if DEBUG:
+			msg = "[dbg] {%s} detected collision with {%s}, a mob of type \"%s\"." % [self, body, body.get_mob_type()]
+			print(msg)
 		
-		sort_detected()
-	
-	if DEBUG and msg != null:
-		print(msg)
+		detected.append(body) # add the body to the detected array
+		sort_detected() # sort the detected array
+		
 
 func _on_body_exited(body):
 	if body == target:
-		if DEBUG:
-			print("[dbg] {%s} left the range of {%s} and was the target, looking for new target" % [body, self])
 		set_target(null)
 	
 	# Remove the leaving body from the detected array

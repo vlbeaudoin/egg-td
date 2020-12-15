@@ -6,8 +6,11 @@ const DEBUG = false
 var spawn_timer = Timer.new()
 
 export var disabled = false
+#export var cell_size := Vector2(16, 16)
+
 
 var current_mob
+
 
 export(Array) var waves #TODO make this a WaveArray instead (also implement it lol)
 
@@ -16,6 +19,7 @@ onready var wave = Wave.new() #TODO have a way to have more than 1 wave (or prep
 var current_wave_clump: WaveClump
 
 onready var main = $"/root/main"
+onready var tilemap = $"/root/main/tilemap_buildings"
 
 ## FUNCS
 func start_wave():
@@ -38,7 +42,8 @@ func spawn_mob():
 		var new_mob = current_mob.instance()
 #		get_parent().add_child_below_node(self, new_mob)
 		main.add_child_below_node(self, new_mob)
-		new_mob.position = self.position
+#		new_mob.position = self.position
+		new_mob.position = self.position - Vector2(tilemap.cell_size.x / 2, tilemap.cell_size.y / 2)
 		
 		current_wave_clump.spawn_amount -= 1
 	

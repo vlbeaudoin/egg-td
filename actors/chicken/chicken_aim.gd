@@ -1,4 +1,5 @@
 extends Area2D
+# This node serves as the chicken's weapon system, for nodes that are within reach of chicken_reach
 
 ## VARS
 const DEBUG = false

@@ -6,8 +6,6 @@ const DEBUG = false
 var spawn_timer = Timer.new()
 
 export var disabled = false
-#export var cell_size := Vector2(16, 16)
-
 
 var current_mob
 
@@ -62,7 +60,6 @@ func spawn_mob():
 		#TODO announce the stop of the wave (signal)
 		pass
 
-#TODO func add_wave(
 
 func add_wave_clump(p_wave: Wave = wave, spawn_amount:int = 5, spawn_speed: float = 1.5):
 #	var new_wave = Wave.new() #TODO probably shouldn't instantiate a whole new wave every clump
@@ -90,11 +87,8 @@ func _ready():
 	# Spawn Timer
 	add_child(spawn_timer)
 	spawn_timer.connect("timeout", self, "_on_spawn_timer_timeout")
-	
-	# Start the wave
-	# start_wave()
 
-func _physics_process(_delta):	
+func _physics_process(_delta):
 	# [dbg] Press "spacebar" to add a test wave clump to waves
 	if Input.is_action_just_pressed("ui_accept"):
 		add_wave_clump(wave) # Modify this method to send something different
@@ -107,5 +101,4 @@ func _physics_process(_delta):
 	
 	
 	if current_wave_clump and not disabled and not waves.empty():
-#	if current_wave_clump and not current_wave_clump.size() == 0 and not disabled and not waves.empty():
 		start_wave()

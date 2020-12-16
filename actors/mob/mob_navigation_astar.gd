@@ -1,21 +1,21 @@
 extends Node
 
 ## VARS
-onready var mob = get_parent() # is the mob
-onready var last_point = mob.global_position # needed for mob
-
 onready var astar_nav = $"/root/main/astar_nav"
-
 onready var path = astar_nav.path
-#onready var astar_nav = $"/root/AstarNav"
+
+onready var mob = get_parent()
+onready var last_point = mob.global_position
+
+
+var total_path_distance
+
 
 ## FUNCS
 func move_along_path(distance):
 	last_point = mob.global_position
 
 	while path.size():
-#	while path.size():
-#		var next_point = tilemap_ground.map_to_world(path[0])
 		var next_point = astar_nav.tilemap_ground.map_to_world(path[0])
 		var distance_between_points = last_point.distance_to(next_point)
 
@@ -32,7 +32,7 @@ func move_along_path(distance):
 		path.remove(0)
 
 
-func get_total_path_distance():
+func calculate_total_path_distance():
 	if path.size() > 0:
 		var distance = 0.0
 
@@ -45,9 +45,6 @@ func get_total_path_distance():
 				distance += astar_nav.tilemap_ground.map_to_world(path[index]).distance_to(astar_nav.tilemap_ground.map_to_world(path[index-1]))
 
 		return distance
-	else:
-		# path is empty
-		pass
 
 ## SIGNALS
 
@@ -57,7 +54,5 @@ func get_total_path_distance():
 
 ## EXECUTION
 func _process(delta):
-#	if path:
+	total_path_distance = calculate_total_path_distance()
 	move_along_path(mob.speed * delta)
-#	else:
-#		return

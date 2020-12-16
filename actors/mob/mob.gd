@@ -12,14 +12,12 @@ onready var astar_nav = $"/root/main/astar_nav"
 
 # Movement
 var velocity = Vector2()
-#export(float) var speed = 0.5 setget , get_speed
-#export(float) var speed = 50 setget , get_speed
-export(float) var speed = 30 # setget , get_speed
+export(float) var speed = 30
 var distance setget , get_distance
 
 # Stats
 export(int) var max_health = 3
-export(int) var health = max_health # setget , get_health
+export(int) var health = max_health
 
 # References
 onready var screen_size = get_viewport_rect().size
@@ -45,18 +43,9 @@ func kill():
 
 
 ## SETGET
-#func get_mob_type():
-#	return mob_type
-
-#func get_speed():
-#	return speed
-
 func get_distance():
-#	return astar_nav.get_total_path_distance()
-	return mob_navigation.get_total_path_distance()
+	return mob_navigation.total_path_distance
 
-#func get_health():
-#	return health
 
 ## EXECUTION
 func _ready():

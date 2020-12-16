@@ -11,36 +11,25 @@ onready var mob
 
 var target setget , get_target
 
-var power = 1
-var attack_speed = 1
-#var projectile_speed = 100
-#var projectile_speed = 250
-var projectile_speed = 300
+#var luck #TODO Implement luck for more chance at rare drops (helmets and egg production)
+var power = 1 # The damage this chicken does on hit
+var attack_speed = 1 # Lower attack speed = more shots per second
+var projectile_speed = 250
 
 var machine_operated #TODO switch this to "nestbox" if in a nestbox, "tower" if in a tower
 
 var projectile = load("res://items/projectile_egg.tscn")
 
-var chase = true
+#var chase = false # TODO make this be a thing for certain towers
 
 var adjectives = []
 
 ## FUNCS
-
-
-## SIGNALS
 func release():
 	chicken_trail.handle_grabbed_chicken_dropped()
 
-#func _on_mouse_entered():
-##	print("mouse_entered %s" % [self])
-#	if not Util.selected_chicken:
-#		Util.selected_chicken = self
-#
-#func _on_mouse_exited():
-##	print("mouse_exited %s" % [self])
-#	if Util.selected_chicken == self:
-#		Util.selected_chicken = null
+## SIGNALS
+
 
 ## SETGET
 func get_state():
@@ -62,5 +51,3 @@ func get_mob_priority():
 ## EXECUTION
 func _ready():
 	add_to_group("chicken")
-#	connect("mouse_entered", self, "_on_mouse_entered")
-#	connect("mouse_exited", self, "_on_mouse_exited")

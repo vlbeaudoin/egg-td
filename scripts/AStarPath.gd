@@ -3,35 +3,40 @@ extends Node2D
 #extends TileMap
 
 ## VARS
-onready var reference_tilemap = $"/root/main/tilemap_buildings"
-#onready var obstacles_tilemap = $"/root/main/tilemap_buildings"
-#onready var reference_tilemap = $"/root/main/tilemap_ground"
+onready var tilemap_buildings = $"/root/main/tilemap_buildings"
+onready var tilemap_ground = $"/root/main/tilemap_ground"
 
 onready var astar = AStar2D.new()
 #onready var used_cells = reference_tilemap.get_used_cells()
 
-export var tilemap_size := Vector2(13, 11)
-export var tilemap_top_left := Vector2(12,4)
+#export var tilemap_size := Vector2(17, 11)
+#export var tilemap_top_left := Vector2(10,4)
+#export var tilemap_bottom_right := Vector2()
 #var tilemap_rect = Rect2(24, 14, 13, 11)
 
-var path: PoolVector2Array
+var path: PoolVector2Array# setget, get_path
 
-var walkable_cells_array: Array
 
-export var obstacles_array: Array # TODO update this when someone places a building, before calculating _get_path
+
+var obstacles_array: Array # TODO update this when someone places a building, before calculating _get_path
+var ground_array: Array # Contains the ground below the playing field for towers, plus padding on both sides for the start and destination of the path.
+var walkable_cells_array: Array # Contains all the cells which are available for pathfinding. Obtained by comparing tilemap_ground and tilemap_buildings.
 
 ## FUNCS
 func update_cells_arrays():
-	obstacles_array = reference_tilemap.get_used_cells()
+	ground_array = tilemap_ground.get_used_cells()
+	obstacles_array = tilemap_buildings.get_used_cells()
 #	obstacles_array = obstacles_tilemap.get_used_cells()
 	
 #	for y_index in range(tilemap_size.y):
-	for y_index in range(tilemap_top_left.y, tilemap_size.y + tilemap_top_left.y):
+#	for y_index in range(tilemap_top_left.y, tilemap_size.y + tilemap_top_left.y):
+	for tile in ground_array:
 #		print("y_index: ", y_index)
-		for x_index in range(tilemap_top_left.x, tilemap_size.x + tilemap_top_left.x):
+#		for x_index in range(tilemap_top_left.x, tilemap_size.x + tilemap_top_left.x):
 #			print("x_index: ", x_index)
 			
-			if not Vector2(x_index, y_index) in obstacles_array :
+#			if not Vector2(x_index, y_index) in obstacles_array :
+			if not tile in obstacles_array :
 #				print("(%s, %s)" % [x_index, y_index])
 #			if not obstacles_array.has(Vector2(x_index, y_index)):
 #			if not obstacles_array[obstacles_array.find(Vector2(x_index, y_index))]:
@@ -40,7 +45,8 @@ func update_cells_arrays():
 				
 #				walkable_cells_array.append(Vector2())
 				
-				walkable_cells_array.append(Vector2(x_index, y_index))
+#				walkable_cells_array.append(Vector2(x_index, y_index))
+				walkable_cells_array.append(tile)
 #				print("yay")
 		
 #	print(walkable_cells_array) #TODO not fixed but close
@@ -70,7 +76,8 @@ func _connect_points():
 				if walkable_cells_array.has(next_cell):
 					astar.connect_points(id(cell), id(next_cell))
 
-func _get_path(start, end): #TODO make this work
+#func _get_path(start, end): #TODO make this work
+func _calculate_path(start, end): #TODO make this work
 #	if path:
 #		path = astar.get_point_path(id(start), id(end))
 #	else:
@@ -80,6 +87,9 @@ func _get_path(start, end): #TODO make this work
 #	path.remove(0)
 	path = astar.get_point_path(id(start), id(end))
 	path.remove(0)
+
+#func get_path():
+#	return path
 	
 
 func id(point):

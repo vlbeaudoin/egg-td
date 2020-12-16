@@ -4,7 +4,7 @@
 [ext_resource path="res://actors/mob/mob.gd" type="Script" id=2]
 [ext_resource path="res://actors/mob/mob_fsm.gd" type="Script" id=3]
 [ext_resource path="res://fonts/open-sans.regular.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://scripts/astar_nav.gd" type="Script" id=5]
+[ext_resource path="res://actors/mob/mob_navigation_astar.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -25,8 +25,6 @@ __meta__ = {
 script = ExtResource( 3 )
 
 [node name="mob_navigation" type="Node2D" parent="."]
-
-[node name="astar_nav" type="Node2D" parent="."]
 script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="."]

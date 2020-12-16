@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://art/Chicken/ChickenIdle.png" type="Texture" id=1]
+[ext_resource path="res://actors/chicken/chicken_ghost.gd" type="Script" id=2]
+
+[node name="chicken_ghost" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="chicken" type="Sprite" parent="."]
+scale = Vector2( 1.02953, 1.02953 )
+texture = ExtResource( 1 )
+hframes = 4
+
+[node name="ghost" type="Sprite" parent="."]
+modulate = Color( 0.294118, 0.321569, 0.329412, 1 )
+texture = ExtResource( 1 )
+hframes = 4

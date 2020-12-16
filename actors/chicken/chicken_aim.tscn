@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://actors/chicken/chicken_aim.gd" type="Script" id=1]
+
+[node name="chicken_aim" type="Area2D"]
+input_pickable = false
+collision_layer = 0
+collision_mask = 2147483648
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -4.28745, -2.61702 )
+polygon = PoolVector2Array( 12.6453, -5.61861, 15.3737, -0.774351, 15.2066, 5.18353, 13.1464, 10.2505, 20.4407, 1.84266 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2( -4.28745, -2.61702 )
+polygon = PoolVector2Array( 12.6453, -5.61861, 15.3737, -0.774351, 15.2066, 5.18353, 13.1464, 10.2505, 20.4407, 1.84266 )

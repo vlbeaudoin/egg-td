@@ -14,7 +14,8 @@ var target setget , get_target
 var power = 1
 var attack_speed = 1
 #var projectile_speed = 100
-var projectile_speed = 250
+#var projectile_speed = 250
+var projectile_speed = 300
 
 var machine_operated #TODO switch this to "nestbox" if in a nestbox, "tower" if in a tower
 

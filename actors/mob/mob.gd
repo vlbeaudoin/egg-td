@@ -6,7 +6,8 @@ export var mob_type = "base"
 
 onready var mob_navigation = $mob_navigation
 onready var health_bar = $health_bar
-onready var astar_nav = $astar_nav
+#onready var astar_nav = $astar_nav
+onready var astar_nav = $"/root/main/astar_nav"
 
 
 # Movement
@@ -51,7 +52,8 @@ func kill():
 #	return speed
 
 func get_distance():
-	return astar_nav.get_total_path_distance()
+#	return astar_nav.get_total_path_distance()
+	return mob_navigation.get_total_path_distance()
 
 #func get_health():
 #	return health

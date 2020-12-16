@@ -32,6 +32,8 @@ func process_debug_label():
 		
 		set_text(debug_message_base + "\n" + debug_message)
 	
+func add_debug_message(message: String):
+	debug_message += "\n" + message
 
 func update_debug_message():
 	# Clear the debug message
@@ -73,6 +75,8 @@ func update_debug_message():
 #			Detected: %s
 #			""" % [chicken, chicken.get_state(), chicken.get_target(), \
 #				chicken.get_detected()]
+	
+	add_debug_message("Total mobs on screen: %s" % [get_tree().get_nodes_in_group("mobs").size()])
 	
 #	for mob in mobs:
 #		if mob != null:

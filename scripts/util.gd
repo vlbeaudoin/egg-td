@@ -44,10 +44,12 @@ func _handle_input():
 			grabbed_chicken.release() #TODO make this do stuff
 	
 	if Input.is_action_just_pressed("ui_left"):
-		astar_nav.shimmer = false
+		if astar_nav:
+			astar_nav.shimmer = false
 	
 	if Input.is_action_just_pressed("ui_right"):
-		astar_nav.shimmer = true
+		if astar_nav:
+			astar_nav.shimmer = true
 	
 
 func _update_selected_cell():

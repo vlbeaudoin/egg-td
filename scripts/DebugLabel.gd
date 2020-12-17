@@ -62,7 +62,10 @@ func update_debug_message():
 		""" % [selected.coordinates, selected.id, cell_name]
 	
 	## Grabbed chicken
-	debug_message += "\nGrabbed chicken: %s" % [Util.grabbed_chicken]
+	add_debug_message("\nGrabbed chicken: %s" % [Util.grabbed_chicken])
+	
+	## Mobs
+	add_debug_message("\nTotal mobs: %s" % [get_tree().get_nodes_in_group("mobs").size()])
 	
 	# Chickens
 	for chicken in chickens:
@@ -75,7 +78,7 @@ func update_debug_message():
 			""" % [chicken, chicken.get_state(), chicken.get_target(), \
 				chicken.get_detected()]
 	
-	add_debug_message("Total mobs on screen: %s" % [get_tree().get_nodes_in_group("mobs").size()])
+	
 	
 #	for mob in mobs:
 #		if mob != null:

@@ -72,11 +72,8 @@ func update_debug_message():
 		debug_message += \
 			"""
 			Chicken : %s
-			State   : %s
-			Target  : %s
-			Detected: %s
-			""" % [chicken, chicken.get_state(), chicken.get_target(), \
-				chicken.get_detected()]
+			Cell : %s
+			""" % [chicken, chicken.current_cell]
 	
 	
 	

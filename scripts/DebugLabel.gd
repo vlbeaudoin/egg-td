@@ -15,7 +15,8 @@ var dynamic_font_size = 6
 
 onready var chickens = get_tree().get_nodes_in_group("chicken")
 #onready var mobs = get_tree().get_nodes_in_group("mobs")
-onready var tilemap = $"/root/main/tilemap_buildings" as TileMap
+#onready var tilemap = $"/root/main/tilemap_buildings" as TileMap
+onready var zone_path = $"/root/main/zone_path" as TileMap
 
 func ready_fonts():
 #	dynamic_font.font_data = load("res://fonts/Retro Gaming.ttf")

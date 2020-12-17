@@ -16,7 +16,7 @@ func move_along_path(distance):
 	last_point = mob.global_position
 
 	while path.size():
-		var next_point = astar_nav.tilemap_ground.map_to_world(path[0])
+		var next_point = astar_nav.zone_path.map_to_world(path[0])
 		var distance_between_points = last_point.distance_to(next_point)
 
 		# The position to move to falls between two points.
@@ -27,7 +27,7 @@ func move_along_path(distance):
 
 		# The position is past the end of the segment.
 		distance -= distance_between_points
-		last_point = astar_nav.tilemap_ground.map_to_world(path[0])
+		last_point = astar_nav.zone_path.map_to_world(path[0])
 
 		path.remove(0)
 
@@ -38,11 +38,11 @@ func calculate_total_path_distance():
 
 		var mob_position = mob.global_position
 
-		distance += astar_nav.tilemap_ground.map_to_world(path[0]).distance_to(mob_position)
+		distance += astar_nav.zone_path.map_to_world(path[0]).distance_to(mob_position)
 
 		for index in range(path.size()):
 			if index != 0:
-				distance += astar_nav.tilemap_ground.map_to_world(path[index]).distance_to(astar_nav.tilemap_ground.map_to_world(path[index-1]))
+				distance += astar_nav.zone_path.map_to_world(path[index]).distance_to(astar_nav.zone_path.map_to_world(path[index-1]))
 
 		return distance
 

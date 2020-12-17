@@ -4,7 +4,7 @@ extends Node2D
 var selected_cell: Cell
 var grabbed_chicken
 
-onready var tilemap = $"/root/main/tilemap_buildings" as TileMap
+onready var player_buildings = $"/root/main/player_buildings" as TileMap
 onready var menu_pause = $"/root/main/CanvasLayer/menu_pause" as Popup
 
 ## FUNCS
@@ -29,8 +29,8 @@ func _update_selected_cell():
 	## Cell at cursor
 	
 	
-	var cell_position = tilemap.world_to_map(get_global_mouse_position()) as Vector2
-	var cell_id = tilemap.get_cell(cell_position.x, cell_position.y)
+	var cell_position = player_buildings.world_to_map(get_global_mouse_position()) as Vector2
+	var cell_id = player_buildings.get_cell(cell_position.x, cell_position.y)
 	
 	selected_cell = Cell.new(cell_id, cell_position)
 	

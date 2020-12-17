@@ -3,8 +3,15 @@ extends Node2D
 #extends TileMap
 
 ## VARS
-onready var tilemap_buildings = $"/root/main/tilemap_buildings"
-onready var tilemap_ground = $"/root/main/tilemap_ground"
+#onready var tilemap_buildings = $"/root/main/tilemap_buildings"
+#onready var tilemap_ground = $"/root/main/tilemap_ground"
+
+
+onready var player_buildings = $"/root/main/player_buildings"
+onready var zone_path = $"/root/main/zone_path"
+onready var zone_build = $"/root/main/zone_build"
+
+
 
 onready var astar = AStar2D.new()
 
@@ -18,8 +25,8 @@ var walkable_cells_array: Array # Contains all the cells which are available for
 
 ## FUNCS
 func update_cells_arrays():
-	ground_array = tilemap_ground.get_used_cells()
-	obstacles_array = tilemap_buildings.get_used_cells()
+	ground_array = zone_path.get_used_cells()
+	obstacles_array = player_buildings.get_used_cells()
 	
 	for tile in ground_array:
 			if not tile in obstacles_array :

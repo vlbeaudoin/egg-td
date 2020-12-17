@@ -5,11 +5,9 @@
 [ext_resource path="res://art/ui/button.png" type="Texture" id=3]
 [ext_resource path="res://ui/menu_button.gd" type="Script" id=4]
 
-[node name="menu_button" type="TextureButton"]
-margin_left = 7.0
-margin_top = 18.0
-margin_right = 50.0
-margin_bottom = 28.0
+[node name="menu_button_small" type="TextureButton"]
+margin_right = 43.0
+margin_bottom = 10.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )

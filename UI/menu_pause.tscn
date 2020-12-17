@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://art/ui/ui-background.png" type="Texture" id=1]
-[ext_resource path="res://ui/menu_button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ui/menu_button_small.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/pause.gd" type="Script" id=3]
 [ext_resource path="res://fonts/Retro Gaming.ttf" type="DynamicFontData" id=4]
 
@@ -45,4 +45,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="menu_button" parent="." instance=ExtResource( 2 )]
+[node name="menu_button_small" parent="." instance=ExtResource( 2 )]
+margin_left = 5.875
+margin_top = 19.0
+margin_right = 48.875
+margin_bottom = 29.0

@@ -11,7 +11,7 @@ var time_to_live_timer = Timer.new()
 
 var velocity: Vector2
 
-onready var tilemap = get_node("/root/main/tilemap_buildings")
+#onready var tilemap = get_node("/root/main/tilemap_buildings")
 onready var visibility_notifier = $VisibilityNotifier2D
 onready var area2d = $Area2D
 

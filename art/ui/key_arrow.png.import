@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button.bmp-415a07df922f234ff20110c168f5f513.stex"
+path="res://.import/key_arrow.png-1d45f9a3d95596ee131b4f012c64e2e0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/ui/button.bmp"
-dest_files=[ "res://.import/button.bmp-415a07df922f234ff20110c168f5f513.stex" ]
+source_file="res://art/ui/key_arrow.png"
+dest_files=[ "res://.import/key_arrow.png-1d45f9a3d95596ee131b4f012c64e2e0.stex" ]
 
 [params]
 

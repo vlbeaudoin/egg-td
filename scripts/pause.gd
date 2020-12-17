@@ -1,7 +1,7 @@
 extends Popup
 
 ## VARS
-onready var resume = $menu_button as TextureButton
+onready var button = $menu_button_small as TextureButton
 
 ## FUNCS
 func switch_pause():
@@ -25,7 +25,7 @@ func _on_resume_pressed():
 
 ## EXECUTION
 func _ready():
-	resume.connect("pressed", self, "_on_resume_pressed")
+	button.connect("pressed", self, "_on_resume_pressed")
 
 #	connect("pressed", self, "_on_resume_pressed")
 

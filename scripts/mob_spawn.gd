@@ -17,7 +17,8 @@ onready var wave = Wave.new() #TODO have a way to have more than 1 wave (or prep
 var current_wave_clump: WaveClump
 
 onready var main = $"/root/main"
-onready var tilemap = $"/root/main/tilemap_buildings"
+#onready var player_buildings = $"/root/main/player_buildings"
+onready var zone_path = $"/root/main/zone_path" as TileMap
 
 ## FUNCS
 func start_wave():
@@ -41,7 +42,7 @@ func spawn_mob():
 #		get_parent().add_child_below_node(self, new_mob)
 		main.add_child_below_node(self, new_mob)
 #		new_mob.position = self.position
-		new_mob.position = self.position - Vector2(tilemap.cell_size.x / 2, tilemap.cell_size.y / 2)
+		new_mob.position = self.position - Vector2(zone_path.cell_size.x / 2, zone_path.cell_size.y / 2)
 		
 		current_wave_clump.spawn_amount -= 1
 	

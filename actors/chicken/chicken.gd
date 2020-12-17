@@ -20,13 +20,31 @@ var machine_operated #TODO switch this to "nestbox" if in a nestbox, "tower" if 
 
 var projectile = load("res://projectiles/projectile_egg.tscn")
 
+
+#var coordinates: Vector2
+var current_cell: Cell
+
 #var chase = false # TODO make this be a thing for certain towers
 
-var adjectives = []
+onready var player_buildings = $"/root/main/player_buildings" as TileMap
+
+#var adjectives = []
 
 ## FUNCS
 func release():
 	chicken_trail.handle_grabbed_chicken_dropped()
+
+#func _update_coordinates():
+#	coordinates = player_buildings.world_to_map()
+
+func _initialize_current_cell():
+	var initial_cell_coords = player_buildings.world_to_map(self.position)
+	var initial_cell_id = player_buildings.get_cellv(initial_cell_coords)
+	
+	current_cell = Cell.new(initial_cell_id, initial_cell_coords)
+
+func move_to(cell: Cell):
+	pass
 
 ## SIGNALS
 
@@ -43,11 +61,20 @@ func get_detected():
 
 func set_mob_priority(new_mob_priority):
 	chicken_reach.select_mob_priority(new_mob_priority)
-
 func get_mob_priority():
 	return chicken_reach.get_mob_priority()
 
+#func set_coordinates(value: Vector2):
+#	coordinates = value
+
+func set_current_cell(value: Cell):
+	current_cell = value
 
 ## EXECUTION
 func _ready():
 	add_to_group("chicken")
+	_initialize_current_cell()
+	
+
+#func _process(_delta):
+#	_update_coordinates()

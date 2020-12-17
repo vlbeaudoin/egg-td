@@ -2,11 +2,14 @@ extends Area2D
 # This node serves as a basis for dragging and dropping the chicken around
 
 ## VARS
+const DEBUG = true
 var chicken_ghost_res = load("res://actors/chicken/chicken_ghost.tscn")
+
 var ghost: Node2D
 
+onready var player_buildings = $"/root/main/player_buildings" as TileMap
 onready var chicken = get_parent()
-onready var player_buildings = $"/root/main/player_buildings"
+onready var chickens = get_tree().get_nodes_in_group("chicken")
 
 ## FUNCS
 func _on_input_event(_viewport, event, _shape_idx):
@@ -20,9 +23,43 @@ func _on_input_event(_viewport, event, _shape_idx):
 			
 	
 func handle_grabbed_chicken_dropped():
+	var cell = Util.selected_cell
+	
+	
+	if cell.id == 3:
+		print("Building found!")
+	
+#	if not chicken.current_cell:
+		
+		
+		if cell.coordinates == chicken.current_cell.coordinates:
+			if DEBUG:
+				print("[dbg] Already at destination.")
+#		else:
+		else:
+			var occupied = false
+			
+			for other_chicken in chickens:
+				if other_chicken.current_cell.coordinates == cell.coordinates:
+					occupied = true
+				
+			if not occupied:
+				if DEBUG:
+					print("[dbg] Moving {%s} to %s." % [chicken, cell.coordinates])
+				chicken.current_cell.id = cell.id as int
+				chicken.current_cell.coordinates = cell.coordinates as Vector2
+				chicken.move_to(cell)
+			else:
+				if DEBUG:
+					print("[dbg] Building already occupied.")
+	
+	# Cleanup
 	Util.grabbed_chicken = null
 	ghost.trail.queue_free()
 	ghost.queue_free()
+	
+	
+		
 	#TODO check if it is possible to place the chicken in selected_cell
 
 func handle_ghost_visibility():

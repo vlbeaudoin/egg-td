@@ -201,10 +201,10 @@ position = Vector2( 7.2753, 7.03706 )
 texture = ExtResource( 17 )
 
 [node name="key_l2" type="NinePatchRect" parent="CanvasLayer/UI/ColorRect"]
-margin_left = 25.2908
-margin_top = 85.78
-margin_right = 41.2908
-margin_bottom = 101.78
+margin_left = 25.1852
+margin_top = 86.0773
+margin_right = 41.1852
+margin_bottom = 102.077
 texture = ExtResource( 15 )
 region_rect = Rect2( 0, 0, 13, 13 )
 patch_margin_left = 2
@@ -216,16 +216,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="key_arrow2" type="Sprite" parent="CanvasLayer/UI/ColorRect/key_l2"]
-position = Vector2( 7.63816, 7.12848 )
-rotation = 3.14159
+[node name="key_arrow" type="Sprite" parent="CanvasLayer/UI/ColorRect/key_l2"]
+position = Vector2( 7.2753, 7.03706 )
+rotation = -3.14159
 texture = ExtResource( 17 )
 
 [node name="key_l3" type="NinePatchRect" parent="CanvasLayer/UI/ColorRect"]
-margin_left = 8.685
-margin_top = 109.78
-margin_right = 24.685
-margin_bottom = 125.78
+margin_left = 8.83364
+margin_top = 103.618
+margin_right = 24.8336
+margin_bottom = 119.618
 texture = ExtResource( 15 )
 region_rect = Rect2( 0, 0, 13, 13 )
 patch_margin_left = 2
@@ -237,16 +237,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="key_arrow3" type="Sprite" parent="CanvasLayer/UI/ColorRect/key_l3"]
-position = Vector2( 7.03547, 7.0152 )
-rotation = 4.71238
+[node name="key_arrow" type="Sprite" parent="CanvasLayer/UI/ColorRect/key_l3"]
+position = Vector2( 7.2753, 7.03706 )
+rotation = -1.57079
 texture = ExtResource( 17 )
 
 [node name="key_l4" type="NinePatchRect" parent="CanvasLayer/UI/ColorRect"]
-margin_left = 24.685
-margin_top = 109.78
-margin_right = 40.685
-margin_bottom = 125.78
+anchor_left = -0.00121845
+anchor_right = -0.00121845
+margin_left = 25.1852
+margin_top = 104.213
+margin_right = 41.1852
+margin_bottom = 120.213
 texture = ExtResource( 15 )
 region_rect = Rect2( 0, 0, 13, 13 )
 patch_margin_left = 2
@@ -258,30 +260,72 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="key_arrow4" type="Sprite" parent="CanvasLayer/UI/ColorRect/key_l4"]
-position = Vector2( 8.03139, 6.65994 )
+[node name="key_arrow" type="Sprite" parent="CanvasLayer/UI/ColorRect/key_l4"]
+position = Vector2( 7.2753, 7.03706 )
 rotation = 1.57079
 texture = ExtResource( 17 )
 
+[node name="key_l5" type="NinePatchRect" parent="CanvasLayer/UI/ColorRect"]
+anchor_left = -0.00121845
+anchor_right = -0.00121845
+margin_left = 17.3067
+margin_top = 121.754
+margin_right = 33.3067
+margin_bottom = 137.754
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 13, 13 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 3
+patch_margin_bottom = 5
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer/UI/ColorRect/key_l5"]
+margin_left = 1.62159
+margin_top = 2.55405
+margin_right = 13.6216
+margin_bottom = 11.554
+custom_fonts/font = ExtResource( 16 )
+custom_colors/font_color = Color( 0.396078, 0.396078, 0.396078, 1 )
+text = "F3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Label" type="Label" parent="CanvasLayer/UI/ColorRect"]
-margin_left = 53.4097
-margin_top = 77.7825
-margin_right = 113.41
-margin_bottom = 91.7825
+margin_left = 46.8691
+margin_top = 79.1203
+margin_right = 113.869
+margin_bottom = 93.1203
 custom_fonts/font = ExtResource( 14 )
-text = "Spawn mobs"
+text = "} Spawn mobs"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label2" type="Label" parent="CanvasLayer/UI/ColorRect"]
-margin_left = 53.4097
-margin_top = 109.78
-margin_right = 109.41
-margin_bottom = 123.78
+margin_left = 46.4231
+margin_top = 104.28
+margin_right = 102.423
+margin_bottom = 118.28
 custom_fonts/font = ExtResource( 14 )
 text = "Toggle path"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="CanvasLayer/UI/ColorRect"]
+margin_left = 33.1932
+margin_top = 121.672
+margin_right = 126.193
+margin_bottom = 135.672
+custom_fonts/font = ExtResource( 14 )
+text = "Toggle dbg menu"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

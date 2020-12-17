@@ -25,9 +25,9 @@ func _update_path_shimmer():
 		path_shimmer.remove_child(child)
 		
 	for cell_position in path:
-		var shimmer = shimmer_res.instance()
-		path_shimmer.add_child(shimmer)
-		shimmer.global_position = zone_path.map_to_world(cell_position) + Vector2(8,8)
+		var local_shimmer = shimmer_res.instance()
+		path_shimmer.add_child(local_shimmer)
+		local_shimmer.global_position = zone_path.map_to_world(cell_position) + Vector2(8,8)
 
 ## SIGNALS
 

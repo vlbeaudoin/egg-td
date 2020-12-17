@@ -5,10 +5,12 @@ extends Area2D
 const DEBUG = true
 var chicken_ghost_res = load("res://actors/chicken/chicken_ghost.tscn")
 
+
 var ghost: Node2D
 
 onready var player_buildings = $"/root/main/player_buildings" as TileMap
 onready var chicken = get_parent()
+onready var Util = $"/root/main/Util"
 #onready var chickens = get_tree().get_nodes_in_group("chicken")
 
 ## FUNCS

@@ -18,7 +18,8 @@ func set_shimmer(value: bool):
 	shimmer = value
 
 func _update_shimmer_visibility():
-	path_shimmer.visible = shimmer
+	if path_shimmer:
+		path_shimmer.visible = shimmer
 
 func _update_path_shimmer():
 	for child in path_shimmer.get_children():

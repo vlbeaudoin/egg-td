@@ -50,7 +50,7 @@ config/icon="res://art/icon.png"
 
 [autoload]
 
-Util="*res://scripts/util.gd"
+Util="res://scripts/Util.gd"
 AstarNav="res://scripts/astar_nav.gd"
 
 [display]

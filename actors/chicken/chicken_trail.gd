@@ -21,8 +21,11 @@ func _on_input_event(viewport, event, shape_idx):
 			
 	
 func handle_grabbed_chicken_dropped():
-#	if Input.is_action_just_released("click"):
+#	if Input.is_action_just_released("click")
 	Util.grabbed_chicken = null
+	
+	print()
+	
 	ghost.trail.queue_free()
 	ghost.queue_free()
 

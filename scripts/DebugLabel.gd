@@ -56,7 +56,7 @@ func update_debug_message():
 		2: cell_name = "dirt"
 		3: cell_name = "platform_base" # "tower"
 		4: cell_name = "chicken-placeholder"
-			
+		
 	debug_message += \
 		"""
 		Cell: %s

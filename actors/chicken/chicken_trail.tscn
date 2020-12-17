@@ -2,8 +2,8 @@
 
 [ext_resource path="res://actors/chicken/chicken_trail.gd" type="Script" id=1]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 9.18136
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
 
 [node name="chicken_trail" type="Area2D"]
 collision_layer = 2147485696
@@ -14,4 +14,5 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 8 )
 shape = SubResource( 1 )

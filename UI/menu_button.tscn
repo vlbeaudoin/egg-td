@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://fonts/retro_gaming.tres" type="DynamicFont" id=1]
+[ext_resource path="res://art/ui/button_pressed.png" type="Texture" id=2]
+[ext_resource path="res://art/ui/button.png" type="Texture" id=3]
+[ext_resource path="res://ui/menu_button.gd" type="Script" id=4]
+
+[node name="menu_button" type="TextureButton"]
+margin_left = 7.0
+margin_top = 18.0
+margin_right = 50.0
+margin_bottom = 28.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 2 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="menu_button_label" type="Label" parent="."]
+margin_left = 10.2615
+margin_top = 1.33484
+margin_right = 31.2615
+margin_bottom = 8.33484
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "RESUME"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

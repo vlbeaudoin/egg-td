@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/egg-tileset.png-cef602c4c9ccc732854f299f71fc2768.stex"
+path="res://.import/arrow.png-777828e6317765fb099ce65148c61c07.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/egg-tileset.png"
-dest_files=[ "res://.import/egg-tileset.png-cef602c4c9ccc732854f299f71fc2768.stex" ]
+source_file="res://art/ui/arrow.png"
+dest_files=[ "res://.import/arrow.png-777828e6317765fb099ce65148c61c07.stex" ]
 
 [params]
 

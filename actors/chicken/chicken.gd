@@ -18,7 +18,7 @@ var projectile_speed = 250
 
 var machine_operated #TODO switch this to "nestbox" if in a nestbox, "tower" if in a tower
 
-var projectile = load("res://items/projectile_egg.tscn")
+var projectile = load("res://projectiles/projectile_egg.tscn")
 
 #var chase = false # TODO make this be a thing for certain towers
 

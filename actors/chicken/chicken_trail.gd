@@ -14,15 +14,23 @@ func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.get_button_index() == 1:
 		if event.is_pressed():
 			Util.grabbed_chicken = chicken
-			ghost = chicken_ghost_res.instance()
+			ghost = chicken_ghost_res.instance() as Node2D
 			add_child(ghost)
+			
+			ghost.z_index = 1
+			
 			ghost.set_origin_chicken(chicken)
 #		else:
 			
 	
 func handle_grabbed_chicken_dropped():
-#	if Input.is_action_just_released("click"):
+#	if Input.is_action_just_released("click")
 	Util.grabbed_chicken = null
+	
+#	print(Util.)
+	
+	print()
+	
 	ghost.trail.queue_free()
 	ghost.queue_free()
 

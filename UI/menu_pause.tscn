@@ -1,20 +1,18 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://art/ui/ui-background.png" type="Texture" id=1]
-[ext_resource path="res://art/ui/button.png" type="Texture" id=2]
+[ext_resource path="res://ui/menu_button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/pause.gd" type="Script" id=3]
 [ext_resource path="res://fonts/Retro Gaming.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://fonts/retro_gaming.tres" type="DynamicFont" id=5]
-[ext_resource path="res://art/ui/button_pressed.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
 font_data = ExtResource( 4 )
 
 [node name="menu_pause" type="Popup"]
+visible = true
 margin_right = 40.0
 margin_bottom = 40.0
-mouse_filter = 2
 popup_exclusive = true
 script = ExtResource( 3 )
 __meta__ = {
@@ -25,6 +23,7 @@ __meta__ = {
 margin_top = 1.0
 margin_right = 56.0
 margin_bottom = 34.0
+mouse_filter = 0
 texture = ExtResource( 1 )
 patch_margin_left = 4
 patch_margin_top = 4
@@ -42,33 +41,9 @@ margin_bottom = 18.4675
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "PAUSED"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="resume" type="TextureButton" parent="."]
-margin_left = 7.0
-margin_top = 18.0
-margin_right = 50.0
-margin_bottom = 28.0
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 6 )
-expand = true
-stretch_mode = 4
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="resume_label" type="Label" parent="resume"]
-margin_left = 8.65867
-margin_top = 0.805222
-margin_right = 48.6587
-margin_bottom = 14.8052
-custom_fonts/font = ExtResource( 5 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "RESUME"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="menu_button" parent="." instance=ExtResource( 2 )]

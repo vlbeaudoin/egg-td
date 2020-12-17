@@ -15,14 +15,19 @@ _global_script_classes=[ {
 "path": "res://scripts/AStarPath.gd"
 }, {
 "base": "Resource",
+"class": "Cell",
+"language": "GDScript",
+"path": "res://resources/Cell.gd"
+}, {
+"base": "Resource",
 "class": "Wave",
 "language": "GDScript",
-"path": "res://references/Wave.gd"
+"path": "res://resources/Wave.gd"
 }, {
 "base": "Resource",
 "class": "WaveClump",
 "language": "GDScript",
-"path": "res://references/WaveClump.gd"
+"path": "res://resources/WaveClump.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "mob_base",
@@ -31,6 +36,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "AStarPath": "",
+"Cell": "",
 "Wave": "",
 "WaveClump": "",
 "mob_base": ""
@@ -44,7 +50,7 @@ config/icon="res://art/icon.png"
 
 [autoload]
 
-Util="*res://scripts/util.gd"
+Util="*res://scripts/Util.gd"
 AstarNav="res://scripts/astar_nav.gd"
 
 [display]

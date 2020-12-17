@@ -1,11 +1,11 @@
 extends Node2D
 
 ## VARS
-var selected
+var selected_cell: Cell
 var grabbed_chicken
 
-onready var tilemap = $"/root/main/tilemap_buildings"
-onready var menu_pause = $"/root/main/CanvasLayer/menu_pause"
+onready var tilemap = $"/root/main/tilemap_buildings" as TileMap
+onready var menu_pause = $"/root/main/CanvasLayer/menu_pause" as Popup
 
 ## FUNCS
 func _handle_input():
@@ -22,23 +22,29 @@ func _handle_input():
 	
 		
 
-func _update_selected():
+func _update_selected_cell():
 	# Obtain cursor position
-	var cursor_pos = tilemap.world_to_map(get_viewport().get_mouse_position())
+	
 	
 	## Cell at cursor
-	var cell_id = tilemap.get_cell(cursor_pos.x, cursor_pos.y)
-	var cell_name: String
 	
-	match cell_id:
-		-1: cell_name = "Empty"
-		0: cell_name = "Grass"
-		1: cell_name = "fence"
-		2: cell_name = "dirt"
-		3: cell_name = "platform_base" # "tower"
-		4: cell_name = "chicken-placeholder"
-		
-	return 
+	
+	var cell_position = tilemap.world_to_map(get_global_mouse_position()) as Vector2
+	var cell_id = tilemap.get_cell(cell_position.x, cell_position.y)
+	
+	selected_cell = Cell.new(cell_id, cell_position)
+	
+	
+#	var cell_name: String
+#
+#	match cell_id:
+#		-1: cell_name = "Empty"
+#		0: cell_name = "Grass"
+#		1: cell_name = "fence"
+#		2: cell_name = "dirt"
+#		3: cell_name = "platform_base" # "tower"
+#		4: cell_name = "chicken-placeholder"
+#
 #	debug_message += \
 #		"""
 #		Cell: %s
@@ -58,3 +64,4 @@ func _ready():
 
 func _process(_delta):
 	_handle_input()
+	_update_selected_cell()

@@ -6,8 +6,9 @@ var grabbed_chicken
 
 onready var player_buildings = $"/root/main/player_buildings" as TileMap
 onready var menu_pause = $"/root/main/CanvasLayer/menu_pause" as Popup
-onready var astar_nav = $"/root/main/astar_nav"
-
+onready var astar_nav = $"/root/main/astar_nav" as Node2D
+#onready var util = $"/root/main/util"
+onready var selection = $"/root/main/selection" as Sprite
 
 
 enum GameMode { 
@@ -24,12 +25,10 @@ func enter_state(new_game_mode: int):
 			GameMode.BUILD:
 				game_mode = GameMode.BUILD
 				astar_nav.shimmer(false)
-				#TODO show shimmers along the path
 				#TODO allow building
 			GameMode.WAVE:
 				game_mode = GameMode.WAVE
 				astar_nav.shimmer(true)
-				#TODO hide shimmers along the path
 				#TODO prevent building
 
 func _handle_input():
@@ -50,7 +49,6 @@ func _handle_input():
 	if Input.is_action_just_pressed("ui_right"):
 		if astar_nav:
 			astar_nav.shimmer = true
-	
 
 func _update_selected_cell():
 	if player_buildings:
@@ -59,6 +57,17 @@ func _update_selected_cell():
 		var cell_id = player_buildings.get_cell(cell_position.x, cell_position.y)
 	
 		selected_cell = Cell.new(cell_id, cell_position)
+	
+
+func _handle_selection_visibility():
+	if selection:
+		
+		if selected_cell:
+			selection.global_position = player_buildings.map_to_world(selected_cell.coordinates)
+		
+		selection.visible = not grabbed_chicken == null
+		
+		
 		
 
 ## SIGNALS
@@ -74,3 +83,4 @@ func _ready():
 func _process(_delta):
 	_handle_input()
 	_update_selected_cell()
+	_handle_selection_visibility()

@@ -1,6 +1,6 @@
 extends Node2D
 
-var origin_chicken: Node
+var origin_chicken: Node setget set_origin_chicken
 var origin: Vector2
 
 var trail: Line2D
@@ -11,8 +11,10 @@ func set_origin_chicken(chicken: Node):
 	#TODO draw a line from the chicken's ghost to the chicken
 #	Line2D
 	origin_chicken = chicken
-	origin = origin_chicken.global_position
 	
+
+func draw_trail():
+	origin = origin_chicken.global_position
 	trail = Line2D.new()
 	trail.z_index = 2
 	main.add_child(trail)

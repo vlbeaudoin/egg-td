@@ -3,6 +3,7 @@
 [ext_resource path="res://actors/chicken/chicken_trail.gd" type="Script" id=1]
 
 [sub_resource type="CircleShape2D" id=1]
+radius = 9.18136
 
 [node name="chicken_trail" type="Area2D"]
 collision_layer = 2147485696

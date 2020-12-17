@@ -10,22 +10,22 @@ var ghost: Node2D
 
 onready var player_buildings = $"/root/main/player_buildings" as TileMap
 onready var chicken = get_parent()
-onready var Util = $"/root/main/Util"
+onready var util = $"/root/main/util"
 #onready var chickens = get_tree().get_nodes_in_group("chicken")
 
 ## FUNCS
 func _on_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.get_button_index() == 1:
-		if event.is_pressed():
-			Util.grabbed_chicken = chicken
+		if event.is_pressed() and not util.grabbed_chicken:
+			util.grabbed_chicken = chicken
 			ghost = chicken_ghost_res.instance()
 			add_child(ghost)
-			ghost.z_index = 2
-			ghost.set_origin_chicken(chicken)
+			ghost.origin_chicken = chicken
+			ghost.draw_trail()
 			
 	
 func handle_grabbed_chicken_dropped():
-	var cell = Util.selected_cell
+	var cell = util.selected_cell
 	
 	
 	if cell.id == 3:
@@ -64,7 +64,7 @@ func handle_grabbed_chicken_dropped():
 						print("[dbg] Building already occupied.")
 	
 	# Cleanup
-	Util.grabbed_chicken = null
+	util.grabbed_chicken = null
 	ghost.trail.queue_free()
 	ghost.queue_free()
 
@@ -72,7 +72,7 @@ func handle_ghost_visibility():
 	if ghost:
 		var ghost_position = player_buildings.world_to_map(ghost.global_position)
 		var chicken_position = player_buildings.world_to_map(chicken.global_position)
-		
+
 		if ghost_position == chicken_position:
 			ghost.visible = false
 			ghost.trail.visible = false
@@ -81,12 +81,12 @@ func handle_ghost_visibility():
 			ghost.trail.visible = true
 ## SIGNALS
 #func _on_mouse_entered():
-#	if not Util.selected_cell:
-#		Util.selected_cell = chicken
+#	if not util.selected_cell:
+#		util.selected_cell = chicken
 #
 #func _on_mouse_exited():
-#	if Util.selected_cell == chicken:
-#		Util.selected_cell = null
+#	if util.selected_cell == chicken:
+#		util.selected_cell = null
 	
 ## SETGET
 
@@ -101,3 +101,6 @@ func _ready():
 func _process(_delta):
 #	handle_grabbed_chicken_dropped()
 	handle_ghost_visibility()
+	if not util.grabbed_chicken and ghost:
+		ghost.trail.queue_free()
+		ghost.queue_free()

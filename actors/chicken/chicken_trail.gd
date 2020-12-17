@@ -9,13 +9,13 @@ var ghost: Node2D
 onready var chicken = get_parent()
 
 ## FUNCS
-func _on_input_event(viewport, event, shape_idx):
+func _on_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.get_button_index() == 1:
 		if event.is_pressed():
 			Util.grabbed_chicken = chicken
 			ghost = chicken_ghost_res.instance()
 			add_child(ghost)
-			ghost.z_index = 1
+			ghost.z_index = 2
 			ghost.set_origin_chicken(chicken)
 			
 	

@@ -43,7 +43,8 @@ func update_debug_message():
 	## Cell at cursor
 	var cell_name: String
 	
-	var selected = Util.selected_cell
+	selected = Util.selected_cell
+	
 	if selected:
 		match selected.id:
 			-1: cell_name = "Empty"

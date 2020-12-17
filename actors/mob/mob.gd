@@ -4,10 +4,10 @@ extends KinematicBody2D
 ## VARS
 export var mob_type = "base"
 
-onready var mob_navigation = $mob_navigation
-onready var health_bar = $health_bar
+onready var mob_navigation = $mob_navigation as Node2D
+onready var health_bar = $health_bar as TextureProgress
 #onready var astar_nav = $astar_nav
-onready var astar_nav = $"/root/main/astar_nav"
+onready var astar_nav = $"/root/main/astar_nav" as AStarPath
 
 
 # Movement
@@ -52,7 +52,8 @@ func _ready():
 	add_to_group("mobs")
 	health_bar.max_value = max_health
 	health_bar.value = health
+#	health_bar.z_index = 1
 
-func _process(delta):
+func _process(_delta):
 	health_bar.value = health
 

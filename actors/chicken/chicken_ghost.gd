@@ -14,12 +14,13 @@ func set_origin_chicken(chicken: Node):
 	origin = origin_chicken.global_position
 	
 	trail = Line2D.new()
+	trail.z_index = 2
 	main.add_child(trail)
 
 #func _ready():
 #	set_process(true)
 
-func _process(delta):
+func _process(_delta):
 	self.global_position = get_viewport().get_mouse_position()
 	
 	if trail and origin and origin_chicken:

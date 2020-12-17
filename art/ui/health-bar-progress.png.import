@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button.bmp-415a07df922f234ff20110c168f5f513.stex"
+path="res://.import/health-bar-progress.png-855feab22ea44de9cf6621dbcf97770b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/ui/button.bmp"
-dest_files=[ "res://.import/button.bmp-415a07df922f234ff20110c168f5f513.stex" ]
+source_file="res://art/ui/health-bar-progress.png"
+dest_files=[ "res://.import/health-bar-progress.png-855feab22ea44de9cf6621dbcf97770b.stex" ]
 
 [params]
 

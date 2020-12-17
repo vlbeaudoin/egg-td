@@ -10,7 +10,6 @@ size = 10
 font_data = ExtResource( 4 )
 
 [node name="menu_pause" type="Popup"]
-visible = true
 margin_right = 40.0
 margin_bottom = 40.0
 popup_exclusive = true

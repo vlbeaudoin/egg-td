@@ -79,6 +79,9 @@ position = Vector2( 280, 112 )
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource( 2 )]
 
+[node name="menu_pause" parent="CanvasLayer" instance=ExtResource( 7 )]
+pause_mode = 2
+
 [node name="debug_label" type="Label" parent="CanvasLayer"]
 margin_right = 40.0
 margin_bottom = 14.0
@@ -88,9 +91,6 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
-
-[node name="menu_pause" parent="CanvasLayer" instance=ExtResource( 7 )]
-pause_mode = 2
 
 [node name="building" type="Node2D" parent="."]
 script = ExtResource( 5 )

@@ -9,7 +9,6 @@ func switch_pause():
 		self.hide()
 	else:	
 		self.popup_centered()
-#		last_position = resume_label.rect_position as Vector2
 		
 	get_tree().paused = not get_tree().paused
 	print()

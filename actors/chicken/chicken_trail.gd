@@ -59,12 +59,12 @@ func handle_grabbed_chicken_dropped():
 
 ## SIGNALS
 func _on_mouse_entered():
-	if not Util.selected:
-		Util.selected = chicken
+	if not Util.selected_cell:
+		Util.selected_cell = chicken
 	
 func _on_mouse_exited():
-	if Util.selected == chicken:
-		Util.selected = null
+	if Util.selected_cell == chicken:
+		Util.selected_cell = null
 	
 ## SETGET
 

@@ -13,7 +13,7 @@ var msg_selected
 var dynamic_font = DynamicFont.new()
 var dynamic_font_size = 6
 
-onready var chickens = get_tree().get_nodes_in_group("chicken")
+onready var chickens = get_tree().get_nodes_in_group("chickens")
 #onready var mobs = get_tree().get_nodes_in_group("mobs")
 #onready var tilemap = $"/root/main/tilemap_buildings" as TileMap
 onready var zone_path = $"/root/main/zone_path" as TileMap
@@ -55,26 +55,35 @@ func update_debug_message():
 			3: cell_name = "platform_base" # "tower"
 			4: cell_name = "chicken-placeholder"
 	
-		debug_message += \
-		"""
-		Cell: %s
+		add_debug_message( \
+		"""Cell: %s
 		Cell_id: %s
 		Cell_name: %s
-		""" % [selected.coordinates, selected.id, cell_name]
+		""" % [selected.coordinates, selected.id, cell_name])
 	
+	## Gamemode
+	var mode: String
+	match util.game_mode:
+		0: mode = "Build"
+		1: mode = "Wave"
+	
+	add_debug_message("Game mode: %s" % mode)
+
 	## Grabbed chicken
-	add_debug_message("\nGrabbed chicken: %s" % [util.grabbed_chicken])
-	
+	add_debug_message("Grabbed chicken: %s" % [util.grabbed_chicken])
+
 	## Mobs
-	add_debug_message("\nTotal mobs: %s" % [get_tree().get_nodes_in_group("mobs").size()])
+	add_debug_message("Total mobs: %s" % [get_tree().get_nodes_in_group("mobs").size()])
 	
-	# Chickens
-	for chicken in chickens:
-		debug_message += \
-			"""
-			Chicken : %s
-			Cell : %s
-			""" % [chicken, chicken.current_cell]
+
+	
+#	# Chickens
+#	for chicken in chickens:
+#		add_debug_message(\
+#			"""
+#			Chicken : %s
+#			Cell : %s
+#			""" % [chicken, chicken.current_cell])
 	
 	
 	

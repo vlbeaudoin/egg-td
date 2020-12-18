@@ -5,12 +5,9 @@ onready var start_position = zone_path.world_to_map($"/root/main/start_position"
 onready var end_position = zone_path.world_to_map($"/root/main/end_position".global_position) as Vector2
 
 onready var main = $"/root/main" as Node2D
-#onready var zone_path_shimmer = $"/root/main/zone_path_shimmer" as TileMap
 onready var path_shimmer = $"/root/main/path_shimmer" as Node2D
 onready var shimmer_res = preload("res://particles/shimmer.tscn")
 
-#var shimmer_state = false
-#var shimmer_array
 var shimmer: bool = true setget set_shimmer
 
 ## FUNCS

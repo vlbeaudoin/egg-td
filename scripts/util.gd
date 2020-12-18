@@ -1,16 +1,24 @@
 extends Node2D
 
 ## VARS
-enum GameMode { 
+enum GameModes { 
 	BUILD, # Between waves
 	WAVE, # During waves
+}
+enum Cells {
+	EMPTY = -1,
+	GRASS = 0,
+	FENCE = 1,
+	DIRT = 2,
+	TOWER = 3,
 }
 
 var selected_cell: Cell
 var grabbed_chicken
-var game_mode: int = GameMode.BUILD
+var game_mode: int = GameModes.BUILD
 var total_mobs: int
 var timer_wave_end = Timer.new()
+var selected_building: int
 
 onready var player_buildings = $"/root/main/player_buildings" as TileMap
 onready var menu_pause = $"/root/main/CanvasLayer/menu_pause" as Popup
@@ -18,23 +26,23 @@ onready var astar_nav = $"/root/main/astar_nav" as Node2D
 #onready var util = $"/root/main/util"
 onready var selection = $"/root/main/selection" as Sprite
 #onready var check_game_mode = $"/root/main/CanvasLayer/check_game_mode" as CheckButton 
-onready var btn_start_wave = $"/root/main/CanvasLayer/btn_start_wave" as Button
-onready var btn_pause = $"/root/main/CanvasLayer/btn_pause" as Button
+onready var btn_start_wave = $"/root/main/CanvasLayer/btn_start_wave" as TextureButton
+onready var btn_pause = $"/root/main/CanvasLayer/btn_pause" as TextureButton
 onready var mob_spawn = $"/root/main/mob_spawn" as Node2D
+onready var build_tower = $"/root/main/CanvasLayer/build_tower" as TextureButton
+onready var build_fence = $"/root/main/CanvasLayer/build_fence" as TextureButton
 
 
 ## FUNCS
 func enter_state(new_game_mode: int):
 	if not new_game_mode == game_mode:
 		match new_game_mode:
-			GameMode.BUILD:
-				game_mode = GameMode.BUILD
+			GameModes.BUILD:
+				game_mode = GameModes.BUILD
 				astar_nav.shimmer = true
-				#TODO allow building
-			GameMode.WAVE:
-				game_mode = GameMode.WAVE
+			GameModes.WAVE:
+				game_mode = GameModes.WAVE
 				astar_nav.shimmer = false
-				#TODO prevent building
 
 func _handle_input():
 	if Input.is_action_just_pressed("toggle_fullscreen"):
@@ -75,7 +83,7 @@ func _handle_selection():
 ## SIGNALS
 
 func _on_btn_start_pressed():
-	if game_mode == GameMode.BUILD:
+	if game_mode == GameModes.BUILD:
 		mob_spawn.start_wave()
 		
 func _on_btn_pause_pressed():
@@ -86,9 +94,41 @@ func _on_mob_spawn_wave_ended():
 
 func _on_timer_wave_end_timeout():
 	if total_mobs == 0:
-		enter_state(GameMode.BUILD)
+		enter_state(GameModes.BUILD)
 		timer_wave_end.stop()
+
+#func _on_build_tower_pressed():
+#	if not selected_building == Cells.TOWER:
+#		selected_building = Cells.TOWER
+#	else:
+#		selected_building = Cells.EMPTY
+#
+#func _on_build_fence_pressed():
+#	if not selected_building == Cells.FENCE:
+#		selected_building = Cells.FENCE
+#	else:
+#		selected_building = Cells.EMPTY
+func _on_build_tower_toggled(button_pressed):
+	if button_pressed:
+		if build_fence.pressed:
+			build_fence.pressed = false
+		selected_building = Cells.TOWER
+		
+	elif not build_fence.pressed:
+		selected_building = Cells.EMPTY
+		print("turning fence off")
 	
+func _on_build_fence_toggled(button_pressed):
+	if button_pressed:
+		if build_tower.pressed:
+			build_tower.pressed = false
+		selected_building = Cells.FENCE
+		
+	elif not build_tower.pressed:
+		selected_building = Cells.EMPTY
+		print("turning fence off")
+
+
 ## SETGET
 
 
@@ -97,6 +137,12 @@ func _ready():
 	btn_start_wave.connect("pressed", self, "_on_btn_start_pressed")
 	btn_pause.connect("pressed", self, "_on_btn_pause_pressed")
 	mob_spawn.connect("wave_ended", self, "_on_mob_spawn_wave_ended")
+	
+#	build_tower.connect("pressed", self, "_on_build_tower_pressed")
+#	build_fence.connect("pressed", self, "_on_build_fence_pressed")
+	
+	build_tower.connect("toggled", self, "_on_build_tower_toggled")
+	build_fence.connect("toggled", self, "_on_build_fence_toggled")
 	
 	timer_wave_end.connect("timeout", self, "_on_timer_wave_end_timeout")
 	add_child(timer_wave_end)

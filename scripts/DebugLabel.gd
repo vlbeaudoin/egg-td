@@ -48,11 +48,11 @@ func update_debug_message():
 	
 	if selected:
 		match selected.id:
-			-1: cell_name = "Empty"
-			0: cell_name = "Grass"
-			1: cell_name = "fence"
-			2: cell_name = "dirt"
-			3: cell_name = "platform_base" # "tower"
+			util.Cells.EMPTY: cell_name = "Empty"
+			util.Cells.GRASS: cell_name = "Grass"
+			util.Cells.FENCE: cell_name = "Fence"
+			util.Cells.DIRT: cell_name = "Dirt"
+			util.Cells.TOWER: cell_name = "Platform base (tower/nestbox)" # "tower"
 			4: cell_name = "chicken-placeholder"
 	
 		add_debug_message( \
@@ -74,6 +74,9 @@ func update_debug_message():
 
 	## Mobs
 	add_debug_message("Total mobs: %s" % [util.total_mobs])
+	
+	## Selected building
+	add_debug_message("Selected building: %s" % [util.selected_building])
 	
 
 	

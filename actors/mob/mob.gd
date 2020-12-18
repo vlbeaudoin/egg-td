@@ -58,10 +58,11 @@ func _process(_delta):
 	if mob_navigation and mob_navigation.path:
 		var next_cell = mob_navigation.path[0]
 		
-		var next_cell_pos_x = player_buildings.map_to_world(next_cell).x
-		var mob_x = global_position.x
+		var next_cell_pos = player_buildings.map_to_world(next_cell)
+		var mob_pos = global_position
 		
-		sprite.flip_h = next_cell_pos_x > mob_x
+		if not next_cell_pos.y == mob_pos.y:
+			sprite.flip_h = next_cell_pos.x > mob_pos.x
 #			sprite.flip_h = true
 #		else:
 #			sprite.flip_h = false

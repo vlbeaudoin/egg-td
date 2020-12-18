@@ -2,7 +2,8 @@
 
 [ext_resource path="res://resources/WaveClump.gd" type="Script" id=1]
 
-
-
 [resource]
 script = ExtResource( 1 )
+spawn_mob = ""
+spawn_amount = 0
+spawn_speed = 0

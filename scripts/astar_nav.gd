@@ -11,7 +11,7 @@ onready var shimmer_res = preload("res://particles/shimmer.tscn")
 
 #var shimmer_state = false
 #var shimmer_array
-var shimmer := false setget set_shimmer
+var shimmer: bool = true setget set_shimmer
 
 ## FUNCS
 func set_shimmer(value: bool):

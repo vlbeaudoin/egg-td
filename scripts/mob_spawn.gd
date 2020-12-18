@@ -4,32 +4,35 @@ extends Node2D
 const DEBUG = false
 
 var spawn_timer = Timer.new()
-
-export var disabled = false
-
 var current_mob
-
-
-export(Array) var waves #TODO make this a WaveArray instead (also implement it lol)
-
-onready var wave = Wave.new() #TODO have a way to have more than 1 wave (or prepare a few more waves, a WaveArray would be a good way to allow making waves in the inspector
-
 var current_wave_clump: WaveClump
 
+export(Array) var waves
+
+onready var wave = Wave.new()
+
 onready var main = $"/root/main"
-#onready var player_buildings = $"/root/main/player_buildings"
 onready var zone_path = $"/root/main/zone_path" as TileMap
+onready var Util = $"/root/main/util"
+
+signal wave_ended
 
 ## FUNCS
 func start_wave():
-	if waves[0].wave_clumps.empty():
-		return
-	current_wave_clump = waves[0].wave_clumps[0]
-	current_mob = load(current_wave_clump.spawn_mob)
 	
-	if spawn_timer.is_stopped():
-		spawn_timer.start(current_wave_clump.spawn_speed)
-#		spawn_timer.start()
+	
+	if current_wave_clump and not waves.empty():
+		if waves[0].wave_clumps.empty():
+			return
+		current_wave_clump = waves[0].wave_clumps[0]
+		current_mob = load(current_wave_clump.spawn_mob)
+		
+		if spawn_timer.is_stopped():
+			spawn_timer.start(current_wave_clump.spawn_speed)
+			Util.enter_state(Util.GameMode.WAVE)
+	else:
+		return
+	
 
 
 func spawn_mob():
@@ -59,16 +62,18 @@ func spawn_mob():
 		# There are no more waves in waves
 #		spawn_timer.stop() # not necessary as there is already a check when the wave clump is done.
 		#TODO announce the stop of the wave (signal)
-		pass
+		emit_signal("wave_ended")
+#		Util.enter_state(Util.GameMode.BUILD)
 
 
-func add_wave_clump(p_wave: Wave = wave, spawn_amount:int = 5, spawn_speed: float = 1.5):
+func add_wave_clump(p_wave: Wave = wave, spawn_amount:int = 5, spawn_speed: float = 1.5, spawn_mob: String = "res://actors/mob/mob_fox.tscn"):
 #	var new_wave = Wave.new() #TODO probably shouldn't instantiate a whole new wave every clump
 	var wave_clump = WaveClump.new()
 	
-	wave_clump.spawn_mob = "res://actors/mob/mob_fox.tscn"
+#	wave_clump.spawn_mob = "res://actors/mob/mob_fox.tscn"
 	wave_clump.spawn_amount = spawn_amount
 	wave_clump.spawn_speed = spawn_speed
+	wave_clump.spawn_mob = spawn_mob
 	
 	p_wave.add_clump(wave_clump)
 	waves.append(p_wave)
@@ -91,16 +96,21 @@ func _ready():
 	spawn_timer.connect("timeout", self, "_on_spawn_timer_timeout")
 
 func _physics_process(_delta):
+#	if Util.game_mode == Util.GameMode.WAVE:
 	# [dbg] Press "spacebar" to add a test wave clump to waves
 	if Input.is_action_just_pressed("ui_accept"):
-		add_wave_clump(wave) # Modify this method to send something different
+#		add_wave_clump(wave) # Modify this method to send something different
+#		add_wave_clump(wave, 25, 0.8, "res://actors/mob/mob_boar.tscn") # 25 boars, 0.8 timer
+		add_wave_clump(wave, 1, 0.5, "res://actors/mob/mob_wolf.tscn") # 1 wolf
 	
 	if Input.is_action_just_pressed("ui_down"):
-		add_wave_clump(wave, 10, 0.5)
+#		add_wave_clump(wave, 10, 0.5)
+		add_wave_clump(wave, 10, 1, "res://actors/mob/mob_fox.tscn") # 10 foxes
 	
 	if Input.is_action_just_pressed("ui_up"):
-		add_wave_clump(wave, 1, 0.1)
+#		add_wave_clump(wave, 1, 0.1)
+		add_wave_clump(wave, 3, 2, "res://actors/mob/mob_bear.tscn") # 3 bears
 	
 	
-	if current_wave_clump and not disabled and not waves.empty():
-		start_wave()
+#	if current_wave_clump and not waves.empty() and Util.game_mode == Util.GameMode.BUILD:
+#		start_wave() # TODO make this not triggered by physics_process

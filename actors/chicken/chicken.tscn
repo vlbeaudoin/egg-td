@@ -9,6 +9,7 @@
 [ext_resource path="res://actors/chicken/chicken_operate.tscn" type="PackedScene" id=7]
 
 [node name="chicken" type="KinematicBody2D"]
+z_index = 1
 collision_layer = 16
 collision_mask = 2147483648
 script = ExtResource( 3 )
@@ -17,20 +18,21 @@ script = ExtResource( 3 )
 script = ExtResource( 2 )
 
 [node name="chicken_aim" parent="." instance=ExtResource( 5 )]
+z_index = -1
 
 [node name="chicken_reach" parent="." instance=ExtResource( 6 )]
 
 [node name="chicken_trail" parent="." instance=ExtResource( 4 )]
 
 [node name="chicken_top" type="Sprite" parent="."]
-position = Vector2( 0, -8 )
+position = Vector2( 0, -2.81369 )
 texture = ExtResource( 1 )
 vframes = 9
 hframes = 11
 frame = 41
 
 [node name="chicken_bottom" type="Sprite" parent="."]
-position = Vector2( 0, 8.00246 )
+position = Vector2( 0, 13.1888 )
 texture = ExtResource( 1 )
 vframes = 9
 hframes = 11

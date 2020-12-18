@@ -66,6 +66,7 @@ func add_wave_clump(p_wave: Wave = wave, spawn_amount:int = 5, spawn_speed: floa
 #	var new_wave = Wave.new() #TODO probably shouldn't instantiate a whole new wave every clump
 	var wave_clump = WaveClump.new()
 	
+	wave_clump.spawn_mob = "res://actors/mob/mob_fox.tscn"
 	wave_clump.spawn_amount = spawn_amount
 	wave_clump.spawn_speed = spawn_speed
 	

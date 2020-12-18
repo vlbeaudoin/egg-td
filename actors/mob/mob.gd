@@ -11,7 +11,7 @@ onready var astar_nav = $"/root/main/astar_nav" as AStarPath
 
 
 # Movement
-var velocity = Vector2()
+#var velocity = Vector2()
 export(float) var speed = 30
 var distance setget , get_distance
 

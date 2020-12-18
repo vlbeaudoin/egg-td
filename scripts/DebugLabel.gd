@@ -17,7 +17,7 @@ onready var chickens = get_tree().get_nodes_in_group("chicken")
 #onready var mobs = get_tree().get_nodes_in_group("mobs")
 #onready var tilemap = $"/root/main/tilemap_buildings" as TileMap
 onready var zone_path = $"/root/main/zone_path" as TileMap
-onready var Util = $"/root/main/Util"
+onready var util = $"/root/main/util"
 
 func ready_fonts():
 #	dynamic_font.font_data = load("res://fonts/Retro Gaming.ttf")
@@ -44,7 +44,7 @@ func update_debug_message():
 	## Cell at cursor
 	var cell_name: String
 	
-	selected = Util.selected_cell
+	selected = util.selected_cell
 	
 	if selected:
 		match selected.id:
@@ -63,7 +63,7 @@ func update_debug_message():
 		""" % [selected.coordinates, selected.id, cell_name]
 	
 	## Grabbed chicken
-	add_debug_message("\nGrabbed chicken: %s" % [Util.grabbed_chicken])
+	add_debug_message("\nGrabbed chicken: %s" % [util.grabbed_chicken])
 	
 	## Mobs
 	add_debug_message("\nTotal mobs: %s" % [get_tree().get_nodes_in_group("mobs").size()])

@@ -59,9 +59,9 @@ func select_target():
 	if !detected.empty():
 		match mob_priority:
 			FIRST:
-				set_target(detected[0])
+				target = detected[0]
 			LAST: 
-				set_target(detected[detected.size()-1])
+				target = detected[detected.size()-1]
 			STRONG:
 				#TODO
 				pass

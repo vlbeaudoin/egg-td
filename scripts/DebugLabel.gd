@@ -73,7 +73,7 @@ func update_debug_message():
 	add_debug_message("Grabbed chicken: %s" % [util.grabbed_chicken])
 
 	## Mobs
-	add_debug_message("Total mobs: %s" % [get_tree().get_nodes_in_group("mobs").size()])
+	add_debug_message("Total mobs: %s" % [util.total_mobs])
 	
 
 	

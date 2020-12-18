@@ -358,7 +358,7 @@ position = Vector2( 120, 32 )
 position = Vector2( 104, 48 )
 
 [node name="chicken5" parent="." instance=ExtResource( 1 )]
-position = Vector2( 328, 80 )
+position = Vector2( 136, 48 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

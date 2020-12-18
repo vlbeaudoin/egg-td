@@ -6,7 +6,7 @@
 [ext_resource path="res://actors/chicken/chicken_trail.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actors/chicken/chicken_aim.tscn" type="PackedScene" id=5]
 [ext_resource path="res://actors/chicken/chicken_reach.tscn" type="PackedScene" id=6]
-[ext_resource path="res://actors/chicken/chicken_operate.tscn" type="PackedScene" id=7]
+[ext_resource path="res://art/Chicken/ChickenIdle.png" type="Texture" id=7]
 
 [node name="chicken" type="KinematicBody2D"]
 z_index = 1
@@ -18,6 +18,7 @@ script = ExtResource( 3 )
 script = ExtResource( 2 )
 
 [node name="chicken_aim" parent="." instance=ExtResource( 5 )]
+position = Vector2( 0, 1 )
 z_index = -1
 
 [node name="chicken_reach" parent="." instance=ExtResource( 6 )]
@@ -26,6 +27,7 @@ visible = false
 [node name="chicken_trail" parent="." instance=ExtResource( 4 )]
 
 [node name="chicken_top" type="Sprite" parent="."]
+visible = false
 position = Vector2( 0, -2.81369 )
 texture = ExtResource( 1 )
 vframes = 9
@@ -33,10 +35,15 @@ hframes = 11
 frame = 41
 
 [node name="chicken_bottom" type="Sprite" parent="."]
+visible = false
 position = Vector2( 0, 13.1888 )
 texture = ExtResource( 1 )
 vframes = 9
 hframes = 11
 frame = 52
 
-[node name="chicken_operate" parent="." instance=ExtResource( 7 )]
+[node name="ChickenIdle" type="Sprite" parent="."]
+position = Vector2( 0, 1.41142 )
+texture = ExtResource( 7 )
+hframes = 4
+frame = 2

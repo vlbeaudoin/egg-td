@@ -14,13 +14,7 @@ enum GameMode {
 var state: int
 
 ## FUNCS
-func enter_state(new_state: int):
-	if not new_state == state:
-		match state:
-			GameMode.BUILD:
-				state = GameMode.BUILD
-			GameMode.WAVE:
-				state = GameMode.WAVE
+
 ## SIGNALS
 
 

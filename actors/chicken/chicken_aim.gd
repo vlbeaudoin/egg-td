@@ -8,12 +8,19 @@ var fire_timer = Timer.new()
 
 # References
 onready var main = get_node("/root/main")
-onready var chicken = get_parent()
+onready var chicken = get_parent() as KinematicBody2D
+onready var sprite = get_parent().get_node("ChickenIdle") as Sprite
 
 ## FUNCS
 func aim_at(target):
-	if target != null:
-		look_at(target.global_position)
+#	if target != null:
+	if target:
+		var target_pos = target.global_position
+		look_at(target_pos)
+		if target_pos.x < chicken.global_position.x:
+			sprite.flip_h = true
+		else:
+			sprite.flip_h = false
 		
 		if fire_timer.is_stopped():
 			fire_timer.start(chicken.attack_speed)

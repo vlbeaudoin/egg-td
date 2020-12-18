@@ -25,14 +25,14 @@ z_index = -1
 [node name="chicken_trail" parent="." instance=ExtResource( 4 )]
 
 [node name="chicken_top" type="Sprite" parent="."]
-position = Vector2( 0, -8 )
+position = Vector2( 0, -2.81369 )
 texture = ExtResource( 1 )
 vframes = 9
 hframes = 11
 frame = 41
 
 [node name="chicken_bottom" type="Sprite" parent="."]
-position = Vector2( 0, 8.00246 )
+position = Vector2( 0, 13.1888 )
 texture = ExtResource( 1 )
 vframes = 9
 hframes = 11

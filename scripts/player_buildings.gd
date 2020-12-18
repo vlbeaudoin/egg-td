@@ -12,14 +12,15 @@ onready var astar_nav = $"/root/main/astar_nav"
 
 ## FUNCS
 func _handle_building():
-	if util.game_mode == util.GameModes.BUILD and util.selected_building:
-		if Input.is_action_just_released("click") and not zone_build.get_cellv(util.selected_cell.coordinates) == -1:
+	if util.game_mode == util.GameModes.BUILD and util.selected_building and not util.selected_building == -10:
+		if Input.is_action_pressed("click") and not zone_build.get_cellv(util.selected_cell.coordinates) == -1:
 			
 			var old_cell = Cell.new(util.selected_cell.id, util.selected_cell.coordinates)
 			var new_cell = Cell.new(util.selected_building, util.selected_cell.coordinates)
 			
 			if not old_cell == new_cell:
 				player_buildings.set_cellv(new_cell.coordinates, new_cell.id)
+				player_buildings.update_bitmask_area(new_cell.coordinates)
 				player_buildings.update()
 				
 				astar_nav.update_astar()
@@ -32,7 +33,7 @@ func _handle_building():
 					astar_nav.update_astar()
 				else:
 					astar_nav.path = test_path
-					astar_nav.update_path_shimmer()
+					astar_nav.update_path_shimmer() # This makes stuff eventually crash
 
 ## SIGNALS
 

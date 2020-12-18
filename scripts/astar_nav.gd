@@ -23,7 +23,7 @@ func _update_shimmer_visibility():
 
 func update_path_shimmer():
 	for child in path_shimmer.get_children():
-		path_shimmer.remove_child(child)
+		child.queue_free()
 		
 	for cell_position in path:
 		var local_shimmer = shimmer_res.instance()

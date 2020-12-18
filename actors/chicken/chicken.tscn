@@ -21,6 +21,7 @@ script = ExtResource( 2 )
 z_index = -1
 
 [node name="chicken_reach" parent="." instance=ExtResource( 6 )]
+visible = false
 
 [node name="chicken_trail" parent="." instance=ExtResource( 4 )]
 

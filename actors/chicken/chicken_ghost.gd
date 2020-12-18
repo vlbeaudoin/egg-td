@@ -6,6 +6,7 @@ var origin: Vector2
 var trail: Line2D
 
 onready var main = $"/root/main"
+onready var mob_spawn = $"/root/main/mob_spawn"
 
 func set_origin_chicken(chicken: Node):
 	#TODO draw a line from the chicken's ghost to the chicken
@@ -16,8 +17,9 @@ func set_origin_chicken(chicken: Node):
 func draw_trail():
 	origin = origin_chicken.global_position
 	trail = Line2D.new()
-	trail.z_index = 2
-	main.add_child(trail)
+	trail.z_index = 1
+	trail.width = 5
+	main.add_child_below_node(mob_spawn, trail)
 
 #func _ready():
 #	set_process(true)

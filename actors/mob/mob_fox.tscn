@@ -1,0 +1,92 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://actors/mob/mob.gd" type="Script" id=2]
+[ext_resource path="res://actors/mob/mob_fsm.gd" type="Script" id=3]
+[ext_resource path="res://fonts/open-sans.regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://actors/mob/mob_navigation_astar.gd" type="Script" id=5]
+[ext_resource path="res://art/ui/health-bar-over.png" type="Texture" id=6]
+[ext_resource path="res://art/ui/health-bar-progress.png" type="Texture" id=7]
+[ext_resource path="res://art/ui/health-bar-under.png" type="Texture" id=8]
+[ext_resource path="res://art/Wild Animals/Fox/Fox_Run.png" type="Texture" id=9]
+
+[sub_resource type="Animation" id=3]
+resource_name = "run"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 6.15686
+height = 12.9282
+
+[sub_resource type="DynamicFont" id=2]
+size = 6
+font_data = ExtResource( 4 )
+
+[node name="mob" type="KinematicBody2D"]
+collision_layer = 64
+collision_mask = 2147484944
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+mob_type = "fox"
+
+[node name="mob_fsm" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="mob_navigation" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="Fox_Run" type="Sprite" parent="."]
+position = Vector2( 8, 8 )
+scale = Vector2( 0.405029, 0.405029 )
+texture = ExtResource( 9 )
+hframes = 6
+frame = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fox_Run"]
+autoplay = "run"
+anims/run = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 6.89778, 9.55884 )
+rotation = 1.57079
+shape = SubResource( 1 )
+
+[node name="health_bar_old" type="ProgressBar" parent="."]
+visible = false
+margin_left = -18.652
+margin_top = -17.5203
+margin_right = -2.65199
+margin_bottom = -8.52025
+custom_fonts/font = SubResource( 2 )
+step = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="health_bar" type="TextureProgress" parent="."]
+margin_left = -1.69184
+margin_top = -2.05543
+margin_right = 26.3082
+margin_bottom = 3.94457
+rect_scale = Vector2( 0.6, 0.6 )
+value = 50.0
+texture_under = ExtResource( 8 )
+texture_over = ExtResource( 6 )
+texture_progress = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

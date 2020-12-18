@@ -82,6 +82,240 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = 18.5903
+margin_top = 114.22
+margin_right = 140.59
+margin_bottom = 256.22
+color = Color( 0.52549, 0.513726, 0.513726, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="window_title" type="Label" parent="ColorRect2"]
+margin_left = 13.7469
+margin_top = 3.15445
+margin_right = 108.747
+margin_bottom = 30.1545
+custom_fonts/font = ExtResource( 6 )
+text = "Selected  chicken (dbg)"
+align = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="key_space" type="NinePatchRect" parent="ColorRect2"]
+margin_left = 5.4097
+margin_top = 69.78
+margin_right = 45.4097
+margin_bottom = 85.78
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 13, 13 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 3
+patch_margin_bottom = 5
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect2/key_space"]
+margin_left = 5.32048
+margin_top = 3.14738
+margin_right = 37.3205
+margin_bottom = 12.1474
+custom_fonts/font = ExtResource( 16 )
+custom_colors/font_color = Color( 0.396078, 0.396078, 0.396078, 1 )
+text = "SPACE"
+
+[node name="key_l" type="NinePatchRect" parent="ColorRect2"]
+margin_left = 8.685
+margin_top = 85.78
+margin_right = 24.685
+margin_bottom = 101.78
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 13, 13 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 3
+patch_margin_bottom = 5
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="key_arrow" type="Sprite" parent="ColorRect2/key_l"]
+position = Vector2( 7.2753, 7.03706 )
+texture = ExtResource( 17 )
+
+[node name="key_l2" type="NinePatchRect" parent="ColorRect2"]
+margin_left = 25.1852
+margin_top = 86.0773
+margin_right = 41.1852
+margin_bottom = 102.077
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 13, 13 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 3
+patch_margin_bottom = 5
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="key_arrow" type="Sprite" parent="ColorRect2/key_l2"]
+position = Vector2( 7.2753, 7.03706 )
+rotation = -3.14159
+texture = ExtResource( 17 )
+
+[node name="key_l3" type="NinePatchRect" parent="ColorRect2"]
+margin_left = 8.83364
+margin_top = 103.618
+margin_right = 24.8336
+margin_bottom = 119.618
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 13, 13 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 3
+patch_margin_bottom = 5
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="key_arrow" type="Sprite" parent="ColorRect2/key_l3"]
+position = Vector2( 7.2753, 7.03706 )
+rotation = -1.57079
+texture = ExtResource( 17 )
+
+[node name="key_l4" type="NinePatchRect" parent="ColorRect2"]
+anchor_left = -0.00121845
+anchor_right = -0.00121845
+margin_left = 25.1852
+margin_top = 104.213
+margin_right = 41.1852
+margin_bottom = 120.213
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 13, 13 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 3
+patch_margin_bottom = 5
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="key_arrow" type="Sprite" parent="ColorRect2/key_l4"]
+position = Vector2( 7.2753, 7.03706 )
+rotation = 1.57079
+texture = ExtResource( 17 )
+
+[node name="key_l5" type="NinePatchRect" parent="ColorRect2"]
+anchor_left = -0.00121845
+anchor_right = -0.00121845
+margin_left = 17.3067
+margin_top = 121.754
+margin_right = 33.3067
+margin_bottom = 137.754
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 13, 13 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 3
+patch_margin_bottom = 5
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="ColorRect2/key_l5"]
+margin_left = 1.62159
+margin_top = 2.55405
+margin_right = 13.6216
+margin_bottom = 11.554
+custom_fonts/font = ExtResource( 16 )
+custom_colors/font_color = Color( 0.396078, 0.396078, 0.396078, 1 )
+text = "F3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect2"]
+margin_left = 46.8691
+margin_top = 79.1203
+margin_right = 113.869
+margin_bottom = 93.1203
+custom_fonts/font = ExtResource( 14 )
+text = "} Spawn mobs"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="ColorRect2"]
+margin_left = 46.4231
+margin_top = 104.28
+margin_right = 102.423
+margin_bottom = 118.28
+custom_fonts/font = ExtResource( 14 )
+text = "Toggle path"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="ColorRect2"]
+margin_left = 33.1932
+margin_top = 121.672
+margin_right = 126.193
+margin_bottom = 135.672
+custom_fonts/font = ExtResource( 14 )
+text = "Toggle dbg menu"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ui-chicken2" type="Control" parent="."]
+margin_left = 24.9572
+margin_top = 137.99
+margin_right = 64.9572
+margin_bottom = 177.99
+mouse_filter = 2
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ChickenImg" type="Sprite" parent="ui-chicken2"]
+scale = Vector2( 2.24023, 2.24023 )
+texture = ExtResource( 2 )
+centered = false
+hframes = 4
+frame = 2
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="ChickenName" type="Label" parent="ui-chicken2"]
+margin_left = 43.0
+margin_right = 110.0
+margin_bottom = 47.0
+custom_fonts/font = ExtResource( 6 )
+text = "Basic Chicken of doom and death"
+align = 1
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="path_shimmer" type="Node2D" parent="."]
 __meta__ = {
 "_edit_lock_": true
@@ -124,7 +358,7 @@ position = Vector2( 120, 32 )
 position = Vector2( 104, 48 )
 
 [node name="chicken5" parent="." instance=ExtResource( 1 )]
-position = Vector2( 328, 80 )
+position = Vector2( 136, 48 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -155,6 +389,7 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/UI"]
+visible = false
 margin_left = 18.5903
 margin_top = 114.22
 margin_right = 140.59
@@ -355,6 +590,7 @@ __meta__ = {
 }
 
 [node name="ui-chicken" type="Control" parent="CanvasLayer/UI"]
+visible = false
 margin_left = 24.9572
 margin_top = 137.99
 margin_right = 64.9572

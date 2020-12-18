@@ -21,6 +21,7 @@ func _on_input_event(_viewport, event, _shape_idx):
 			ghost = chicken_ghost_res.instance()
 			add_child(ghost)
 			ghost.origin_chicken = chicken
+			ghost.z_index = 2
 			ghost.draw_trail()
 			
 	

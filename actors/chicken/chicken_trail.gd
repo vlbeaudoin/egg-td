@@ -28,17 +28,10 @@ func _on_input_event(_viewport, event, _shape_idx):
 func handle_grabbed_chicken_dropped():
 	var cell = util.selected_cell
 	
-	
-	if cell.id == 3:
-#		print("Building found!")
-	
-#	if not chicken.current_cell:
-		
-		
+	if cell.id == util.Cells.FENCE:
 		if cell.coordinates == chicken.current_cell.coordinates:
 			if DEBUG:
 				print("[dbg] Already at destination.")
-#		else:
 		else:
 			var occupied = false
 			var chickens = get_tree().get_nodes_in_group("chickens")
@@ -48,7 +41,6 @@ func handle_grabbed_chicken_dropped():
 					print("[dbg] No chickens were found in \"chickens\" node group, this is weird and bad.")
 			else:
 				for other_chicken in chickens:
-#					print(other_chicken)
 					if other_chicken.current_cell.coordinates == cell.coordinates:
 						occupied = true
 				
@@ -81,13 +73,7 @@ func handle_ghost_visibility():
 			ghost.visible = true
 			ghost.trail.visible = true
 ## SIGNALS
-#func _on_mouse_entered():
-#	if not util.selected_cell:
-#		util.selected_cell = chicken
-#
-#func _on_mouse_exited():
-#	if util.selected_cell == chicken:
-#		util.selected_cell = null
+
 	
 ## SETGET
 
@@ -96,12 +82,10 @@ func handle_ghost_visibility():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	connect("input_event", self, "_on_input_event")
-#	connect("mouse_entered", self, "_on_mouse_entered")
-#	connect("mouse_exited", self, "_on_mouse_exited")
 
 func _process(_delta):
-#	handle_grabbed_chicken_dropped()
 	handle_ghost_visibility()
+	
 	if not util.grabbed_chicken and ghost:
 		ghost.trail.queue_free()
 		ghost.queue_free()

@@ -29,7 +29,7 @@ func start_wave():
 		
 		if spawn_timer.is_stopped():
 			spawn_timer.start(current_wave_clump.spawn_speed)
-			Util.enter_state(Util.GameMode.WAVE)
+			Util.enter_state(Util.GameModes.WAVE)
 	else:
 		return
 	
@@ -63,7 +63,7 @@ func spawn_mob():
 #		spawn_timer.stop() # not necessary as there is already a check when the wave clump is done.
 		#TODO announce the stop of the wave (signal)
 		emit_signal("wave_ended")
-#		Util.enter_state(Util.GameMode.BUILD)
+#		Util.enter_state(Util.GameModes.BUILD)
 
 
 func add_wave_clump(p_wave: Wave = wave, spawn_amount:int = 5, spawn_speed: float = 1.5, spawn_mob: String = "res://actors/mob/mob_fox.tscn"):
@@ -96,7 +96,7 @@ func _ready():
 	spawn_timer.connect("timeout", self, "_on_spawn_timer_timeout")
 
 func _physics_process(_delta):
-#	if Util.game_mode == Util.GameMode.WAVE:
+#	if Util.game_mode == Util.GameModes.WAVE:
 	# [dbg] Press "spacebar" to add a test wave clump to waves
 	if Input.is_action_just_pressed("ui_accept"):
 #		add_wave_clump(wave) # Modify this method to send something different
@@ -112,5 +112,5 @@ func _physics_process(_delta):
 		add_wave_clump(wave, 3, 2, "res://actors/mob/mob_bear.tscn") # 3 bears
 	
 	
-#	if current_wave_clump and not waves.empty() and Util.game_mode == Util.GameMode.BUILD:
+#	if current_wave_clump and not waves.empty() and Util.game_mode == Util.GameModes.BUILD:
 #		start_wave() # TODO make this not triggered by physics_process

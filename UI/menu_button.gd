@@ -1,7 +1,7 @@
 extends TextureButton
 
 ## VARS
-export(String) var label_text = "RESUME"
+export(String) var label_text = "BUTTON"
 
 onready var label = $menu_button_label as Label
 onready var last_position = label.rect_position as Vector2

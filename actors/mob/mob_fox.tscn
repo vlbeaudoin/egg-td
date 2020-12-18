@@ -77,10 +77,10 @@ __meta__ = {
 }
 
 [node name="health_bar" type="TextureProgress" parent="."]
-margin_left = -1.18293
-margin_top = -4.8454
-margin_right = 26.8171
-margin_bottom = 1.1546
+margin_left = -0.341082
+margin_top = -4.21402
+margin_right = 27.6589
+margin_bottom = 1.78598
 rect_scale = Vector2( 0.6, 0.6 )
 value = 50.0
 texture_under = ExtResource( 8 )

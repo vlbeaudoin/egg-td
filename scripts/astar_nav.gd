@@ -30,6 +30,7 @@ func _update_path_shimmer():
 		path_shimmer.add_child(local_shimmer)
 		local_shimmer.global_position = zone_path.map_to_world(cell_position) + Vector2(8,8)
 
+
 ## SIGNALS
 
 

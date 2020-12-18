@@ -40,11 +40,9 @@ func enter_state(new_game_mode: int):
 			GameModes.BUILD:
 				game_mode = GameModes.BUILD
 				astar_nav.shimmer = true
-				#TODO allow building
 			GameModes.WAVE:
 				game_mode = GameModes.WAVE
 				astar_nav.shimmer = false
-				#TODO prevent building
 
 func _handle_input():
 	if Input.is_action_just_pressed("toggle_fullscreen"):
@@ -99,11 +97,38 @@ func _on_timer_wave_end_timeout():
 		enter_state(GameModes.BUILD)
 		timer_wave_end.stop()
 
-func _on_build_tower_pressed():
-	selected_building = Cells.TOWER
+#func _on_build_tower_pressed():
+#	if not selected_building == Cells.TOWER:
+#		selected_building = Cells.TOWER
+#	else:
+#		selected_building = Cells.EMPTY
+#
+#func _on_build_fence_pressed():
+#	if not selected_building == Cells.FENCE:
+#		selected_building = Cells.FENCE
+#	else:
+#		selected_building = Cells.EMPTY
+func _on_build_tower_toggled(button_pressed):
+	if button_pressed:
+		if build_fence.pressed:
+			build_fence.pressed = false
+		selected_building = Cells.TOWER
+		
+	elif not build_fence.pressed:
+		selected_building = Cells.EMPTY
+		print("turning fence off")
 	
-func _on_build_fence_pressed():
-	selected_building = Cells.FENCE
+func _on_build_fence_toggled(button_pressed):
+	if button_pressed:
+		if build_tower.pressed:
+			build_tower.pressed = false
+		selected_building = Cells.FENCE
+		
+	elif not build_tower.pressed:
+		selected_building = Cells.EMPTY
+		print("turning fence off")
+
+
 ## SETGET
 
 
@@ -112,8 +137,12 @@ func _ready():
 	btn_start_wave.connect("pressed", self, "_on_btn_start_pressed")
 	btn_pause.connect("pressed", self, "_on_btn_pause_pressed")
 	mob_spawn.connect("wave_ended", self, "_on_mob_spawn_wave_ended")
-	build_tower.connect("pressed", self, "_on_build_tower_pressed")
-	build_fence.connect("pressed", self, "_on_build_fence_pressed")
+	
+#	build_tower.connect("pressed", self, "_on_build_tower_pressed")
+#	build_fence.connect("pressed", self, "_on_build_fence_pressed")
+	
+	build_tower.connect("toggled", self, "_on_build_tower_toggled")
+	build_fence.connect("toggled", self, "_on_build_fence_toggled")
 	
 	timer_wave_end.connect("timeout", self, "_on_timer_wave_end_timeout")
 	add_child(timer_wave_end)

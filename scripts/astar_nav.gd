@@ -21,7 +21,7 @@ func _update_shimmer_visibility():
 	if path_shimmer:
 		path_shimmer.visible = shimmer
 
-func _update_path_shimmer():
+func update_path_shimmer():
 	for child in path_shimmer.get_children():
 		path_shimmer.remove_child(child)
 		
@@ -40,8 +40,8 @@ func _update_path_shimmer():
 ## EXECUTION
 
 func _ready():
-	_calculate_path(start_position, end_position)
-	_update_path_shimmer()
+	path = try_path(start_position, end_position)
+	update_path_shimmer()
 
 func _process(_delta):
 	_update_shimmer_visibility()

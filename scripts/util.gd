@@ -29,7 +29,8 @@ onready var selection = $"/root/main/selection" as Sprite
 onready var btn_start_wave = $"/root/main/CanvasLayer/btn_start_wave" as TextureButton
 onready var btn_pause = $"/root/main/CanvasLayer/btn_pause" as TextureButton
 onready var mob_spawn = $"/root/main/mob_spawn" as Node2D
-onready var build_tower = $"/root/main/CanvasLayer/build_tower" as TextureButton
+#onready var build_tower = $"/root/main/CanvasLayer/build_tower" as TextureButton
+onready var build_empty = $"/root/main/CanvasLayer/build_empty" as TextureButton
 onready var build_fence = $"/root/main/CanvasLayer/build_fence" as TextureButton
 
 
@@ -108,25 +109,36 @@ func _on_timer_wave_end_timeout():
 #		selected_building = Cells.FENCE
 #	else:
 #		selected_building = Cells.EMPTY
-func _on_build_tower_toggled(button_pressed):
+#func _on_build_tower_toggled(button_pressed):
+#	if button_pressed:
+#		if build_fence.pressed:
+#			build_fence.pressed = false
+#		selected_building = Cells.TOWER
+#
+#	elif not build_fence.pressed:
+#		selected_building = Cells.EMPTY
+#		print("turning fence off")
+
+func _on_build_empty_toggled(button_pressed):
 	if button_pressed:
 		if build_fence.pressed:
 			build_fence.pressed = false
-		selected_building = Cells.TOWER
+		selected_building = Cells.EMPTY
 		
 	elif not build_fence.pressed:
-		selected_building = Cells.EMPTY
-		print("turning fence off")
+		selected_building = -10
 	
 func _on_build_fence_toggled(button_pressed):
 	if button_pressed:
-		if build_tower.pressed:
-			build_tower.pressed = false
+		if build_empty.pressed:
+			build_empty.pressed = false
 		selected_building = Cells.FENCE
 		
-	elif not build_tower.pressed:
-		selected_building = Cells.EMPTY
-		print("turning fence off")
+	elif not build_empty.pressed:
+		selected_building = -10
+#	elif not build_tower.pressed:
+#		selected_building = Cells.EMPTY
+#		print("turning fence off")
 
 
 ## SETGET
@@ -141,7 +153,8 @@ func _ready():
 #	build_tower.connect("pressed", self, "_on_build_tower_pressed")
 #	build_fence.connect("pressed", self, "_on_build_fence_pressed")
 	
-	build_tower.connect("toggled", self, "_on_build_tower_toggled")
+#	build_tower.connect("toggled", self, "_on_build_tower_toggled")
+	build_empty.connect("toggled", self, "_on_build_empty_toggled")
 	build_fence.connect("toggled", self, "_on_build_fence_toggled")
 	
 	timer_wave_end.connect("timeout", self, "_on_timer_wave_end_timeout")

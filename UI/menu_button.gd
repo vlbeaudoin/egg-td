@@ -1,5 +1,4 @@
 extends TextureButton
-#extends CheckButton
 
 ## VARS
 export(String) var label_text = "BUTTON"

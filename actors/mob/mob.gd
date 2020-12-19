@@ -17,7 +17,7 @@ export(int) var max_health = 3
 export(int) var health = max_health
 export(float) var speed = 30
 var distance setget , get_distance
-
+#export(int) var hunger = 1
 
 #var looking_left = false
 

@@ -5,7 +5,7 @@ onready var astar_nav = $"/root/main/astar_nav" as AStarPath
 onready var end_position = $"/root/main/end_position" as Position2D
 onready var player_buildings = $"/root/main/player_buildings" as TileMap
 onready var path = astar_nav.path as PoolVector2Array
-
+onready var util = $"/root/main/util"
 
 onready var mob = get_parent()
 onready var last_point = mob.global_position as Vector2
@@ -61,4 +61,5 @@ func _process(delta):
 	move_along_path(mob.speed * delta)
 	
 	if player_buildings.world_to_map(mob.global_position) == player_buildings.world_to_map(end_position.global_position):
+		util.inv.white_eggs -= round(mob.max_health / 2) # The animals eat eggs according to half of their health, rounded.
 		mob.queue_free()

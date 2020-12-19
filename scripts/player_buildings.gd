@@ -15,7 +15,8 @@ func _handle_building():
 	if util.game_mode == util.GameModes.BUILD and util.selected_building and not util.selected_building == -10 and not util.grabbed_chicken:
 		var old_cell = Cell.new(util.selected_cell.id, util.selected_cell.coordinates)
 		var new_cell = Cell.new(util.selected_building, util.selected_cell.coordinates)
-			
+		
+		
 		if Input.is_action_pressed("click") \
 			and not zone_build.get_cellv(util.selected_cell.coordinates) == -1 \
 			and not old_cell.id == new_cell.id:

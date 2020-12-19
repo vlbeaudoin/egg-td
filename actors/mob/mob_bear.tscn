@@ -41,6 +41,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
+mob_type = "bear"
 max_health = 20
 health = 20
 speed = 23.0

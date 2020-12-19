@@ -25,6 +25,7 @@ func start_wave():
 		
 		if spawn_timer.is_stopped():
 			spawn_timer.start(current_wave_clump.spawn_speed)
+#			spawn_timer.start()
 			util.enter_state(util.GameModes.WAVE)
 	else:
 		return

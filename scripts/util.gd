@@ -21,6 +21,8 @@ var total_mobs: int
 var timer_wave_end = Timer.new()
 var selected_building: int
 
+var inv_white_eggs := 0
+
 onready var player_buildings = $"/root/main/player_buildings" as TileMap
 
 onready var astar_nav = $"/root/main/astar_nav" as Node2D
@@ -35,6 +37,7 @@ onready var btn_pause = $"/root/main/CanvasLayer/btn_pause" as TextureButton
 onready var build_empty = $"/root/main/CanvasLayer/build_empty" as TextureButton
 onready var build_fence = $"/root/main/CanvasLayer/build_fence" as TextureButton
 
+onready var chickens = get_tree().get_nodes_in_group("chickens")
 
 ## FUNCS
 func enter_state(new_game_mode: int):
@@ -43,6 +46,8 @@ func enter_state(new_game_mode: int):
 			GameModes.BUILD:
 				game_mode = GameModes.BUILD
 				astar_nav.shimmer = true
+				for chicken in chickens:
+					chicken.eggs_timer.stop()
 			GameModes.WAVE:
 				game_mode = GameModes.WAVE
 				astar_nav.shimmer = false

@@ -78,8 +78,8 @@ func _on_eggs_timer_timeout():
 	#		var special_egg = randi() % 
 			print_debug("[dbg] found a rare egg")
 		else:
-			util.inv_white_eggs += power
-			print_debug("New white eggs amount: %s" % util.inv_white_eggs)
+			util.inv.white_eggs += power
+			print_debug("New white eggs amount: %s" % util.inv.white_eggs)
 
 ## SETGET
 func get_state():

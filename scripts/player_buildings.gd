@@ -21,25 +21,63 @@ func _handle_building():
 			and not zone_build.get_cellv(util.selected_cell.coordinates) == -1 \
 			and not old_cell.id == new_cell.id:
 			
+			match new_cell.id:
+				util.Cells.EMPTY:
+					if old_cell.id == util.Cells.FENCE:
+						player_buildings.set_cellv(new_cell.coordinates, new_cell.id)
+						util.inv.white_eggs += util.Costs.FENCE
+				
+				util.Cells.FENCE:
+					if old_cell.id == util.Cells.EMPTY and util.inv.white_eggs >= util.Costs.FENCE:
+						# try new path
+						player_buildings.set_cellv(new_cell.coordinates, new_cell.id)
+						player_buildings.update()
+						astar_nav.update_astar()
+						
+						var test_path = astar_nav.try_path(astar_nav.start_position, astar_nav.end_position) as PoolVector2Array
+						
+						if not test_path:
+							player_buildings.set_cellv(old_cell.coordinates, old_cell.id)
+							player_buildings.update()
+							astar_nav.update_astar()
+						else:
+							astar_nav.path = test_path
+							astar_nav.update_path_shimmer()
+							util.inv.white_eggs -= util.Costs.FENCE
 			
-			
-#			if not old_cell == new_cell:
-			player_buildings.set_cellv(new_cell.coordinates, new_cell.id)
 			player_buildings.update_bitmask_area(new_cell.coordinates)
-			player_buildings.update()
-			
-			astar_nav.update_astar()
-			
-			var test_path = astar_nav.try_path(astar_nav.start_position, astar_nav.end_position) as PoolVector2Array
-			
-			if not test_path:
-				player_buildings.set_cellv(old_cell.coordinates, old_cell.id)
-				player_buildings.update()
-				astar_nav.update_astar()
-			else:
-				astar_nav.path = test_path
-				astar_nav.update_path_shimmer() # This makes stuff eventually crash
 
+#			if not old_cell == new_cell:
+#			player_buildings.set_cellv(new_cell.coordinates, new_cell.id)
+			
+#			player_buildings.update()
+			
+#			astar_nav.update_astar()
+			
+#			var test_path = astar_nav.try_path(astar_nav.start_position, astar_nav.end_position) as PoolVector2Array
+			
+			
+#			if not test_path:
+#				player_buildings.set_cellv(old_cell.coordinates, old_cell.id)
+#				player_buildings.update()
+#				astar_nav.update_astar()
+#			else:
+#				astar_nav.path = test_path
+#				astar_nav.update_path_shimmer()
+			
+#			player_buildings.update_bitmask_area(new_cell.coordinates)
+#				if test_path:
+#				match util.selected_building:
+#					util.Cells.FENCE:
+#						if util.inv.white_eggs >= util.Costs.FENCE:
+#							astar_nav.path = test_path
+#							astar_nav.update_path_shimmer()
+#							util.inv.white_eggs -= util.Costs.FENCE
+#
+#					util.Cells.EMPTY:
+#						pass
+			
+			
 ## SIGNALS
 
 

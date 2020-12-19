@@ -14,6 +14,10 @@ enum Cells {
 	NESTBOX = 3,
 }
 
+enum Costs {
+	FENCE = 5
+}
+
 var selected_cell: Cell
 var grabbed_chicken
 var game_mode: int = GameModes.BUILD
@@ -21,7 +25,7 @@ var total_mobs: int
 var timer_wave_end = Timer.new()
 var selected_building: int
 
-var inv_white_eggs := 0
+var inv = { "white_eggs" : 25 , "green_eggs" : 0, "red_eggs" : 0} as Dictionary
 
 onready var player_buildings = $"/root/main/player_buildings" as TileMap
 

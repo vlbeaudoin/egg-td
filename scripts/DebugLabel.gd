@@ -79,17 +79,19 @@ func update_debug_message():
 	add_debug_message("Selected building: %s" % [util.selected_building])
 	
 	## Resources
-	add_debug_message("White eggs: %s" % [util.inv_white_eggs])
+#	add_debug_message("White eggs: %s" % [util.inv.white_eggs])
+	for item in util.inv as Dictionary:
+		add_debug_message(item + " : " + str(util.inv.get(item)))
 	
 
 	
 	# Chickens
 	
-	for chicken in chickens:
-		if chicken:
-			add_debug_message(\
-			"""Chicken: %s | target: %s | detected: %s | Cell: %s, %s
-			""" % [chicken, chicken.target, chicken.detected, chicken.current_cell.id, chicken.current_cell.coordinates])
+#	for chicken in chickens:
+#		if chicken:
+#			add_debug_message(\
+#			"""Chicken: %s | target: %s | detected: %s | Cell: %s, %s
+#			""" % [chicken, chicken.target, chicken.detected, chicken.current_cell.id, chicken.current_cell.coordinates])
 	
 	
 	

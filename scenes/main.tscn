@@ -405,7 +405,7 @@ position = Vector2( -282, -224 )
 texture = ExtResource( 11 )
 
 [node name="ui-background" type="NinePatchRect" parent="CanvasLayer"]
-margin_left = 159.0
+margin_left = 210.0
 margin_top = 2.0
 margin_right = 458.0
 margin_bottom = 50.0
@@ -431,10 +431,10 @@ __meta__ = {
 }
 
 [node name="build_empty" type="TextureButton" parent="CanvasLayer"]
-margin_left = 226.28
-margin_top = 8.45253
-margin_right = 290.28
-margin_bottom = 23.4525
+margin_left = 223.777
+margin_top = 11.9565
+margin_right = 287.777
+margin_bottom = 26.9565
 focus_mode = 0
 mouse_default_cursor_shape = 2
 toggle_mode = true
@@ -463,10 +463,10 @@ __meta__ = {
 }
 
 [node name="build_fence" type="TextureButton" parent="CanvasLayer"]
-margin_left = 227.369
-margin_top = 28.1482
-margin_right = 291.369
-margin_bottom = 43.1482
+margin_left = 224.199
+margin_top = 29.1493
+margin_right = 288.199
+margin_bottom = 44.1493
 focus_mode = 0
 mouse_default_cursor_shape = 2
 toggle_mode = true

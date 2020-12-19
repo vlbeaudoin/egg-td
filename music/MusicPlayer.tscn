@@ -1,14 +1,38 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://music/loud.ogg" type="AudioStream" id=1]
 [ext_resource path="res://music/soft.ogg" type="AudioStream" id=2]
 [ext_resource path="res://music/MusicPlayer.gd" type="Script" id=3]
 
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 1.7512, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.501639, 0.545455 ), -1.20862, 1.31705, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
 [node name="MusicPlayer" type="Node"]
 script = ExtResource( 3 )
+loud_xf_curve = SubResource( 1 )
+soft_xf_curve = SubResource( 2 )
+dynamic = 0.329
 
 [node name="soft" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+bus = "m_layer_soft"
 
 [node name="loud" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
+bus = "m_layer_loud"
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = 140.762
+margin_top = 59.2449
+margin_right = 180.762
+margin_bottom = 73.2449
+text = "dynamic is 0soft volume:  -2 dBloud volume: -17 dB"
+__meta__ = {
+"_edit_use_anchors_": false
+}

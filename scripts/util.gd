@@ -48,9 +48,11 @@ func enter_state(new_game_mode: int):
 				astar_nav.shimmer = true
 				for chicken in chickens:
 					chicken.eggs_timer.stop()
+				MusicPlayer.fade_music(0)
 			GameModes.WAVE:
 				game_mode = GameModes.WAVE
 				astar_nav.shimmer = false
+				MusicPlayer.fade_music(1)
 
 func _handle_input():
 	if Input.is_action_just_pressed("toggle_fullscreen"):
@@ -143,6 +145,8 @@ func _ready():
 	
 	timer_wave_end.connect("timeout", self, "_on_timer_wave_end_timeout")
 	add_child(timer_wave_end)
+	
+	MusicPlayer.set_dynamic(0)
 
 func _process(_delta):
 	_handle_input()

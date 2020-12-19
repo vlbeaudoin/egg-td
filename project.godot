@@ -48,6 +48,10 @@ config/name="Fort Benedict"
 run/main_scene="res://scenes/main.tscn"
 config/icon="res://art/icon.png"
 
+[autoload]
+
+MusicPlayer="*res://music/MusicPlayer.tscn"
+
 [display]
 
 window/size/width=480

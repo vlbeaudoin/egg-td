@@ -9,6 +9,9 @@ var chicken_ghost_res = load("res://actors/chicken/chicken_ghost.tscn")
 var ghost: Node2D
 
 onready var player_buildings = $"/root/main/player_buildings" as TileMap
+onready var build_empty = $"/root/main/CanvasLayer/build_empty" as TextureButton
+onready var build_fence = $"/root/main/CanvasLayer/build_fence" as TextureButton
+
 onready var chicken = get_parent()
 onready var util = $"/root/main/util"
 #onready var chickens = get_tree().get_nodes_in_group("chicken")
@@ -17,6 +20,11 @@ onready var util = $"/root/main/util"
 func _on_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.get_button_index() == 1:
 		if event.is_pressed() and not util.grabbed_chicken:
+			util.unpress_buttons()
+			
+			
+#			util.selected_building = util.Cells.INVALID
+			
 			util.grabbed_chicken = chicken
 			ghost = chicken_ghost_res.instance()
 			add_child(ghost)
@@ -28,7 +36,8 @@ func _on_input_event(_viewport, event, _shape_idx):
 func handle_grabbed_chicken_dropped():
 	var cell = util.selected_cell
 	
-	if cell.id == util.Cells.FENCE:
+#	if cell.id == util.Cells.FENCE:
+	if not cell.id == util.Cells.EMPTY:
 		if cell.coordinates == chicken.current_cell.coordinates:
 			if DEBUG:
 				print("[dbg] Already at destination.")

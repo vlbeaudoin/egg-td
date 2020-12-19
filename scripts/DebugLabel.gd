@@ -52,7 +52,7 @@ func update_debug_message():
 			util.Cells.GRASS: cell_name = "Grass"
 			util.Cells.FENCE: cell_name = "Fence"
 			util.Cells.DIRT: cell_name = "Dirt"
-			util.Cells.TOWER: cell_name = "Platform base (tower/nestbox)" # "tower"
+			util.Cells.NESTBOX: cell_name = "Platform base (nestbox)" # "tower"
 			4: cell_name = "chicken-placeholder"
 	
 		add_debug_message( \

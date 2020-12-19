@@ -5,8 +5,10 @@ extends Area2D
 const DEBUG = false
 var msg
 
-var target setget set_target, get_target
+#var target setget set_target, get_target
 var detected = []
+
+onready var chicken = get_parent()
 
 
 enum {
@@ -59,9 +61,9 @@ func select_target():
 	if !detected.empty():
 		match mob_priority:
 			FIRST:
-				target = detected[0]
+				chicken.target = detected[0]
 			LAST: 
-				target = detected[detected.size()-1]
+				chicken.target = detected[detected.size()-1]
 			STRONG:
 				#TODO
 				pass
@@ -86,8 +88,8 @@ func _on_body_entered(body):
 		
 
 func _on_body_exited(body):
-	if body == target:
-		set_target(null)
+	if body == chicken.target:
+		chicken.target = null
 	
 	# Remove the leaving body from the detected array
 	for mob in detected:
@@ -96,12 +98,12 @@ func _on_body_exited(body):
 
 
 ## SETGET
-func set_target(new_target):
-	if target != new_target:
-		target = new_target
+#func set_target(new_target):
+#	if target != new_target:
+#		target = new_target
 
-func get_target():
-	return target
+#func get_target():
+#	return target
 
 func get_detected():
 	return detected

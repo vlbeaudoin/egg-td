@@ -41,7 +41,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
-mob_type = "fox"
+mob_type = "wolf"
 max_health = 5
 health = 5
 speed = 35.0
@@ -50,11 +50,11 @@ speed = 35.0
 script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 8, 8 )
+position = Vector2( -2.65199, -2.6727 )
 scale = Vector2( 0.459893, 0.459893 )
 texture = ExtResource( 1 )
+centered = false
 hframes = 6
-frame = 1
 region_rect = Rect2( 3, 8, 57, 28 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
@@ -62,7 +62,7 @@ autoplay = "run"
 anims/run = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 8.44545, 10.2272 )
+position = Vector2( 12.4355, 8.89085 )
 rotation = 1.57079
 shape = SubResource( 2 )
 
@@ -79,10 +79,10 @@ __meta__ = {
 }
 
 [node name="health_bar" type="TextureProgress" parent="."]
-margin_left = -1.69184
-margin_top = -2.05543
-margin_right = 26.3082
-margin_bottom = 3.94457
+margin_left = 3.09674
+margin_top = -3.94859
+margin_right = 31.0968
+margin_bottom = 2.05141
 rect_scale = Vector2( 0.6, 0.6 )
 value = 50.0
 texture_under = ExtResource( 8 )

@@ -78,15 +78,18 @@ func update_debug_message():
 	## Selected building
 	add_debug_message("Selected building: %s" % [util.selected_building])
 	
+	## Resources
+	add_debug_message("White eggs: %s" % [util.inv_white_eggs])
+	
 
 	
-#	# Chickens
-#	for chicken in chickens:
-#		add_debug_message(\
-#			"""
-#			Chicken : %s
-#			Cell : %s
-#			""" % [chicken, chicken.current_cell])
+	# Chickens
+	
+	for chicken in chickens:
+		if chicken:
+			add_debug_message(\
+			"""Chicken: %s | target: %s | detected: %s | Cell: %s, %s
+			""" % [chicken, chicken.target, chicken.detected, chicken.current_cell.id, chicken.current_cell.coordinates])
 	
 	
 	

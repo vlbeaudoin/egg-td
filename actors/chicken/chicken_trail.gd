@@ -56,16 +56,14 @@ func handle_grabbed_chicken_dropped():
 				if not occupied:
 					if DEBUG:
 						print("[dbg] Moving {%s} to %s." % [chicken, cell.coordinates])
-					chicken.current_cell.id = cell.id as int
-					chicken.current_cell.coordinates = cell.coordinates as Vector2
-					chicken.move_to(cell)
-				
-				
+					
+					# Send chicken on their way
+					chicken.move_from_to(chicken.current_cell, cell as Cell)
 				else:
 					if DEBUG:
 						print("[dbg] Building already occupied.")
 	
-	# Cleanup
+	# Arrival
 	util.grabbed_chicken = null
 	ghost.trail.queue_free()
 	ghost.queue_free()

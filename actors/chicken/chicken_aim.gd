@@ -7,9 +7,10 @@ var fire_timer = Timer.new()
 
 
 # References
-onready var main = get_node("/root/main")
+onready var main = $"/root/main"
 onready var chicken = get_parent() as KinematicBody2D
-onready var sprite = get_parent().get_node("ChickenIdle") as Sprite
+onready var sprite = chicken.get_node("ChickenIdle") as Sprite
+onready var util = $"/root/main/util"
 
 ## FUNCS
 func aim_at(target):
@@ -29,7 +30,7 @@ func aim_at(target):
 		fire_timer.stop()
 
 func fire_at(target):
-	if target == null:
+	if not target:
 		return
 	
 	var projectile_type = chicken.projectile
@@ -49,7 +50,7 @@ func fire_at(target):
 ## SIGNALS
 func _on_fire_timer_timeout():
 	#TODO if chicken.get_target is inside tilemap_buildings boundaries:
-	fire_at(chicken.get_target())
+	fire_at(chicken.target)
 
 ## SETGET
 
@@ -60,5 +61,13 @@ func _ready():
 	fire_timer.connect("timeout", self, "_on_fire_timer_timeout")
 
 func _process(_delta):
+	var cell = chicken.current_cell
+	
+	if cell:
+		match cell.id:
+			util.Cells.FENCE:
+				self.visible = true
+			util.Cells.NESTBOX:
+				self.visible = false
 	#TODO if chicken.get_target is inside tilemap_buildings boundaries:
-	aim_at(chicken.get_target())
+	

@@ -1,6 +1,10 @@
 # egg-td
 Project for the [godot wild jam 28](https://itch.io/jam/godot-wild-jam-28)
 
+## License
+* Code is licensed under MIT. See `LICENSE` for details.
+* Music (inside `music/`) is licensed under CC BY-SA 4.0, see https://creativecommons.org/licenses/by-sa/4.0/.
+* Art assets: [please add attribution and details here]
 
 ## Towers zone
 This place could be a tilemap of 32x32 quares. Walls can be built on this zone, and mobs (wolves, snakes, dogs, racoons, ...) will attempt to come steal the eggs by passing through here.

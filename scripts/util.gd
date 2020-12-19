@@ -36,11 +36,11 @@ onready var selection = $"/root/main/selection" as Sprite
 
 onready var menu_pause = $"/root/main/CanvasLayer/menu_pause" as Popup
 
-onready var btn_start_wave = $"/root/main/CanvasLayer/btn_start_wave" as TextureButton
-onready var btn_pause = $"/root/main/CanvasLayer/btn_pause" as TextureButton
-onready var build_empty = $"/root/main/CanvasLayer/build_empty" as TextureButton
-onready var build_fence = $"/root/main/CanvasLayer/build_fence" as TextureButton
-
+onready var btn_start_wave = $"/root/main/CanvasLayer/ui-background/btn_start_wave" as TextureButton
+onready var btn_pause = $"/root/main/CanvasLayer/ui-background/btn_pause" as TextureButton
+onready var build_empty = $"/root/main/CanvasLayer/ui-background/build_empty" as TextureButton
+onready var build_fence = $"/root/main/CanvasLayer/ui-background/build_fence" as TextureButton
+onready var label_white_eggs = $"/root/main/CanvasLayer/ui-background/sprite_white_egg/label_white_eggs" as Label
 onready var chickens = get_tree().get_nodes_in_group("chickens")
 
 ## FUNCS
@@ -97,6 +97,14 @@ func _handle_selection():
 func unpress_buttons():
 	build_empty.pressed = false
 	build_fence.pressed = false
+
+func _handle_eggs_display():
+	inv.white_eggs = clamp(inv.white_eggs, 0, INF)
+	
+	if inv.white_eggs <= 9000:
+		label_white_eggs.text = str(inv.white_eggs)
+	else:
+		label_white_eggs.text = "9000+"
 
 ## SIGNALS
 func _on_btn_start_pressed():
@@ -157,3 +165,5 @@ func _process(_delta):
 	_update_selected_cell()
 	_handle_selection()
 	total_mobs = get_tree().get_nodes_in_group("mobs").size()
+	_handle_eggs_display()
+	

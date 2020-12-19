@@ -74,12 +74,15 @@ func _on_eggs_timer_timeout():
 		var roll = randi() % (100 + luck)
 	
 	
-		if roll >= 80: # 80 or higher gets a fancy egg (1/5)
+		if roll >= 80: # 80 or higher gets twice the eggs (crit) (1/5)
 	#		var special_egg = randi() % 
-			print_debug("[dbg] found a rare egg")
+			print_debug("Crit! {%s} dropped twice the eggs." % [self])
+			util.inv.white_eggs += power * 2
 		else:
+			
+			print_debug("{%s} dropped an egg." % [self])
 			util.inv.white_eggs += power
-			print_debug("New white eggs amount: %s" % util.inv.white_eggs)
+		
 
 ## SETGET
 func get_state():

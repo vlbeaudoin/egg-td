@@ -35,14 +35,6 @@ func set_music_dynamics(dyn:float):
 	AudioServer.set_bus_volume_db(buses.soft, soft_volume_db)
 	AudioServer.set_bus_volume_db(buses.loud, loud_volume_db)
 	
-#	print({soft_db=soft_volume_db, loud_db=loud_volume_db})
-	var label = $Label
-	if label:
-		label.text = "dynamic is %s\n" % dynamic
-		label.text += "soft volume: %2d dB\n" % soft_volume_db
-		label.text += "loud volume: %2d dB\n" % loud_volume_db
-	
-	
 
 func play_music(time:float=0):
 	audio.soft.play(time)

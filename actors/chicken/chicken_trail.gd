@@ -9,8 +9,8 @@ var chicken_ghost_res = load("res://actors/chicken/chicken_ghost.tscn")
 var ghost: Node2D
 
 onready var player_buildings = $"/root/main/player_buildings" as TileMap
-onready var build_empty = $"/root/main/CanvasLayer/build_empty" as TextureButton
-onready var build_fence = $"/root/main/CanvasLayer/build_fence" as TextureButton
+onready var build_empty = $"/root/main/CanvasLayer/ui-background/build_empty" as TextureButton
+onready var build_fence = $"/root/main/CanvasLayer/ui-background/build_fence" as TextureButton
 
 onready var chicken = get_parent()
 onready var util = $"/root/main/util"

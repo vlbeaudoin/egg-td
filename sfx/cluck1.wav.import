@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/cluck1.wav-07634b5c3f5a7c543be1ac716539ed1b.sample"
+
+[deps]
+
+source_file="res://sfx/cluck1.wav"
+dest_files=[ "res://.import/cluck1.wav-07634b5c3f5a7c543be1ac716539ed1b.sample" ]
+
+[params]
+
+force/8_bit=true
+force/mono=true
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

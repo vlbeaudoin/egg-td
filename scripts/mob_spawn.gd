@@ -35,7 +35,6 @@ func start_wave():
 		
 		if spawn_timer.is_stopped():
 			spawn_timer.start(current_wave_clump.spawn_speed)
-#			spawn_timer.start()
 			util.enter_state(util.GameModes.WAVE)
 	else:
 		return
@@ -84,17 +83,9 @@ spawn_speed: float = 1.5, last_wave := false):
 	wave_clump.is_last_wave = last_wave
 	
 	p_wave.add_clump(wave_clump)
-#	waves.append(p_wave)
 	
 	if not current_wave_clump:
-#		current_wave_clump = waves[0].wave_clumps[0]
 		current_wave_clump = p_wave.wave_clumps[0]
-	
-
-#func add_wave(p_wave: Wave):
-##	var new_wave = Wave.new()
-#
-#		waves.append(p_wave)
 	
 	
 
@@ -212,27 +203,11 @@ func initialize_waves():
 				wave.description = "But what do I know, I'm just a chicken!"
 				add_wave_clump(wave, mob_boar, 30, 0.4, true)
 			_:
-				
 				return
 		
 		waves.append(wave as Wave)
 		if not waves.empty():
 			label_wave.text = waves[0].description
-	
-	#TODO prepare multiple waves in advance (json?)
-	# [dbg] Press "spacebar" to add a test wave clump to waves
-#	if Input.is_action_just_pressed("ui_accept"):
-##		add_wave_clump(wave) # Modify this method to send something different
-##		add_wave_clump(wave, 25, 0.8, "res://actors/mob/mob_boar.tscn") # 25 boars, 0.8 timer
-#		add_wave_clump(wave, 1, 0.5, "res://actors/mob/mob_wolf.tscn") # 1 wolf
-#
-#	if Input.is_action_just_pressed("ui_down"):
-#		add_wave_clump(wave, 10, 1, "res://actors/mob/mob_fox.tscn") # 10 foxes
-#
-#	if Input.is_action_just_pressed("ui_up"):
-#		add_wave_clump(wave, 3, 2, "res://actors/mob/mob_bear.tscn") # 3 bears
-	
-	
 
 ## SIGNALS
 func _on_spawn_timer_timeout():	

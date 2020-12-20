@@ -16,6 +16,7 @@ onready var audio = {
 }
 
 const buses = {
+	music = 1, #AudioServer.get_bus_index("Music")
 	soft = 3, #AudioServer.get_bus_index("m_layer_soft"),
 	loud = 4  #AudioServer.get_bus_index("m_layer_loud")
 }
@@ -50,3 +51,5 @@ func fade_music(target_dyn:float, time:float=6):
 		Tween.TRANS_LINEAR)
 	t.start()
 
+func set_music_volume(vol:float):
+	AudioServer.set_bus_volume_db(buses.music, linear2db(vol))

@@ -26,6 +26,7 @@ var timer_wave_end = Timer.new()
 var selected_building: int
 
 var inv = { "white_eggs" : 25 , "green_eggs" : 0, "red_eggs" : 0} as Dictionary
+var base_health = 25
 
 onready var player_buildings = $"/root/main/player_buildings" as TileMap
 
@@ -41,6 +42,7 @@ onready var btn_pause = $"/root/main/CanvasLayer/ui-background/btn_pause" as Tex
 onready var build_empty = $"/root/main/CanvasLayer/ui-background/build_empty" as TextureButton
 onready var build_fence = $"/root/main/CanvasLayer/ui-background/build_fence" as TextureButton
 onready var label_white_eggs = $"/root/main/CanvasLayer/ui-background/sprite_white_egg/label_white_eggs" as Label
+onready var label_base_health = $"/root/main/CanvasLayer/ui-background/sprite_base_health/label_base_health" as Label
 onready var chickens = get_tree().get_nodes_in_group("chickens")
 
 ## FUNCS
@@ -106,6 +108,14 @@ func _handle_eggs_display():
 	else:
 		label_white_eggs.text = "9000+"
 
+func _handle_health_display():
+#	base_health = clamp(base_health, 0, INF)
+	
+	if base_health <= 0:
+		get_tree().change_scene("res://scenes/game_over.tscn")
+	else:
+		label_base_health.text = str(base_health)
+
 ## SIGNALS
 func _on_btn_start_pressed():
 	if game_mode == GameModes.BUILD:
@@ -166,4 +176,5 @@ func _process(_delta):
 	_handle_selection()
 	total_mobs = get_tree().get_nodes_in_group("mobs").size()
 	_handle_eggs_display()
+	_handle_health_display()
 	

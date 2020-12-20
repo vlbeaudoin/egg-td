@@ -150,7 +150,7 @@ margin_left = 18.5903
 margin_top = 114.22
 margin_right = 140.59
 margin_bottom = 256.22
-color = Color( 0.52549, 0.513726, 0.513726, 1 )
+color = Color( 0, 0, 0, 0.466667 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -225,6 +225,7 @@ rotation = 1.57079
 texture = ExtResource( 17 )
 
 [node name="key_l5" type="NinePatchRect" parent="ColorRect2"]
+visible = false
 anchor_left = -0.00121845
 anchor_right = -0.00121845
 margin_left = 17.3067
@@ -267,6 +268,7 @@ __meta__ = {
 }
 
 [node name="Label3" type="Label" parent="ColorRect2"]
+visible = false
 margin_left = 33.1932
 margin_top = 121.672
 margin_right = 126.193

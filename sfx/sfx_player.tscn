@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://sfx/sfx_player.gd" type="Script" id=1]
 [ext_resource path="res://sfx/warning.wav" type="AudioStream" id=2]
 [ext_resource path="res://sfx/splat1.wav" type="AudioStream" id=3]
 [ext_resource path="res://sfx/sfx_splat.gd" type="Script" id=4]
+[ext_resource path="res://sfx/bruh.wav" type="AudioStream" id=5]
+[ext_resource path="res://sfx/zap.wav" type="AudioStream" id=6]
+[ext_resource path="res://sfx/knock.wav" type="AudioStream" id=7]
+[ext_resource path="res://sfx/dig.wav" type="AudioStream" id=8]
+[ext_resource path="res://sfx/whoops.wav" type="AudioStream" id=9]
 
 [node name="SFXPlayer" type="Node"]
 script = ExtResource( 1 )
@@ -43,4 +48,24 @@ bus = "SFX"
 [node name="6" type="AudioStreamPlayer2D" parent="splat"]
 stream = ExtResource( 3 )
 volume_db = -3.0
+bus = "SFX"
+
+[node name="bruh" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+bus = "SFX"
+
+[node name="zap" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -12.0
+bus = "SFX"
+
+[node name="knock" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+bus = "SFX"
+
+[node name="dig" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+
+[node name="whoops" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
 bus = "SFX"

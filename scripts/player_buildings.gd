@@ -37,6 +37,7 @@ func _handle_building():
 						else:
 							astar_nav.path = test_path
 							util.inv.white_eggs += util.Costs.FENCE
+							SFXPlayer.sfx_dig(new_cell.coordinates * cell_size)
 						
 						
 						astar_nav.update_path_shimmer()
@@ -60,6 +61,7 @@ func _handle_building():
 							astar_nav.path = test_path
 							astar_nav.update_path_shimmer()
 							util.inv.white_eggs -= util.Costs.FENCE
+							SFXPlayer.sfx_knock(new_cell.coordinates * cell_size)
 			
 			player_buildings.update_bitmask_area(new_cell.coordinates)
 

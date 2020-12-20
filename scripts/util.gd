@@ -27,7 +27,7 @@ var timer_game_end = Timer.new()
 var selected_building: int
 
 var inv = { "white_eggs" : Costs.FENCE * 10 , "green_eggs" : 0, "red_eggs" : 0} as Dictionary
-var base_health = 25
+var base_health = 25 setget set_base_health
 
 onready var player_buildings = $"/root/main/player_buildings" as TileMap
 
@@ -169,6 +169,12 @@ func _on_build_fence_toggled(button_pressed):
 
 
 ## SETGET
+
+func set_base_health(v):
+	if v < base_health:
+		SFXPlayer.play_sfx("whoops")
+	base_health = v
+	
 
 
 ## EXECUTION

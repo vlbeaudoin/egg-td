@@ -41,9 +41,9 @@ __meta__ = {
 "_edit_group_": true
 }
 mob_type = "boss"
-max_health = 420
-health = 420
-speed = 26.0
+max_health = 380
+health = 380
+speed = 20.0
 
 [node name="mob_navigation" type="Node2D" parent="."]
 script = ExtResource( 5 )

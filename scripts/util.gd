@@ -128,6 +128,7 @@ func _on_btn_start_pressed():
 	if game_mode == GameModes.BUILD:
 		unpress_buttons()
 		mob_spawn.start_wave()
+		SFXPlayer.play_sfx("warning")
 		
 func _on_btn_pause_pressed():
 	unpress_buttons()

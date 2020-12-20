@@ -41,8 +41,8 @@ __meta__ = {
 "_edit_group_": true
 }
 mob_type = "boss"
-max_health = 380
-health = 380
+max_health = 300
+health = 300
 speed = 20.0
 
 [node name="mob_navigation" type="Node2D" parent="."]

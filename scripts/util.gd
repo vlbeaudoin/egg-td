@@ -83,8 +83,8 @@ func _handle_input():
 		if astar_nav:
 			astar_nav.shimmer = true
 	
-	if Input.is_action_just_pressed("ui_accept"):
-		_on_btn_start_pressed()
+#	if Input.is_action_just_pressed("ui_accept"):
+#		_on_btn_start_pressed()
 
 func _update_selected_cell():
 	if player_buildings:

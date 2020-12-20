@@ -82,6 +82,9 @@ func _handle_input():
 	if Input.is_action_just_pressed("ui_right"):
 		if astar_nav:
 			astar_nav.shimmer = true
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		_on_btn_start_pressed()
 
 func _update_selected_cell():
 	if player_buildings:
@@ -198,5 +201,6 @@ func _process(_delta):
 	total_mobs = get_tree().get_nodes_in_group("mobs").size()
 	_handle_eggs_display()
 	_handle_health_display()
+	
 	
 	

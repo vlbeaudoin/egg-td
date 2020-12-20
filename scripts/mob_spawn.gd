@@ -21,6 +21,7 @@ onready var mob_fox = "res://actors/mob/mob_fox.tscn"
 onready var mob_wolf = "res://actors/mob/mob_wolf.tscn"
 onready var mob_deer = "res://actors/mob/mob_deer.tscn"
 onready var mob_bear = "res://actors/mob/mob_bear.tscn"
+onready var mob_boss = "res://actors/mob/mob_boss.tscn"
 
 onready var victory_popup = $"/root/main/CanvasLayer/victory_popup" as Popup
 
@@ -156,22 +157,23 @@ func initialize_waves():
 				add_wave_clump(wave, mob_bear, 6, 1.2)
 			16:
 				wave.description = "No more waves! The game is over! Get out of here."
-				add_wave_clump(wave, mob_fox, 35, 5)
-				add_wave_clump(wave, mob_boar, 35, 5)
+				
+				add_wave_clump(wave, mob_fox, 20, 0.85)
+				add_wave_clump(wave, mob_boar, 20, 0.85)
 			17:
 				wave.description = "I mean it. There is no more content for you here."
-				add_wave_clump(wave, mob_wolf, 100, 5)
+				add_wave_clump(wave, mob_wolf, 100, 0.8)
 			18:
 				wave.description = "Although I admit it's nice to have company. This boar would probably like some company too!"
 				add_wave_clump(wave, mob_boar, 1, 1)
 			19:
-				wave.description = "I wonder why they all these animals are attracted to this place? I guess we should deal with them."
-				add_wave_clump(wave, mob_deer, 30, 1.5)
-				add_wave_clump(wave, mob_fox, 20, 1.5)
-				add_wave_clump(wave, mob_boar, 10, 1.5)
-				add_wave_clump(wave, mob_wolf, 5, 1.5)
-				add_wave_clump(wave, mob_bear, 3, 1.5)
-				add_wave_clump(wave, mob_boar, 18, 1.5)
+				wave.description = "I wonder why all these animals are attracted to this place? I guess we should deal with them."
+				add_wave_clump(wave, mob_deer, 15, 0.8)
+				add_wave_clump(wave, mob_fox, 6, 0.7)
+				add_wave_clump(wave, mob_boar, 10, 0.6)
+				add_wave_clump(wave, mob_wolf, 5, 0.5)
+				add_wave_clump(wave, mob_bear, 5, 0.3)
+				add_wave_clump(wave, mob_boar, 18, 1.8)
 			20:
 				wave.description = "Oof that was more than I anticipated! I rolled pretty low on perception, so I only saw the first couple of deers."
 				add_wave_clump(wave, mob_wolf, 7, 0.4)
@@ -201,7 +203,7 @@ func initialize_waves():
 				add_wave_clump(wave, mob_bear, 20, 0.8)
 			25:
 				wave.description = "But what do I know, I'm just a chicken!"
-				add_wave_clump(wave, mob_boar, 30, 0.4, true)
+				add_wave_clump(wave, mob_boss, 1, 1, true)
 			_:
 				return
 		

@@ -4,7 +4,7 @@
 [ext_resource path="res://scripts/victory_popup.gd" type="Script" id=2]
 [ext_resource path="res://scripts/astar_nav.gd" type="Script" id=3]
 [ext_resource path="res://art/egg-tileset/egg_tileset.tres" type="TileSet" id=4]
-[ext_resource path="res://ui/menu_button_toggled.gd" type="Script" id=5]
+[ext_resource path="res://UI/menu_button_toggled.gd" type="Script" id=5]
 [ext_resource path="res://fonts/open-sans-outline.tres" type="DynamicFont" id=6]
 [ext_resource path="res://fonts/retro_gaming.tres" type="DynamicFont" id=7]
 [ext_resource path="res://art/UI-sketch.jpg" type="Texture" id=8]
@@ -22,55 +22,55 @@
 [ext_resource path="res://fonts/Retro Gaming.ttf" type="DynamicFontData" id=20]
 [ext_resource path="res://art/ui/button.png" type="Texture" id=21]
 [ext_resource path="res://art/ui/button_pressed.png" type="Texture" id=22]
-[ext_resource path="res://ui/menu_button.gd" type="Script" id=23]
+[ext_resource path="res://UI/menu_button.gd" type="Script" id=23]
 [ext_resource path="res://art/ui/ui-background.png" type="Texture" id=24]
 [ext_resource path="res://scripts/pause.gd" type="Script" id=25]
 [ext_resource path="res://art/Solid Eggs/White.png" type="Texture" id=26]
 [ext_resource path="res://fonts/open-sans.regular.ttf" type="DynamicFontData" id=27]
 [ext_resource path="res://art/heart/heart.png" type="Texture" id=28]
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=1]
 size = 12
 outline_size = 1
 outline_color = Color( 0.219608, 0.219608, 0.219608, 1 )
 font_data = ExtResource( 27 )
 
-[sub_resource type="DynamicFont" id=7]
-size = 7
-outline_color = Color( 0.219608, 0.219608, 0.219608, 1 )
-font_data = ExtResource( 27 )
-
-[sub_resource type="DynamicFont" id=1]
-size = 8
-font_data = ExtResource( 20 )
-
 [sub_resource type="DynamicFont" id=2]
-size = 14
-outline_size = 1
+size = 7
 outline_color = Color( 0.219608, 0.219608, 0.219608, 1 )
 font_data = ExtResource( 27 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 8
+font_data = ExtResource( 20 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 14
 outline_size = 1
 outline_color = Color( 0.219608, 0.219608, 0.219608, 1 )
 font_data = ExtResource( 27 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
+size = 8
+outline_size = 1
+outline_color = Color( 0.219608, 0.219608, 0.219608, 1 )
+font_data = ExtResource( 27 )
+
+[sub_resource type="DynamicFont" id=6]
 size = 10
 font_data = ExtResource( 20 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=7]
 size = 13
 outline_size = 1
 outline_color = Color( 0.219608, 0.219608, 0.219608, 1 )
 font_data = ExtResource( 27 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=8]
 size = 8
 font_data = ExtResource( 27 )
 
-[sub_resource type="GDScript" id=5]
+[sub_resource type="GDScript" id=9]
 script/source = "extends Node2D
 ## TODO put this stuff somewhere in util
 
@@ -160,7 +160,7 @@ __meta__ = {
 margin_left = 11.0
 margin_right = 112.0
 margin_bottom = 17.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 1 )
 text = "Upcoming wave"
 align = 1
 uppercase = true
@@ -173,7 +173,7 @@ margin_left = 6.0
 margin_top = 19.0
 margin_right = 118.0
 margin_bottom = 100.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 2 )
 align = 1
 autowrap = true
 __meta__ = {
@@ -370,7 +370,7 @@ margin_left = 15.0678
 margin_top = 2.51349
 margin_right = 72.0678
 margin_bottom = 13.5135
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "send wave"
 align = 1
@@ -402,7 +402,7 @@ margin_left = 11.167
 margin_top = 0.668175
 margin_right = 51.167
 margin_bottom = 11.6682
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "pause"
 align = 1
@@ -434,7 +434,7 @@ margin_left = 10.755
 margin_top = 1.31002
 margin_right = 50.755
 margin_bottom = 12.31
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "remove"
 align = 1
@@ -466,7 +466,7 @@ margin_left = 10.125
 margin_top = 1.625
 margin_right = 50.125
 margin_bottom = 12.625
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "build"
 align = 1
@@ -508,7 +508,7 @@ margin_left = -20.0828
 margin_top = -5.01016
 margin_right = 19.9172
 margin_bottom = 14.9898
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 text = "9000+"
 align = 1
 __meta__ = {
@@ -525,7 +525,7 @@ margin_left = -3.35056
 margin_top = -2.71693
 margin_right = 6.64944
 margin_bottom = 9.28307
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 5 )
 text = "25"
 align = 1
 __meta__ = {
@@ -580,7 +580,7 @@ margin_left = 4.09012
 margin_top = 4.46753
 margin_right = 52.0901
 margin_bottom = 18.4675
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "PAUSED"
 align = 1
@@ -650,7 +650,7 @@ margin_left = 8.99006
 margin_top = 4.46753
 margin_right = 113.99
 margin_bottom = 43.4675
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Victory!
 (for real this time)"
@@ -664,7 +664,7 @@ margin_left = 7.79319
 margin_top = 49.1948
 margin_right = 116.793
 margin_bottom = 216.195
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.392157, 0.392157, 0.392157, 1 )
 text = "If you enjoyed this game, please consider leaving a comment on itch or wherever you got this, it would mean a whole lot to us <3
 
@@ -768,4 +768,4 @@ __meta__ = {
 }
 
 [node name="building" type="Node2D" parent="."]
-script = SubResource( 5 )
+script = SubResource( 9 )

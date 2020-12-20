@@ -61,5 +61,5 @@ func _process(delta):
 	move_along_path(mob.speed * delta)
 	
 	if player_buildings.world_to_map(mob.global_position) == player_buildings.world_to_map(end_position.global_position):
-		util.inv.white_eggs -= round(mob.max_health / 2) # The animals eat eggs according to half of their health, rounded.
+		util.base_health -= round(mob.max_health / 2) # The animals hurt the base according to half of their health, rounded.
 		mob.queue_free()

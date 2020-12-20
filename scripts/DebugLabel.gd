@@ -83,6 +83,7 @@ func update_debug_message():
 	for item in util.inv as Dictionary:
 		add_debug_message(item + " : " + str(util.inv.get(item)))
 	
+	add_debug_message("Base health: %s" % [util.base_health])
 
 	
 	# Chickens

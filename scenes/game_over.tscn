@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://fonts/open-sans-outline.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/Retro Gaming.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://ui/menu_button_restart.gd" type="Script" id=3]
+[ext_resource path="res://art/ui/button.png" type="Texture" id=4]
+[ext_resource path="res://art/ui/button_pressed.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+font_data = ExtResource( 2 )
+
+[node name="game_over" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 116.926
+margin_top = 85.5622
+margin_right = 330.926
+margin_bottom = 152.562
+custom_fonts/font = ExtResource( 1 )
+text = "Welp, looks like you lost.
+
+That's kinda sad tbh :(
+
+Don't let it get to you though, you can always restart and try again!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menu_button_restart" type="TextureButton" parent="."]
+margin_left = 191.402
+margin_top = 165.771
+margin_right = 255.402
+margin_bottom = 180.771
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="menu_button_label" type="Label" parent="menu_button_restart"]
+margin_left = 10.125
+margin_top = 1.625
+margin_right = 50.125
+margin_bottom = 12.625
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "RESTART"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

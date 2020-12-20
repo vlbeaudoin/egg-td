@@ -26,6 +26,7 @@ func _on_body_entered(body):
 		if DEBUG:
 			print("[dbg] {%s} collided with {%s}" % [body, self])
 		body.hurt(damage)
+		SFXPlayer.sfx_splat(global_position)
 		queue_free()
 
 func _clear_projectile(): 

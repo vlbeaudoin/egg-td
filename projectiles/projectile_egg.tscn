@@ -3,8 +3,6 @@
 [ext_resource path="res://art/Solid Eggs/Cyan.png" type="Texture" id=1]
 [ext_resource path="res://projectiles/projectile_egg.gd" type="Script" id=2]
 
-
-
 [node name="projectile_egg" type="KinematicBody2D"]
 collision_layer = 0
 collision_mask = 0

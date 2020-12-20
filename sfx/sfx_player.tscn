@@ -1,11 +1,46 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://sfx/sfx_player.gd" type="Script" id=1]
 [ext_resource path="res://sfx/warning.wav" type="AudioStream" id=2]
+[ext_resource path="res://sfx/splat1.wav" type="AudioStream" id=3]
+[ext_resource path="res://sfx/sfx_splat.gd" type="Script" id=4]
 
 [node name="SFXPlayer" type="Node"]
 script = ExtResource( 1 )
 
 [node name="warning" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+bus = "SFX"
+
+[node name="splat" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="1" type="AudioStreamPlayer2D" parent="splat"]
+stream = ExtResource( 3 )
+volume_db = -3.0
+bus = "SFX"
+
+[node name="2" type="AudioStreamPlayer2D" parent="splat"]
+stream = ExtResource( 3 )
+volume_db = -3.0
+bus = "SFX"
+
+[node name="3" type="AudioStreamPlayer2D" parent="splat"]
+stream = ExtResource( 3 )
+volume_db = -3.0
+bus = "SFX"
+
+[node name="4" type="AudioStreamPlayer2D" parent="splat"]
+stream = ExtResource( 3 )
+volume_db = -3.0
+bus = "SFX"
+
+[node name="5" type="AudioStreamPlayer2D" parent="splat"]
+stream = ExtResource( 3 )
+volume_db = -3.0
+bus = "SFX"
+
+[node name="6" type="AudioStreamPlayer2D" parent="splat"]
+stream = ExtResource( 3 )
+volume_db = -3.0
 bus = "SFX"

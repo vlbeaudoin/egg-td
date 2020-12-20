@@ -25,9 +25,6 @@ const buses = {
 
 
 func _ready():
-	pass # Replace with function body.
-	print(audio)
-	print(buses)
 	yield(get_tree().create_timer(0.5), "timeout")
 	play_music()
 	
@@ -44,10 +41,10 @@ func play_music(time:float=0):
 	var tminus:float
 	tminus = clamp(AudioServer.get_time_to_next_mix(),0,1)
 	audio.soft.play(time+tminus)
-	print(tminus)
+#	print(tminus)
 	tminus = clamp(AudioServer.get_time_to_next_mix(),0,1)
 	audio.loud.play(time+tminus)
-	print(tminus)
+#	print(tminus)
 
 
 func fade_music(target_dyn:float, time:float=6):

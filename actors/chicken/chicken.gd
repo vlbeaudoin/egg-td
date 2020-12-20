@@ -46,6 +46,7 @@ func move_from_to(from: Cell, to: Cell):
 	
 	global_position = player_buildings.map_to_world(current_cell.coordinates)
 	global_position.x += 8
+	SFXPlayer.sfx_bruh(global_position)
 
 #func produce_eggs():
 #	if eggs_timer.is_stopped():

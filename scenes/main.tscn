@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://actors/chicken/chicken.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/victory_popup.gd" type="Script" id=2]
@@ -28,6 +28,7 @@
 [ext_resource path="res://art/Solid Eggs/White.png" type="Texture" id=26]
 [ext_resource path="res://fonts/open-sans.regular.ttf" type="DynamicFontData" id=27]
 [ext_resource path="res://art/heart/heart.png" type="Texture" id=28]
+[ext_resource path="res://scripts/volumeSlider.gd" type="Script" id=29]
 
 [sub_resource type="DynamicFont" id=1]
 size = 12
@@ -476,6 +477,41 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="musicVolume" type="Control" parent="CanvasLayer/ui-background"]
+margin_left = -134.0
+margin_top = 203.0
+margin_right = -94.0
+margin_bottom = 243.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="volumeLabel" type="Label" parent="CanvasLayer/ui-background/musicVolume"]
+margin_left = 3.1839
+margin_top = 28.0933
+margin_right = 51.1839
+margin_bottom = 42.0933
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "music"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="volumeSlider" type="HSlider" parent="CanvasLayer/ui-background/musicVolume"]
+pause_mode = 2
+margin_left = 4.0
+margin_top = 40.0
+margin_right = 198.0
+margin_bottom = 56.0
+rect_scale = Vector2( 0.5, 0.5 )
+max_value = 1.0
+step = 0.01
+value = 0.5
+tick_count = 7
+script = ExtResource( 29 )
+
 [node name="label_tips" type="Label" parent="CanvasLayer/ui-background"]
 margin_left = 143.811
 margin_top = 1.0
@@ -554,6 +590,7 @@ __meta__ = {
 
 [node name="menu_pause" type="Popup" parent="CanvasLayer"]
 pause_mode = 2
+visible = true
 margin_right = 40.0
 margin_bottom = 40.0
 mouse_filter = 2
@@ -566,7 +603,7 @@ __meta__ = {
 [node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/menu_pause"]
 margin_top = 1.0
 margin_right = 56.0
-margin_bottom = 34.0
+margin_bottom = 37.0
 mouse_filter = 0
 texture = ExtResource( 24 )
 patch_margin_left = 4
@@ -609,10 +646,10 @@ __meta__ = {
 label_text = "resume"
 
 [node name="menu_button_label" type="Label" parent="CanvasLayer/menu_pause/menu_button_small"]
-margin_left = 10.2615
-margin_top = 1.33484
-margin_right = 31.2615
-margin_bottom = 8.33484
+margin_left = 1.83352
+margin_top = -0.2872
+margin_right = 40.8335
+margin_bottom = 10.7128
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "resume"
@@ -771,3 +808,4 @@ __meta__ = {
 
 [node name="building" type="Node2D" parent="."]
 script = SubResource( 9 )
+[connection signal="value_changed" from="CanvasLayer/ui-background/musicVolume/volumeSlider" to="CanvasLayer/ui-background/musicVolume/volumeSlider" method="_on_volumeSlider_value_changed"]

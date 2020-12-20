@@ -83,8 +83,6 @@ func _handle_input():
 		if astar_nav:
 			astar_nav.shimmer = true
 	
-#	if Input.is_action_just_pressed("ui_accept"):
-#		_on_btn_start_pressed()
 
 func _update_selected_cell():
 	if player_buildings:
@@ -116,8 +114,6 @@ func _handle_eggs_display():
 		label_white_eggs.text = "9000+"
 
 func _handle_health_display():
-#	base_health = clamp(base_health, 0, INF)
-	
 	if base_health <= 0:
 		get_tree().change_scene("res://scenes/game_over.tscn")
 	else:
@@ -202,6 +198,3 @@ func _process(_delta):
 	total_mobs = get_tree().get_nodes_in_group("mobs").size()
 	_handle_eggs_display()
 	_handle_health_display()
-	
-	
-	

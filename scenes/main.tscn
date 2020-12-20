@@ -495,12 +495,12 @@ __meta__ = {
 }
 
 [node name="label_fences" type="Label" parent="CanvasLayer/ui-background"]
-margin_left = 70.811
+margin_left = 71.0
 margin_top = 2.0
-margin_right = 97.811
+margin_right = 139.0
 margin_bottom = 27.0
 custom_fonts/font = ExtResource( 6 )
-text = "Fences:"
+text = "Fence (5 eggs):"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false

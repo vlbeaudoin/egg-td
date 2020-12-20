@@ -5,7 +5,7 @@ extends Resource
 ## VARS
 export(String) var wave_name
 export(Array, Resource) var wave_clumps
-
+export(String) var description
 
 ## FUNCS
 func add_clump(clump):

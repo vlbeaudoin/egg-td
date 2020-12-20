@@ -49,6 +49,7 @@ __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
+label_text = "RESTART"
 
 [node name="menu_button_label" type="Label" parent="menu_button_restart"]
 margin_left = 10.125

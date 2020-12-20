@@ -50,7 +50,10 @@ func fire_at(target):
 ## SIGNALS
 func _on_fire_timer_timeout():
 	#TODO if chicken.get_target is inside tilemap_buildings boundaries:
-	fire_at(chicken.target)
+	if chicken.current_cell.id == util.Cells.FENCE:
+		fire_at(chicken.target)
+	else:
+		fire_timer.stop()
 
 ## SETGET
 

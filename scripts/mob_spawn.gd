@@ -94,7 +94,7 @@ func initialize_waves():
 	for wave_index in range(25):
 		var wave = Wave.new()
 		
-		match wave_index+ 1:
+		match wave_index + 1:
 			1: 
 				wave.description = "A wild boar is hungry for your eggs."
 				add_wave_clump(wave, mob_boar, 1, 1.5)
@@ -158,11 +158,14 @@ func initialize_waves():
 			16:
 				wave.description = "No more waves! The game is over! Get out of here."
 				
-				add_wave_clump(wave, mob_fox, 20, 0.85)
-				add_wave_clump(wave, mob_boar, 20, 0.85)
+				add_wave_clump(wave, mob_fox, 20, 0.6)
+				add_wave_clump(wave, mob_boar, 20, 0.6)
 			17:
 				wave.description = "I mean it. There is no more content for you here."
-				add_wave_clump(wave, mob_wolf, 100, 0.8)
+				add_wave_clump(wave, mob_wolf, 40, 0.8)
+				add_wave_clump(wave, mob_bear, 2, 1)
+				add_wave_clump(wave, mob_boar, 2, 1)
+				add_wave_clump(wave, mob_wolf, 40, 0.8)
 			18:
 				wave.description = "Although I admit it's nice to have company. This boar would probably like some company too!"
 				add_wave_clump(wave, mob_boar, 1, 1)
@@ -173,16 +176,19 @@ func initialize_waves():
 				add_wave_clump(wave, mob_boar, 10, 0.6)
 				add_wave_clump(wave, mob_wolf, 5, 0.5)
 				add_wave_clump(wave, mob_bear, 5, 0.3)
-				add_wave_clump(wave, mob_boar, 18, 1.8)
+				add_wave_clump(wave, mob_boar, 18, 0.6)
 			20:
 				wave.description = "Oof that was more than I anticipated! I rolled pretty low on perception, so I only saw the first couple of deers."
 				add_wave_clump(wave, mob_wolf, 7, 0.4)
-				add_wave_clump(wave, mob_fox, 25, 0.7)
+				add_wave_clump(wave, mob_bear, 2, 0.4)	
+				add_wave_clump(wave, mob_fox, 25, 0.5)
+				add_wave_clump(wave, mob_bear, 2, 0.4)	
 				add_wave_clump(wave, mob_deer, 15, 0.8)
 			21:
 				wave.description = "By the way, did you know that this coop doesn't actually exist on a physical plane per say?  There's just void around us, but the camera can't get there."
-				add_wave_clump(wave, mob_deer, 12, 0.5)
+				add_wave_clump(wave, mob_deer, 20, 0.5)
 				add_wave_clump(wave, mob_boar, 12, 0.5)
+				add_wave_clump(wave, mob_wolf, 6, 0.7)
 				add_wave_clump(wave, mob_deer, 12, 0.5)
 			22:
 				wave.description = "It might not make a lot of sense to you right now, but if you go to https://itch.io/jam/godot-wild-jam-28 you can get more info!"

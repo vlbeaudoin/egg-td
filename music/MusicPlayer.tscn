@@ -36,3 +36,4 @@ text = "dynamic is 0soft volume:  -2 dBloud volume: -17 dB"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="finished" from="soft" to="." method="_on_soft_finished"]

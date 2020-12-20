@@ -8,7 +8,7 @@
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 1.7512, 0.0, 0, 0 ]
 
 [sub_resource type="Curve" id=2]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.501639, 0.545455 ), -1.20862, 1.31705, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.501639, 0.545455 ), 0.0660136, 0.0660136, 0, 0, Vector2( 1, 0.863636 ), 0.0, 0.0, 0, 0 ]
 
 [node name="MusicPlayer" type="Node"]
 script = ExtResource( 3 )

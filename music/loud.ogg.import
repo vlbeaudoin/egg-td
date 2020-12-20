@@ -12,4 +12,4 @@ dest_files=[ "res://.import/loud.ogg-c0479dfecdb2c2f17260469f84b1fe1b.oggstr" ]
 [params]
 
 loop=true
-loop_offset=0
+loop_offset=15.6

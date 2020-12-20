@@ -23,9 +23,10 @@ var grabbed_chicken
 var game_mode: int = GameModes.BUILD
 var total_mobs: int
 var timer_wave_end = Timer.new()
+var timer_game_end = Timer.new()
 var selected_building: int
 
-var inv = { "white_eggs" : 25 , "green_eggs" : 0, "red_eggs" : 0} as Dictionary
+var inv = { "white_eggs" : Costs.FENCE * 10 , "green_eggs" : 0, "red_eggs" : 0} as Dictionary
 var base_health = 25
 
 onready var player_buildings = $"/root/main/player_buildings" as TileMap
@@ -36,6 +37,7 @@ onready var mob_spawn = $"/root/main/mob_spawn" as Node2D
 onready var selection = $"/root/main/selection" as Sprite
 
 onready var menu_pause = $"/root/main/CanvasLayer/menu_pause" as Popup
+onready var victory_popup = $"/root/main/CanvasLayer/victory_popup" as Popup
 
 onready var btn_start_wave = $"/root/main/CanvasLayer/ui-background/btn_start_wave" as TextureButton
 onready var btn_pause = $"/root/main/CanvasLayer/ui-background/btn_pause" as TextureButton
@@ -43,7 +45,9 @@ onready var build_empty = $"/root/main/CanvasLayer/ui-background/build_empty" as
 onready var build_fence = $"/root/main/CanvasLayer/ui-background/build_fence" as TextureButton
 onready var label_white_eggs = $"/root/main/CanvasLayer/ui-background/sprite_white_egg/label_white_eggs" as Label
 onready var label_base_health = $"/root/main/CanvasLayer/ui-background/sprite_base_health/label_base_health" as Label
+onready var label_wave = $"/root/main/ColorRect2/label_wave"
 onready var chickens = get_tree().get_nodes_in_group("chickens")
+
 
 ## FUNCS
 func enter_state(new_game_mode: int):
@@ -129,10 +133,21 @@ func _on_btn_pause_pressed():
 func _on_mob_spawn_wave_ended():
 	timer_wave_end.start(1)
 
+func _on_mob_spawn_game_ended():
+	timer_game_end.start(1)
+
 func _on_timer_wave_end_timeout():
 	if total_mobs == 0:
 		enter_state(GameModes.BUILD)
 		timer_wave_end.stop()
+		if not mob_spawn.waves.empty():
+			label_wave.text = mob_spawn.waves[0].description
+			
+func _on_timer_game_end_timeout():
+	if total_mobs == 0:
+		enter_state(GameModes.BUILD)
+		timer_game_end.stop()
+		victory_popup.popup()
 
 func _on_build_empty_toggled(button_pressed):
 	if button_pressed:
@@ -161,14 +176,20 @@ func _ready():
 	btn_start_wave.connect("pressed", self, "_on_btn_start_pressed")
 	btn_pause.connect("pressed", self, "_on_btn_pause_pressed")
 	mob_spawn.connect("wave_ended", self, "_on_mob_spawn_wave_ended")
+	mob_spawn.connect("game_ended", self, "_on_mob_spawn_game_ended")
 	
 	build_empty.connect("toggled", self, "_on_build_empty_toggled")
 	build_fence.connect("toggled", self, "_on_build_fence_toggled")
 	
 	timer_wave_end.connect("timeout", self, "_on_timer_wave_end_timeout")
+	timer_game_end.connect("timeout", self, "_on_timer_game_end_timeout")
 	add_child(timer_wave_end)
+	add_child(timer_game_end)
 	
 	MusicPlayer.set_dynamic(0)
+	
+	if not mob_spawn.waves.empty():
+			label_wave.text = mob_spawn.waves[0].description
 
 func _process(_delta):
 	_handle_input()
@@ -177,4 +198,5 @@ func _process(_delta):
 	total_mobs = get_tree().get_nodes_in_group("mobs").size()
 	_handle_eggs_display()
 	_handle_health_display()
+	
 	

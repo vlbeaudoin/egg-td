@@ -6,7 +6,7 @@ extends Resource
 export(String) var spawn_mob setget set_spawn_mob
 export(int) var spawn_amount setget set_spawn_amount
 export(int) var spawn_speed setget set_spawn_speed
-
+export(bool) var is_last_wave
 ## FUNCS
 
 

@@ -26,7 +26,7 @@ onready var projectile = load("res://projectiles/projectile_egg.tscn")
 onready var player_buildings = $"/root/main/player_buildings" as TileMap
 
 var eggs_timer := Timer.new()
-var eggs_timer_wait_time := 5
+var eggs_timer_wait_time := 3.5
 
 #var helmet_modifiers = []
 

@@ -25,7 +25,23 @@ func _handle_building():
 				util.Cells.EMPTY:
 					if old_cell.id == util.Cells.FENCE:
 						player_buildings.set_cellv(new_cell.coordinates, new_cell.id)
-						util.inv.white_eggs += util.Costs.FENCE
+						player_buildings.update()
+						astar_nav.update_astar()
+
+						var test_path = astar_nav.try_path(astar_nav.start_position, astar_nav.end_position) as PoolVector2Array
+						
+						if not test_path:
+							player_buildings.set_cellv(old_cell.coordinates, old_cell.id)
+							player_buildings.update()
+							astar_nav.update_astar()
+						else:
+							astar_nav.path = test_path
+							util.inv.white_eggs += util.Costs.FENCE
+						
+						
+						astar_nav.update_path_shimmer()
+						
+						
 				
 				util.Cells.FENCE:
 					if old_cell.id == util.Cells.EMPTY and util.inv.white_eggs >= util.Costs.FENCE:

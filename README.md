@@ -1,6 +1,12 @@
 # egg-td
 Project for the [godot wild jam 28](https://itch.io/jam/godot-wild-jam-28)
 
+---
+
+**MIGRATED TO CODEBERG @ https://codeberg.org/vlbeaudoin/egg-td**
+
+---
+
 ## License
 * Code is licensed under MIT. See `LICENSE` for details.
 * Music (inside `music/`) is licensed under CC BY-SA 4.0, see https://creativecommons.org/licenses/by-sa/4.0/.
